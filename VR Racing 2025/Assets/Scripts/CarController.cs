@@ -2,7 +2,7 @@ using LogitechG29.Sample.Input;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static CarControllerSample;
+
 
 
 public class CarController : MonoBehaviour
@@ -15,42 +15,57 @@ public class CarController : MonoBehaviour
 
     [SerializeField] float maxSteeringAngle; // максимальный угол поворота, который может иметь колесо
 
+    float speed; // скорость машины
+
+    bool EngineIsRunning; // запущен ли двигатель
+
+
     private void Awake()
     {
         inputControllerReader = new InputControllerReader();
-    }  
+    }
 
+    private void Start()
+    {
+        EngineIsRunning = false;
+        speed = 0f;
+    }
 
     private void OnEnable()
     {
         inputControllerReader.OnHomeCallback += HandleOnHomeCallback;
-        inputControllerReader.OnOptionsCallback += HandleOnOptionsCallback;
+        inputControllerReader.OnSouthButtonCallback += HandleOnSouthCallback;
     }
 
     private void OnDisable()
     {
         inputControllerReader.OnHomeCallback -= HandleOnHomeCallback;
-        inputControllerReader.OnOptionsCallback -= HandleOnOptionsCallback;
+        inputControllerReader.OnSouthButtonCallback -= HandleOnSouthCallback;
     }
 
     private void FixedUpdate()
     {
-        float speed = 0f;
+        InputMovement();
+        if (EngineIsRunning)
+        {
+            UpdateWheelState();
+        }
+    }
 
-        if (inputControllerReader.Throttle != 0)
+    private void InputMovement() // ввод с педалей
+    {       
+        if (inputControllerReader.Throttle != 0 && EngineIsRunning)
         {
             speed = inputControllerReader.Throttle;
         }
-        else if (inputControllerReader.Brake != 0)
+        else if (inputControllerReader.Brake != 0 && EngineIsRunning)
         {
             speed = -inputControllerReader.Brake;
         }
-        
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            speed = 0;
-        }
+    }
 
+    private void UpdateWheelState() // поведение колес и ввод с руля (поворот)
+    {
         //float current_power = speed * maxEnginePower;
         float current_power = Input.GetAxis("Vertical") * maxEnginePower;
         //float steering_angle = maxSteeringAngle * inputControllerReader.Steering;
@@ -72,8 +87,6 @@ public class CarController : MonoBehaviour
     }
 
 
-
-
     private void HandleOnHomeCallback(bool value)
     {
         if (value)
@@ -86,15 +99,18 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void HandleOnOptionsCallback(bool value)
+    private void HandleOnSouthCallback(bool value)
     {
-        if (value)
+        if (value && !EngineIsRunning)
         {
-            // Выполните действие при нажатии кнопки Options
+            EngineIsRunning = true;
+            Debug.Log("Двигатель запущен!");
         }
-        else
+
+        else if (value && EngineIsRunning)
         {
-            // Выполните действие при отпускании кнопки Options
+            EngineIsRunning = false;
+            Debug.Log("Двигатель заглушен!");
         }
     }
 
