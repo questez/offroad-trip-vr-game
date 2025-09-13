@@ -1,29 +1,29 @@
 Using pre-set license
 Built from '6000.0/staging' branch; Version is '6000.0.36f1 (9fe3b5f71dbb) revision 10478517'; Using compiler version '193933523'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ru' Physical Memory: 16265 MB
+OS: 'Windows 11  (10.0.26100) 64bit Professional' Language: 'ru' Physical Memory: 16076 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-Z:\UNITY\Editor\6000.0.36f1\Editor\Unity.exe
+D:\IVAN\UNITYEDITOR\6000.0.36f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker1
 -projectPath
-Z:/UNITY/Projects/VR-RACING-2025/VR Racing 2025
+D:/IVAN/UnityPROJECTS/VR-RACING-2025/VR Racing 2025
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-65460
+54221
 -job-worker-count
 5
 -background-job-worker-count
 8
 -gc-helper-count
 1
-Successfully changed project path to: Z:/UNITY/Projects/VR-RACING-2025/VR Racing 2025
-Z:/UNITY/Projects/VR-RACING-2025/VR Racing 2025
+Successfully changed project path to: D:/IVAN/UnityPROJECTS/VR-RACING-2025/VR Racing 2025
+D:/IVAN/UnityPROJECTS/VR-RACING-2025/VR Racing 2025
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -59,12 +59,12 @@ Z:/UNITY/Projects/VR-RACING-2025/VR Racing 2025
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [8064]  Target information:
+Player connection [8792]  Target information:
 
-Player connection [8064]  * "[IP] 192.168.178.53 [Port] 0 [Flags] 2 [Guid] 2706872256 [EditorId] 2706872256 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-VKT7RGT) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [8792]  * "[IP] 192.168.8.119 [Port] 0 [Flags] 2 [Guid] 153065220 [EditorId] 153065220 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-9J1EOIR) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [8064] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [8064] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [8792] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8792] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -76,64 +76,64 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 12.02 ms, found 12 plugins.
+Refreshing native plugins compatible for Editor in 8.41 ms, found 10 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.36f1 (9fe3b5f71dbb)
-[Subsystems] Discovering subsystems at path Z:/UNITY/Editor/6000.0.36f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path Z:/UNITY/Projects/VR-RACING-2025/VR Racing 2025/Assets
+[Subsystems] Discovering subsystems at path D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/IVAN/UnityPROJECTS/VR-RACING-2025/VR Racing 2025/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2488)
-    Vendor:   NVIDIA
-    VRAM:     8018 MB
-    Driver:   32.0.15.7700
+    Renderer: Intel(R) UHD Graphics (ID=0x46a3)
+    Vendor:   Intel
+    VRAM:     8038 MB
+    Driver:   32.0.101.6129
 Initialize mono
-Mono path[0] = 'Z:/UNITY/Editor/6000.0.36f1/Editor/Data/Managed'
-Mono path[1] = 'Z:/UNITY/Editor/6000.0.36f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'Z:/UNITY/Editor/6000.0.36f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56264
+Mono path[0] = 'D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/Managed'
+Mono path[1] = 'D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56016
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: Z:/UNITY/Editor/6000.0.36f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Register platform support module: Z:/UNITY/Editor/6000.0.36f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Register platform support module: Z:/UNITY/Editor/6000.0.36f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Registered in 0.004200 seconds.
-- Loaded All Assemblies, in  0.362 seconds
+Register platform support module: D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Register platform support module: D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.004948 seconds.
+- Loaded All Assemblies, in  0.685 seconds
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 204 ms
+Android Extension - Scanning For ADB Devices 493 ms
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.515 seconds
-Domain Reload Profiling: 877ms
-	BeginReloadAssembly (140ms)
+- Finished resetting the current domain, in  1.407 seconds
+Domain Reload Profiling: 2092ms
+	BeginReloadAssembly (196ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (32ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (40ms)
-	LoadAllAssembliesAndSetupDomain (140ms)
-		LoadAssemblies (142ms)
+	RebuildCommonClasses (72ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (79ms)
+	LoadAllAssembliesAndSetupDomain (318ms)
+		LoadAssemblies (196ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (136ms)
-			TypeCache.Refresh (134ms)
-				TypeCache.ScanAssembly (123ms)
+		AnalyzeDomain (312ms)
+			TypeCache.Refresh (309ms)
+				TypeCache.ScanAssembly (284ms)
 			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (515ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (1408ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (473ms)
+		SetupLoadedEditorAssemblies (1302ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (277ms)
-			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (43ms)
-			ProcessInitializeOnLoadAttributes (98ms)
-			ProcessInitializeOnLoadMethodAttributes (52ms)
+			InitializePlatformSupportModulesInManaged (671ms)
+			SetLoadedEditorAssemblies (12ms)
+			BeforeProcessingInitializeOnLoad (148ms)
+			ProcessInitializeOnLoadAttributes (324ms)
+			ProcessInitializeOnLoadMethodAttributes (148ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -142,8 +142,8 @@ Domain Reload Profiling: 877ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.766 seconds
-Refreshing native plugins compatible for Editor in 8.01 ms, found 12 plugins.
+- Loaded All Assemblies, in  1.371 seconds
+Refreshing native plugins compatible for Editor in 9.84 ms, found 10 plugins.
 Native extension for Android target not found
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
@@ -151,21 +151,6 @@ Package Manager log level set to [2]
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-Assertion failed on expression: '!AssetDatabase::IsAssetImportWorkerProcess()'
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.PrefabUtility:SavePrefabAsset_Internal (UnityEngine.GameObject,bool&)
-UnityEditor.PrefabUtility:SavePrefabAsset (UnityEngine.GameObject,bool&)
-UnityEditor.PrefabUtility:SavePrefabAsset (UnityEngine.GameObject)
-EasyRoads3Dv3Editor.OOCODOCDCD:GetProjectID ()
-EasyRoads3Dv3Editor.PPtrUtility:fdddf ()
-System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
-System.Reflection.MethodBase:Invoke (object,object[])
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetDatabaseInternal.cpp line 2124]
-
-Asset Pipeline Refresh (id=2e69b60b734d95f44917f1d6d812ee3b): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 Mono: successfully reloaded assembly
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
@@ -173,276 +158,124 @@ Mono: successfully reloaded assembly
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  0.821 seconds
-Domain Reload Profiling: 1586ms
-	BeginReloadAssembly (172ms)
+- Finished resetting the current domain, in  1.604 seconds
+Domain Reload Profiling: 2972ms
+	BeginReloadAssembly (319ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (11ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (29ms)
-	RebuildCommonClasses (30ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (31ms)
-	LoadAllAssembliesAndSetupDomain (522ms)
-		LoadAssemblies (392ms)
+		CreateAndSetChildDomain (53ms)
+	RebuildCommonClasses (62ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (67ms)
+	LoadAllAssembliesAndSetupDomain (895ms)
+		LoadAssemblies (675ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (243ms)
-			TypeCache.Refresh (174ms)
-				TypeCache.ScanAssembly (158ms)
-			BuildScriptInfoCaches (54ms)
-			ResolveRequiredComponents (12ms)
-	FinalizeReload (822ms)
+		AnalyzeDomain (415ms)
+			TypeCache.Refresh (284ms)
+				TypeCache.ScanAssembly (259ms)
+			BuildScriptInfoCaches (107ms)
+			ResolveRequiredComponents (20ms)
+	FinalizeReload (1605ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (661ms)
+		SetupLoadedEditorAssemblies (1300ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (10ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (103ms)
-			ProcessInitializeOnLoadAttributes (366ms)
-			ProcessInitializeOnLoadMethodAttributes (177ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (14ms)
+			BeforeProcessingInitializeOnLoad (346ms)
+			ProcessInitializeOnLoadAttributes (616ms)
+			ProcessInitializeOnLoadMethodAttributes (300ms)
 			AfterProcessingInitializeOnLoad (2ms)
-			EditorAssembliesLoaded (0ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (4ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 15.28 ms, found 12 plugins.
+		AwakeInstancesAfterBackupRestoration (9ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 10.64 ms, found 10 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 263 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7308 unused Assets / (6.0 MB). Loaded Objects now: 8101.
-Memory consumption went from 184.1 MB to 178.1 MB.
-Total: 18.606200 ms (FindLiveObjects: 1.657700 ms CreateObjectMapping: 1.620900 ms MarkObjects: 10.093000 ms  DeleteObjects: 5.233300 ms)
+Unloading 243 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6336 unused Assets / (5.2 MB). Loaded Objects now: 7079.
+Memory consumption went from 170.0 MB to 164.9 MB.
+Total: 14.721600 ms (FindLiveObjects: 1.797900 ms CreateObjectMapping: 0.769900 ms MarkObjects: 9.048900 ms  DeleteObjects: 3.102900 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1276146.435345 seconds.
-  path: Assets/EasyRoads3D
-  artifactKey: Guid(768f4764567fe6d4184f98f19375250a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D using Guid(768f4764567fe6d4184f98f19375250a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2c771115938ac0847f5fc0de19ee4190') in 0.0090013 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+  Time since last request: 2340285.730408 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_2.fbx
+  artifactKey: Guid(ee791c6a8496cf943b458cd4392dcc2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_2.fbx using Guid(ee791c6a8496cf943b458cd4392dcc2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dcc55573bc78742e327f46fe24a4ff4b') in 10.0089315 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
 ========================================================================
 Received Import Request.
-  Time since last request: 13.553311 seconds.
-  path: Assets/EasyRoads3D/Resources/ERProjectLog.prefab
-  artifactKey: Guid(8add2216a299bb04a96254601a49cc2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D/Resources/ERProjectLog.prefab using Guid(8add2216a299bb04a96254601a49cc2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '00000000000000000000000000000000') in 0.0288245 seconds
-Import Error Code:(4)
-Message: Build asset version error: assets/easyroads3d/resources/erprojectlog.prefab in SourceAssetDB has modification time of '2024-10-18T16:42:04Z' while content on disk has modification time of '2025-09-10T09:09:22.1658557Z'
-  ERROR: Build asset version error: assets/easyroads3d/resources/erprojectlog.prefab in SourceAssetDB has modification time of '2024-10-18T16:42:04Z' while content on disk has modification time of '2025-09-10T09:09:22.1658557Z'
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 0.000085 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_17.fbx
+  artifactKey: Guid(4eec3ceb71b4e8347b357d1c551304f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_17.fbx using Guid(4eec3ceb71b4e8347b357d1c551304f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5edae248018c15d0dbcb224409110b4e') in 0.0820424 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/EasyRoads3D/Resources/ERProRoad.prefab
-  artifactKey: Guid(1f87f95e79e2c104f808bba536652594) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D/Resources/ERProRoad.prefab using Guid(1f87f95e79e2c104f808bba536652594) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '656a9b9b6f94ecf87364061a66447ced') in 0.013125 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+  Time since last request: 0.000069 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_3.fbx
+  artifactKey: Guid(c42ee106c1e37f34d93e8a5a5667da47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_3.fbx using Guid(c42ee106c1e37f34d93e8a5a5667da47) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1dde05172b4f58a1596c819b40d6a9cd') in 0.0775709 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.529492 seconds.
-  path: Assets/EasyRoads3D/Resources/ERSideObjectsLog.prefab
-  artifactKey: Guid(c5e7c445b01942f45bcc235e2dd1a34d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D/Resources/ERSideObjectsLog.prefab using Guid(c5e7c445b01942f45bcc235e2dd1a34d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ff6f5c34d6c9067eaf5cb4e8b206a4ed') in 0.002366 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+  Time since last request: 0.000055 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_6.fbx
+  artifactKey: Guid(59dcda66290d7494ca3fd8e0fadfdd83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_6.fbx using Guid(59dcda66290d7494ca3fd8e0fadfdd83) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7c15cf912ccad1941b414f5b1f05fc1d') in 0.0773875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
 ========================================================================
 Received Import Request.
-  Time since last request: 6.633574 seconds.
-  path: Assets/EasyRoads3D/Resources/custom prefabs
-  artifactKey: Guid(4303d206ef3279b4fb69eefddbea9683) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D/Resources/custom prefabs using Guid(4303d206ef3279b4fb69eefddbea9683) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ad82f126bcc3e54617f9992ca67408fb') in 0.0004282 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+  Time since last request: 0.000059 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_14.fbx
+  artifactKey: Guid(64e6602246dfcc4459ef1164e7fc9626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_14.fbx using Guid(64e6602246dfcc4459ef1164e7fc9626) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '26e8a249b6e44a3a97b482d0535c78c6') in 0.0816558 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.782421 seconds.
-  path: Assets/EasyRoads3D/Resources/dynamic prefabs
-  artifactKey: Guid(73967fa49e512ea439fbc9bae28df1b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D/Resources/dynamic prefabs using Guid(73967fa49e512ea439fbc9bae28df1b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '81e70e1dad1059cc1c200929786c8c01') in 0.0005298 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+  Time since last request: 0.000063 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_15.fbx
+  artifactKey: Guid(041049b115717f644bcba0e56bcd4668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_15.fbx using Guid(041049b115717f644bcba0e56bcd4668) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d8b8654673296ff1e7f6dece9fc2d8a') in 0.094403 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.178180 seconds.
-  path: Assets/EasyRoads3D/Resources/Materials
-  artifactKey: Guid(ea55c5468697a0743912cabc979d7841) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D/Resources/Materials using Guid(ea55c5468697a0743912cabc979d7841) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'eaf55ca0808f5faeb386a80dc42d5d87') in 0.0003899 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+  Time since last request: 0.000061 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_10.fbx
+  artifactKey: Guid(984c9bc163eafec459f916af4da01d95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_10.fbx using Guid(984c9bc163eafec459f916af4da01d95) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '53ad5f719ca0e66ab019fc2576e9482e') in 0.1025419 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.021787 seconds.
-  path: Assets/EasyRoads3D/Resources/Materials/surfaceMaterial.mat
-  artifactKey: Guid(6df83606ee896204ea5f2925b610f5fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D/Resources/Materials/surfaceMaterial.mat using Guid(6df83606ee896204ea5f2925b610f5fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd546ea7988e6e60d46895121771293cb') in 1.9491504 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 22.96 ms, found 12 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 50 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7234 unused Assets / (5.0 MB). Loaded Objects now: 8163.
-Memory consumption went from 164.1 MB to 159.1 MB.
-Total: 25.011900 ms (FindLiveObjects: 1.617700 ms CreateObjectMapping: 1.692000 ms MarkObjects: 16.182100 ms  DeleteObjects: 5.518500 ms)
-
-Prepare: number of updated asset objects reloaded= 3
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.721 seconds
-Refreshing native plugins compatible for Editor in 8.17 ms, found 12 plugins.
-Native extension for Android target not found
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] Unable to send message (not connected to server process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] Unable to send message (not connected to server process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  0.792 seconds
-Domain Reload Profiling: 1516ms
-	BeginReloadAssembly (218ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (17ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (57ms)
-	RebuildCommonClasses (30ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (20ms)
-	LoadAllAssembliesAndSetupDomain (445ms)
-		LoadAssemblies (337ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (216ms)
-			TypeCache.Refresh (99ms)
-				TypeCache.ScanAssembly (87ms)
-			BuildScriptInfoCaches (102ms)
-			ResolveRequiredComponents (11ms)
-	FinalizeReload (792ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (612ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (10ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (98ms)
-			ProcessInitializeOnLoadAttributes (405ms)
-			ProcessInitializeOnLoadMethodAttributes (92ms)
-			AfterProcessingInitializeOnLoad (2ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (11ms)
-Refreshing native plugins compatible for Editor in 17.12 ms, found 12 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 71 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7296 unused Assets / (5.1 MB). Loaded Objects now: 8061.
-Memory consumption went from 240.2 MB to 235.1 MB.
-Total: 18.912200 ms (FindLiveObjects: 1.426300 ms CreateObjectMapping: 3.065200 ms MarkObjects: 9.042000 ms  DeleteObjects: 5.377400 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-========================================================================
-Received Import Request.
-  Time since last request: 41.845488 seconds.
-  path: Assets/EasyRoads3D scenes/Terrain Assets/Grass ER.psd
-  artifactKey: Guid(2c528fec5d95e4ac28cf46399b887662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D scenes/Terrain Assets/Grass ER.psd using Guid(2c528fec5d95e4ac28cf46399b887662) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'edd28cf8b76d4e4d9c02020292416fde') in 0.0788341 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 0.000056 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_12.fbx
+  artifactKey: Guid(f3b1179c1c298034b87998f63ae6a8a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_12.fbx using Guid(f3b1179c1c298034b87998f63ae6a8a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '41574841e6370d10fcb2f7c296898a13') in 0.1117021 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/EasyRoads3D scenes/Terrain Assets/sky ER.mat
-  artifactKey: Guid(70ad4885b1f34044eb595ed36d9f1ef1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/EasyRoads3D scenes/Terrain Assets/sky ER.mat using Guid(70ad4885b1f34044eb595ed36d9f1ef1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '51ec0c97039506f4a6084b7e9adad02b') in 0.3636042 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+  Time since last request: 0.000070 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_5.fbx
+  artifactKey: Guid(1ba837702c749764b8bf393daca9d7e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_5.fbx using Guid(1ba837702c749764b8bf393daca9d7e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2c969962e286ce57468d2652233c6a94') in 0.088698 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.955360 seconds.
-  path: Assets/Tree_Textures/shadow.png
-  artifactKey: Guid(e065207075d834c4d9d55af58956e209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tree_Textures/shadow.png using Guid(e065207075d834c4d9d55af58956e209) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '26e7a29bbfdc93964733c2597b40f44f') in 0.0127233 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+  Time since last request: 0.000055 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_13.fbx
+  artifactKey: Guid(5fd34722286ac3840b0627c260bc2522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Models/White_Birch/Mobile/M_Realistic21_13.fbx using Guid(5fd34722286ac3840b0627c260bc2522) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c81e4e2e2eef41f511c1c0b0e3d0507d') in 0.092787 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.767 seconds
-Refreshing native plugins compatible for Editor in 9.59 ms, found 12 plugins.
-Native extension for Android target not found
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] Unable to send message (not connected to server process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Assertion failed on expression: '!AssetDatabase::IsAssetImportWorkerProcess()'
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.PrefabUtility:SavePrefabAsset_Internal (UnityEngine.GameObject,bool&)
-UnityEditor.PrefabUtility:SavePrefabAsset (UnityEngine.GameObject,bool&)
-UnityEditor.PrefabUtility:SavePrefabAsset (UnityEngine.GameObject)
-EasyRoads3Dv3Editor.OOCODOCDCD:GetProjectID ()
-EasyRoads3Dv3Editor.PPtrUtility:fdddf ()
-System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
-System.Reflection.MethodBase:Invoke (object,object[])
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetDatabaseInternal.cpp line 2124]
-
-Asset Pipeline Refresh (id=23d7cd698d7aa3344b921539149c99a1): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
-Mono: successfully reloaded assembly
-[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] Unable to send message (not connected to server process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  0.856 seconds
-Domain Reload Profiling: 1625ms
-	BeginReloadAssembly (230ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (17ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (68ms)
-	RebuildCommonClasses (29ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (21ms)
-	LoadAllAssembliesAndSetupDomain (479ms)
-		LoadAssemblies (357ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (228ms)
-			TypeCache.Refresh (113ms)
-				TypeCache.ScanAssembly (99ms)
-			BuildScriptInfoCaches (100ms)
-			ResolveRequiredComponents (12ms)
-	FinalizeReload (856ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (656ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (14ms)
-			SetLoadedEditorAssemblies (7ms)
-			BeforeProcessingInitializeOnLoad (117ms)
-			ProcessInitializeOnLoadAttributes (388ms)
-			ProcessInitializeOnLoadMethodAttributes (128ms)
-			AfterProcessingInitializeOnLoad (2ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (10ms)
-Refreshing native plugins compatible for Editor in 26.07 ms, found 12 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 68 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7309 unused Assets / (10.0 MB). Loaded Objects now: 8205.
-Memory consumption went from 246.0 MB to 236.0 MB.
-Total: 18.425400 ms (FindLiveObjects: 1.373600 ms CreateObjectMapping: 1.622800 ms MarkObjects: 8.386200 ms  DeleteObjects: 7.041800 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
