@@ -14,8 +14,9 @@ public class CarController : MonoBehaviour
     [SerializeField] float maxEnginePower; // максимальный крутящий момент, который двигатель может приложить к колесу (max мощность двигателя)
 
     [SerializeField] float maxSteeringAngle; // максимальный угол поворота, который может иметь колесо
-
-    float speed; // скорость машины
+    [SerializeField] float maxBrakeForce; // максимальная тормозная сила
+    
+    [SerializeField] float MaxSpeed; // максимально допустимая скорость машины
 
     bool EngineIsRunning; // запущен ли двигатель
 
@@ -28,7 +29,6 @@ public class CarController : MonoBehaviour
     private void Start()
     {
         EngineIsRunning = false;
-        speed = 0f;
     }
 
     private void OnEnable()
@@ -44,32 +44,30 @@ public class CarController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        InputMovement();
+    {        
         if (EngineIsRunning)
         {
             UpdateWheelState();
         }
-    }
-
-    private void InputMovement() // ввод с педалей
-    {       
-        if (inputControllerReader.Throttle != 0 && EngineIsRunning)
-        {
-            speed = inputControllerReader.Throttle;
-        }
-        else if (inputControllerReader.Brake != 0 && EngineIsRunning)
-        {
-            speed = -inputControllerReader.Brake;
-        }
+        //Debug.Log($"SPEED: {Input.GetAxis("Vertical")}");
     }
 
     private void UpdateWheelState() // поведение колес и ввод с руля (поворот)
     {
-        //float current_power = speed * maxEnginePower;
-        float current_power = Input.GetAxis("Vertical") * maxEnginePower;
+        float speed = 0f;
+
+        if (inputControllerReader.Throttle != 0)
+        {
+            speed = inputControllerReader.Throttle;
+        }       
+
+        //float current_power = MathF.Min(speed , MaxSpeed) * maxEnginePower;
+        float current_power = MathF.Min(Input.GetAxis("Vertical"), MaxSpeed) * maxEnginePower;
         //float steering_angle = maxSteeringAngle * inputControllerReader.Steering;
         float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal");
+
+        bool isBraking = Input.GetKey(KeyCode.Z);
+        //bool isBraking = inputControllerReader.Brake != 0;
 
         foreach (var info in axleInfos)
         {
@@ -79,10 +77,13 @@ public class CarController : MonoBehaviour
                 info.leftWheel.steerAngle = steering_angle;
             }
             if (info.isMotor)
-            {
+            {                
                 info.rightWheel.motorTorque = current_power;
                 info.leftWheel.motorTorque = current_power;
             }
+            
+            info.rightWheel.brakeTorque = isBraking ? maxBrakeForce : 0;
+            info.leftWheel.brakeTorque = isBraking ? maxBrakeForce : 0;
         }
     }
 
@@ -101,23 +102,17 @@ public class CarController : MonoBehaviour
 
     private void HandleOnSouthCallback(bool value)
     {
-        if (value && !EngineIsRunning)
+        if (value)
         {
-            EngineIsRunning = true;
-            Debug.Log("Двигатель запущен!");
-        }
-
-        else if (value && EngineIsRunning)
-        {
-            EngineIsRunning = false;
-            Debug.Log("Двигатель заглушен!");
+            EngineIsRunning = !EngineIsRunning; // Переключаем состояние двигателя
+            Debug.Log(EngineIsRunning ? "Двигатель запущен!" : "Двигатель заглушен!");
         }
     }
 
 
     [Serializable]
     public class AxleInfo
-    {
+    {   
         public WheelCollider leftWheel;
         public WheelCollider rightWheel;
         public bool isMotor; // это колесо прикреплено к мотору?

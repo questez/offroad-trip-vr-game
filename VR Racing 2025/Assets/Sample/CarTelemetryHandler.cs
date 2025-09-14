@@ -52,11 +52,11 @@ public class CarTelemetryHandler : MonoBehaviour
                 yield return new WaitForSeconds(WAIT_TIME * 10f);
                 continue;
             }
-
+            
             //UpdateAngles();
             UpdateVelocity();
             CalculatePlatformForces();
-            Debug.Log(_telemetryDataData.ToString());
+            //Debug.Log(_telemetryDataData.ToString());
 
             yield return new WaitForSeconds(WAIT_TIME);
         }
