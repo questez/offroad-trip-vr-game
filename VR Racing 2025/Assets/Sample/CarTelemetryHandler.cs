@@ -72,7 +72,7 @@ public class CarTelemetryHandler : MonoBehaviour
         _telemetryDataData.Velocity = (rb.linearVelocity != Vector3.zero) ? rb.linearVelocity : calculatedVelocity;
 
         //Debug.Log($"_telemetryDataData.Velocity в км/ч: {_telemetryDataData.Velocity.magnitude * 3.6f}");
-        //Debug.Log($"calculatedVelocity: {calculatedVelocity}");
+        Debug.Log($"calculatedVelocity: {calculatedVelocity}");
     }
 
     //private void UpdateVelocity()

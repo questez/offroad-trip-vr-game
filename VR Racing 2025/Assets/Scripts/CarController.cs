@@ -18,7 +18,10 @@ public class CarController : MonoBehaviour
     [SerializeField] float maxSteeringAngle; // максимальный угол поворота, который может иметь колесо
     [SerializeField] float maxBrakeForce; // максимальная тормозная сила
     
-    [SerializeField] float MaxSpeed; // максимально допустимая скорость машины
+    float MaxSpeed1 = 200f; // максимально допустимая скорость машины на первой передаче
+    float MaxSpeed2 = 40f; // максимально допустимая скорость машины на второй передаче
+    float MaxSpeed3 = 60f; // максимально допустимая скорость машины на третьей передаче
+    float MaxSpeed4 = 75f; // максимально допустимая скорость машины на четвертой передаче
 
     bool EngineIsRunning; // запущен ли двигатель
 
@@ -51,7 +54,6 @@ public class CarController : MonoBehaviour
         {
             UpdateWheelState();
         }
-        //Debug.Log($"SPEED: {Input.GetAxis("Vertical")}");
     }
 
     private void UpdateWheelState() // поведение колес и ввод с руля (поворот)
@@ -61,10 +63,11 @@ public class CarController : MonoBehaviour
         if (inputControllerReader.Throttle != 0)
         {
             speed = inputControllerReader.Throttle;
-        }       
+        }
 
-        //float current_power = MathF.Min(speed , MaxSpeed) * maxEnginePower;
-        float current_power = MathF.Min(Input.GetAxis("Vertical"), MaxSpeed) * maxEnginePower;
+        //float current_power = speed * maxEnginePower;
+        float current_power = Input.GetAxis("Vertical") * MaxSpeed1;
+
         //float steering_angle = maxSteeringAngle * inputControllerReader.Steering;
         float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal");
 
