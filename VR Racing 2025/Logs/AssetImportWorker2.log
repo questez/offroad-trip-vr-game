@@ -15,7 +15,7 @@ D:/IVAN/UnityPROJECTS/VR-RACING-2025/VR Racing 2025
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-54273
+53635
 -job-worker-count
 5
 -background-job-worker-count
@@ -59,12 +59,12 @@ D:/IVAN/UnityPROJECTS/VR-RACING-2025/VR Racing 2025
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [17764]  Target information:
+Player connection [15216]  Target information:
 
-Player connection [17764]  * "[IP] 10.213.164.61 [Port] 0 [Flags] 2 [Guid] 1144905185 [EditorId] 1144905185 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-9J1EOIR) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [15216]  * "[IP] 10.213.164.61 [Port] 0 [Flags] 2 [Guid] 559405461 [EditorId] 559405461 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-9J1EOIR) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [17764] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [17764] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [15216] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [15216] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -76,7 +76,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 394.46 ms, found 12 plugins.
+Refreshing native plugins compatible for Editor in 13.76 ms, found 12 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.36f1 (9fe3b5f71dbb)
 [Subsystems] Discovering subsystems at path D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/Resources/UnitySubsystems
@@ -92,48 +92,48 @@ Initialize mono
 Mono path[0] = 'D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/Managed'
 Mono path[1] = 'D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56108
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56092
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
 Register platform support module: D:/IVAN/UNITYEDITOR/6000.0.36f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Registered in 0.933870 seconds.
-- Loaded All Assemblies, in 12.251 seconds
+Registered in 0.002645 seconds.
+- Loaded All Assemblies, in  0.400 seconds
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 464 ms
+Android Extension - Scanning For ADB Devices 228 ms
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.952 seconds
-Domain Reload Profiling: 13203ms
-	BeginReloadAssembly (9827ms)
+- Finished resetting the current domain, in  0.662 seconds
+Domain Reload Profiling: 1062ms
+	BeginReloadAssembly (139ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (588ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (976ms)
-	LoadAllAssembliesAndSetupDomain (851ms)
-		LoadAssemblies (9827ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (45ms)
+	LoadAllAssembliesAndSetupDomain (170ms)
+		LoadAssemblies (139ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (847ms)
-			TypeCache.Refresh (845ms)
-				TypeCache.ScanAssembly (509ms)
+		AnalyzeDomain (166ms)
+			TypeCache.Refresh (164ms)
+				TypeCache.ScanAssembly (151ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (953ms)
+	FinalizeReload (662ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (900ms)
+		SetupLoadedEditorAssemblies (611ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (554ms)
-			SetLoadedEditorAssemblies (6ms)
-			BeforeProcessingInitializeOnLoad (73ms)
-			ProcessInitializeOnLoadAttributes (179ms)
-			ProcessInitializeOnLoadMethodAttributes (87ms)
+			InitializePlatformSupportModulesInManaged (314ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (65ms)
+			ProcessInitializeOnLoadAttributes (144ms)
+			ProcessInitializeOnLoadMethodAttributes (84ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -142,8 +142,8 @@ Domain Reload Profiling: 13203ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in 16.224 seconds
-Refreshing native plugins compatible for Editor in 10.62 ms, found 12 plugins.
+- Loaded All Assemblies, in  0.750 seconds
+Refreshing native plugins compatible for Editor in 4.46 ms, found 12 plugins.
 Native extension for Android target not found
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
@@ -158,100 +158,52 @@ Mono: successfully reloaded assembly
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  2.576 seconds
-Domain Reload Profiling: 18800ms
-	BeginReloadAssembly (196ms)
+- Finished resetting the current domain, in  0.870 seconds
+Domain Reload Profiling: 1619ms
+	BeginReloadAssembly (148ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (38ms)
-	RebuildCommonClasses (37ms)
-	RebuildNativeTypeToScriptingClass (11ms)
-	initialDomainReloadingComplete (37ms)
-	LoadAllAssembliesAndSetupDomain (15941ms)
-		LoadAssemblies (15067ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (535ms)
+		LoadAssemblies (354ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (992ms)
-			TypeCache.Refresh (854ms)
-				TypeCache.ScanAssembly (828ms)
-			BuildScriptInfoCaches (110ms)
-			ResolveRequiredComponents (24ms)
-	FinalizeReload (2577ms)
+		AnalyzeDomain (261ms)
+			TypeCache.Refresh (179ms)
+				TypeCache.ScanAssembly (164ms)
+			BuildScriptInfoCaches (62ms)
+			ResolveRequiredComponents (16ms)
+	FinalizeReload (870ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1731ms)
+		SetupLoadedEditorAssemblies (727ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (15ms)
-			SetLoadedEditorAssemblies (9ms)
-			BeforeProcessingInitializeOnLoad (331ms)
-			ProcessInitializeOnLoadAttributes (891ms)
-			ProcessInitializeOnLoadMethodAttributes (482ms)
-			AfterProcessingInitializeOnLoad (3ms)
-			EditorAssembliesLoaded (1ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (159ms)
+			ProcessInitializeOnLoadAttributes (432ms)
+			ProcessInitializeOnLoadMethodAttributes (118ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (7ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 10.41 ms, found 12 plugins.
+		AwakeInstancesAfterBackupRestoration (4ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 4.93 ms, found 12 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 256 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7294 unused Assets / (5.8 MB). Loaded Objects now: 8026.
-Memory consumption went from 179.4 MB to 173.6 MB.
-Total: 11.709900 ms (FindLiveObjects: 1.542400 ms CreateObjectMapping: 0.716700 ms MarkObjects: 6.313900 ms  DeleteObjects: 3.135200 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 86051.239422 seconds.
-  path: Assets/Oculus Hands/Models/l_hand_skeletal_lowres.fbx
-  artifactKey: Guid(ca20b3907ff1c794cb89c1ad2cce8282) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Oculus Hands/Models/l_hand_skeletal_lowres.fbx using Guid(ca20b3907ff1c794cb89c1ad2cce8282) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bb777468d3a01e5ee8796e774913b62d') in 3.9089129 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 65
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000067 seconds.
-  path: Assets/Oculus Hands/Prefabs/Left Hand Model.prefab
-  artifactKey: Guid(65847589f926b734d9eaed6e25f0046b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Oculus Hands/Prefabs/Left Hand Model.prefab using Guid(65847589f926b734d9eaed6e25f0046b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '54fbff6042d935e5452b6a86ee42d5b4') in 0.0407698 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 71
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.588446 seconds.
-  path: Assets/Oculus Hands/Animations
-  artifactKey: Guid(e840c6d7927a8794895d56387046aea7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Oculus Hands/Animations using Guid(e840c6d7927a8794895d56387046aea7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0b38a282e129cb0669c08b29e91631cf') in 0.0006713 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.025424 seconds.
-  path: Assets/Oculus Hands/Animations/l_hand_default_anim.fbx
-  artifactKey: Guid(1ae9aefe37a62de429ddc2edd1ca36f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Oculus Hands/Animations/l_hand_default_anim.fbx using Guid(1ae9aefe37a62de429ddc2edd1ca36f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f088e83219db16664356e3fb0bdcca34') in 0.0066307 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 57
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Oculus Hands/Animations/r_hand_default_anim.fbx
-  artifactKey: Guid(b6c38558987444240b3b3950e4450b77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Oculus Hands/Animations/r_hand_default_anim.fbx using Guid(b6c38558987444240b3b3950e4450b77) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd46dd40276e8d0a440504a8890430ff9') in 0.0048334 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 57
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.791079 seconds.
-  path: Assets/Oculus Hands/Animations/Right Hand Animator.controller
-  artifactKey: Guid(3338dde1ae80a3b43826deca5c238356) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Oculus Hands/Animations/Right Hand Animator.controller using Guid(3338dde1ae80a3b43826deca5c238356) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '53fd250b27c53c872e27e4f48ad01687') in 0.0025368 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+Unloading 7294 unused Assets / (7.0 MB). Loaded Objects now: 8026.
+Memory consumption went from 181.2 MB to 174.1 MB.
+Total: 8.276300 ms (FindLiveObjects: 0.624100 ms CreateObjectMapping: 0.596000 ms MarkObjects: 4.234500 ms  DeleteObjects: 2.820800 ms)
 
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.688 seconds
-Refreshing native plugins compatible for Editor in 5.58 ms, found 12 plugins.
+- Loaded All Assemblies, in  0.902 seconds
+Refreshing native plugins compatible for Editor in 7.10 ms, found 12 plugins.
 Native extension for Android target not found
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
@@ -262,44 +214,89 @@ Mono: successfully reloaded assembly
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  1.007 seconds
-Domain Reload Profiling: 1698ms
-	BeginReloadAssembly (204ms)
+- Finished resetting the current domain, in  1.535 seconds
+Domain Reload Profiling: 2440ms
+	BeginReloadAssembly (217ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (19ms)
+		DisableScriptedObjects (8ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (62ms)
-	RebuildCommonClasses (29ms)
-	RebuildNativeTypeToScriptingClass (11ms)
-	initialDomainReloadingComplete (21ms)
-	LoadAllAssembliesAndSetupDomain (425ms)
-		LoadAssemblies (331ms)
+		CreateAndSetChildDomain (55ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (602ms)
+		LoadAssemblies (444ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (178ms)
-			TypeCache.Refresh (6ms)
+		AnalyzeDomain (266ms)
+			TypeCache.Refresh (10ms)
 				TypeCache.ScanAssembly (0ms)
-			BuildScriptInfoCaches (154ms)
-			ResolveRequiredComponents (12ms)
-	FinalizeReload (1007ms)
+			BuildScriptInfoCaches (232ms)
+			ResolveRequiredComponents (17ms)
+	FinalizeReload (1536ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (806ms)
+		SetupLoadedEditorAssemblies (1213ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (9ms)
-			SetLoadedEditorAssemblies (7ms)
-			BeforeProcessingInitializeOnLoad (197ms)
-			ProcessInitializeOnLoadAttributes (476ms)
-			ProcessInitializeOnLoadMethodAttributes (113ms)
+			InitializePlatformSupportModulesInManaged (15ms)
+			SetLoadedEditorAssemblies (9ms)
+			BeforeProcessingInitializeOnLoad (278ms)
+			ProcessInitializeOnLoadAttributes (727ms)
+			ProcessInitializeOnLoadMethodAttributes (181ms)
 			AfterProcessingInitializeOnLoad (2ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (14ms)
-Refreshing native plugins compatible for Editor in 6.38 ms, found 12 plugins.
+		AwakeInstancesAfterBackupRestoration (24ms)
+Refreshing native plugins compatible for Editor in 15.08 ms, found 12 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 48 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7293 unused Assets / (7.7 MB). Loaded Objects now: 8078.
-Memory consumption went from 222.9 MB to 215.1 MB.
-Total: 10.362900 ms (FindLiveObjects: 0.727500 ms CreateObjectMapping: 0.780700 ms MarkObjects: 4.832100 ms  DeleteObjects: 4.021300 ms)
+Unloading 7293 unused Assets / (8.5 MB). Loaded Objects now: 8041.
+Memory consumption went from 202.5 MB to 194.1 MB.
+Total: 15.525000 ms (FindLiveObjects: 0.900100 ms CreateObjectMapping: 1.025800 ms MarkObjects: 7.541900 ms  DeleteObjects: 6.055300 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 89754.268869 seconds.
+  path: Assets/Bhaptics/SDK2/Prefabs/[bhaptics].prefab
+  artifactKey: Guid(2129561fd5ef2284086f81f4eb432d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bhaptics/SDK2/Prefabs/[bhaptics].prefab using Guid(2129561fd5ef2284086f81f4eb432d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a535bdc5e5b83d4e6eced770b93f8c04') in 0.0480567 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Bhaptics/SDK2/Prefabs/[bHapticsUI].prefab
+  artifactKey: Guid(19bcfcc37c3e7404d9d1b43a67237511) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bhaptics/SDK2/Prefabs/[bHapticsUI].prefab using Guid(19bcfcc37c3e7404d9d1b43a67237511) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d7aec450fc691c296b8a73f41440e7a') in 0.2501607 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 199
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/VillagePack/BigHouse/BigHouse.fbx
+  artifactKey: Guid(113d36f51d55c2c4a807a09ac76c1d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VillagePack/BigHouse/BigHouse.fbx using Guid(113d36f51d55c2c4a807a09ac76c1d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '046aef7a79286adc1079daf166a8ee3a') in 0.9374777 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 177
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.785134 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Blaser.prefab
+  artifactKey: Guid(3549fdaf258e11846b85a316c16c699c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Blaser.prefab using Guid(3549fdaf258e11846b85a316c16c699c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6adac40bce4d14547a28676b0c77dfff') in 4.0348269 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 53
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/Prefabs/Teleport/Directional Teleport Reticle.prefab
+  artifactKey: Guid(893219773891c784ab469a39151879b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/Prefabs/Teleport/Directional Teleport Reticle.prefab using Guid(893219773891c784ab469a39151879b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1c9163adfb8baae45c7e20a3570d525c') in 2.9598463 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
