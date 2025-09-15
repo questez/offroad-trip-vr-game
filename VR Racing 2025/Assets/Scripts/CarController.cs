@@ -9,6 +9,8 @@ public class CarController : MonoBehaviour
 {
     [SerializeField] InputControllerReader inputControllerReader;
 
+    [SerializeField] Transform SteeringWheelTransform;
+
     [SerializeField] List<AxleInfo> axleInfos; // информация о каждой отдельной оси автомобиля
 
     [SerializeField] float maxEnginePower; // максимальный крутящий момент, который двигатель может приложить к колесу (max мощность двигателя)
@@ -73,6 +75,7 @@ public class CarController : MonoBehaviour
         {
             if (info.isSteering)
             {
+                SteeringWheelTransform.localRotation = Quaternion.Euler(24f, 0, -steering_angle * 2.5f); // поворот руля при повороте колес
                 info.rightWheel.steerAngle = steering_angle;
                 info.leftWheel.steerAngle = steering_angle;
             }
