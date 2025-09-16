@@ -3974,32 +3974,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 416096, guid: 2394d7d557201f048b00c84246231eb0, type: 3}
   m_PrefabInstance: {fileID: 1189502842}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1200653743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1978888623974520, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
-  m_PrefabInstance: {fileID: 1334140681}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1200653750
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200653743}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.9610698, y: 1.520128, z: 2.587815}
-  m_Center: {x: -0.00000005960464, y: 0.39904356, z: -1.3551915}
 --- !u!1001 &1212538762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4845,16 +4819,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5009546852704898902, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
-      propertyPath: maxBrakeForce
-      value: 555
+      propertyPath: BrakeForce
+      value: 600
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1978888623974520, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1200653750}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
 --- !u!1001 &1339773920
 PrefabInstance:

@@ -16,13 +16,15 @@ public class CarController : MonoBehaviour
     [SerializeField] float maxEnginePower; // максимальный крутящий момент, который двигатель может приложить к колесу (max мощность двигателя)
 
     [SerializeField] float maxSteeringAngle; // максимальный угол поворота, который может иметь колесо
-    [SerializeField] float maxBrakeForce; // максимальная тормозная сила
-    
-    float MaxSpeed1 = 200f; // максимально допустимая скорость машины на первой передаче
+    [SerializeField] float BrakeForce; // максимальная тормозная сила
+
+    Vector3 _lastPosition;
+
+    float MaxSpeed1 = 20f; // максимально допустимая скорость машины на первой передаче
     float MaxSpeed2 = 40f; // максимально допустимая скорость машины на второй передаче
     float MaxSpeed3 = 60f; // максимально допустимая скорость машины на третьей передаче
     float MaxSpeed4 = 75f; // максимально допустимая скорость машины на четвертой передаче
-
+    
     bool EngineIsRunning; // запущен ли двигатель
 
 
@@ -33,6 +35,7 @@ public class CarController : MonoBehaviour
 
     private void Start()
     {
+        _lastPosition = transform.position;
         EngineIsRunning = false;
     }
 
@@ -58,6 +61,11 @@ public class CarController : MonoBehaviour
 
     private void UpdateWheelState() // поведение колес и ввод с руля (поворот)
     {
+        Vector3 currentPos = transform.position;
+        Vector3 calculatedVelocity = (currentPos - _lastPosition) / Time.deltaTime;
+        _lastPosition = currentPos;
+        //Debug.Log($"calculatedVelocity: {calculatedVelocity.magnitude * 3.6f}");
+
         float speed = 0f;
 
         if (inputControllerReader.Throttle != 0)
@@ -66,7 +74,10 @@ public class CarController : MonoBehaviour
         }
 
         //float current_power = speed * maxEnginePower;
-        float current_power = Input.GetAxis("Vertical") * MaxSpeed1;
+        
+        float current_power = Input.GetAxis("Vertical") * maxEnginePower;
+        
+        
 
         //float steering_angle = maxSteeringAngle * inputControllerReader.Steering;
         float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal");
@@ -84,14 +95,52 @@ public class CarController : MonoBehaviour
             }
             if (info.isMotor)
             {                
-                info.rightWheel.motorTorque = current_power;
-                info.leftWheel.motorTorque = current_power;
+                if (calculatedVelocity.magnitude * 3.6f <= CurrentMaxSpeed)
+                {
+                    info.rightWheel.motorTorque = current_power;
+                    info.leftWheel.motorTorque = current_power;
+                }
+                else
+                {
+                    info.rightWheel.motorTorque = 0;
+                    info.leftWheel.motorTorque = 0;
+                }                
             }
             
-            info.rightWheel.brakeTorque = isBraking ? maxBrakeForce : 0;
-            info.leftWheel.brakeTorque = isBraking ? maxBrakeForce : 0;
+            info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
+            info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
         }
     }
+
+    private float CurrentMaxSpeed // максимально допустимая скорость машины на текущей передаче
+    {
+        get
+        { 
+            if (inputControllerReader.Shifter1)
+            {
+                Debug.Log("Первая передача!");
+                return MaxSpeed1;
+            }
+            else if (inputControllerReader.Shifter2)
+            {
+                Debug.Log("Вторая передача!");
+                return MaxSpeed2;
+            }
+            else if (inputControllerReader.Shifter3)
+            {
+                Debug.Log("Третья передача!");
+                return MaxSpeed3;
+            }
+            else if (inputControllerReader.Shifter4)
+            {
+                Debug.Log("Четвертая передача!");
+                return MaxSpeed4;
+            }
+            Debug.Log("Нейтральная передача!");
+            return 0;                           
+        }
+    }
+
 
 
     private void HandleOnHomeCallback(bool value)
