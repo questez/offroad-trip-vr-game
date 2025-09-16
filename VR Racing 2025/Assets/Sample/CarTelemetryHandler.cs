@@ -136,7 +136,7 @@ public class CarTelemetryHandler : MonoBehaviour
         _currentPitch = Mathf.Lerp(_currentPitch, targetPitch, 0.3f);
         _currentRoll = Mathf.Lerp(_currentRoll, targetRoll, 0.4f);
 
-        //Debug.Log($"🎯 Платформа: Pitch={_currentPitch:F1}°, Roll={_currentRoll:F1}° | " + $"Ускорение: {longitudinalAccel:F2} m/s², Боковое: {lateralAccel:F2} m/s²");
+        Debug.Log($"🎯 Платформа: Pitch={_currentPitch:F1}°, Roll={_currentRoll:F1}° | " + $"Ускорение: {longitudinalAccel:F2} m/s², Боковое: {lateralAccel:F2} m/s²");
 
 
         _telemetryDataData.Angles = new Vector3(_currentPitch, 0, _currentRoll); // отправка данных на платформу 2DOF
