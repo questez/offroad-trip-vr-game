@@ -20,10 +20,10 @@ public class CarController : MonoBehaviour
 
     Vector3 _lastPosition;
 
-    float MaxSpeed1 = 25f; // максимально допустимая скорость машины на первой передаче
-    float MaxSpeed2 = 45f; // максимально допустимая скорость машины на второй передаче
-    float MaxSpeed3 = 60f; // максимально допустимая скорость машины на третьей передаче
-    float MaxSpeed4 = 85f; // максимально допустимая скорость машины на четвертой передаче
+    float MaxSpeed1 = 15f; // максимально допустимая скорость машины на первой передаче
+    float MaxSpeed2 = 35f; // максимально допустимая скорость машины на второй передаче
+    float MaxSpeed3 = 50f; // максимально допустимая скорость машины на третьей передаче
+    float MaxSpeed4 = 75f; // максимально допустимая скорость машины на четвертой передаче
     
     bool EngineIsRunning; // запущен ли двигатель
 
@@ -89,7 +89,7 @@ public class CarController : MonoBehaviour
         {
             if (info.isSteering)
             {
-                SteeringWheelTransform.localRotation = Quaternion.Euler(24f, 0, -steering_angle * 2.8f); // поворот руля при повороте колес
+                SteeringWheelTransform.localRotation = Quaternion.Euler(24f, 0, -steering_angle * 3.5f); // поворот руля при повороте колес
                 info.rightWheel.steerAngle = steering_angle;
                 info.leftWheel.steerAngle = steering_angle;
             }
