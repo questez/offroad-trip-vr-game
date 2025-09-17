@@ -7201,7 +7201,7 @@ MonoBehaviour:
     rightWheel: {fileID: 3860699036559917258}
     isMotor: 1
     isSteering: 0
-  maxEnginePower: 400
+  maxEnginePower: 1500
   maxSteeringAngle: 30
   BrakeForce: 600
 --- !u!1001 &4371352930867858926

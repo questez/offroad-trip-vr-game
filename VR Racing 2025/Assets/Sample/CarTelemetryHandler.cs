@@ -15,7 +15,7 @@ public class CarTelemetryHandler : MonoBehaviour
     // Для 2DOF платформы
     private float _currentPitch; // Тангаж (ускорение/торможение)
     private float _currentRoll;  // Крен (повороты)
-    private const float MAX_PLATFORM_ANGLE = 15f; // Максимальный угол наклона платформы
+    private const float MAX_PLATFORM_ANGLE = 10f; // Максимальный угол наклона платформы
 
     private ObjectTelemetryData _telemetryDataData;
     private SendingData _sendingData;
@@ -81,20 +81,21 @@ public class CarTelemetryHandler : MonoBehaviour
     //    Debug.Log(_telemetryDataData.Velocity);
     //}
 
-    private void UpdateAngles()
-    {
-        var euler = vehicleTransform.eulerAngles;
+    //private void UpdateAngles()
+    //{
+    //    var euler = vehicleTransform.eulerAngles;
 
-        euler.x = Mathf.Approximately(euler.x, 180) ? 0 : euler.x;
-        euler.z = Mathf.Approximately(euler.z, 180) ? 0 : euler.z;
-        euler.y = Mathf.Approximately(euler.y, 180) ? 0 : euler.y;
+    //    euler.x = Mathf.Approximately(euler.x, 180) ? 0 : euler.x;
+    //    euler.z = Mathf.Approximately(euler.z, 180) ? 0 : euler.z;
+    //    euler.y = Mathf.Approximately(euler.y, 180) ? 0 : euler.y;
 
-        euler.x = euler.x > 180 ? euler.x - 360 : euler.x;
-        euler.z = euler.z > 180 ? euler.z - 360 : euler.z;
-        euler.y = euler.y > 180 ? euler.y - 360 : euler.y;
+    //    euler.x = euler.x > 180 ? euler.x - 360 : euler.x;
+    //    euler.z = euler.z > 180 ? euler.z - 360 : euler.z;
+    //    euler.y = euler.y > 180 ? euler.y - 360 : euler.y;
 
-        _telemetryDataData.Angles = euler;
-    }
+    //    _telemetryDataData.Angles = euler;
+    //}
+
     private void CalculatePlatformForces()
     {
         Vector3 currentVelocity = _telemetryDataData.Velocity;
@@ -118,18 +119,18 @@ public class CarTelemetryHandler : MonoBehaviour
 
         if (longitudinalAccel > 0.5f) // Сильное ускорение
         {
-            targetPitch = -Mathf.Clamp(longitudinalAccel * 5f, 0f, MAX_PLATFORM_ANGLE);
+            targetPitch = -Mathf.Clamp(longitudinalAccel * 3f, 0f, MAX_PLATFORM_ANGLE);
         }
         else if (longitudinalAccel < -0.8f) // Сильное торможение
         {
-            targetPitch = Mathf.Clamp(Mathf.Abs(longitudinalAccel) * 4f, 0f, MAX_PLATFORM_ANGLE);
+            targetPitch = Mathf.Clamp(Mathf.Abs(longitudinalAccel) * 3f, 0f, MAX_PLATFORM_ANGLE);
         }
 
         // Повороты -> крен (roll)
         float targetRoll = 0f;
         if (Mathf.Abs(lateralAccel) > 0.3f)
         {
-            targetRoll = -Mathf.Clamp(lateralAccel * 8f, -MAX_PLATFORM_ANGLE, MAX_PLATFORM_ANGLE);
+            targetRoll = -Mathf.Clamp(lateralAccel * 5f, -MAX_PLATFORM_ANGLE, MAX_PLATFORM_ANGLE);
         }
 
         // Плавное изменение углов
@@ -138,8 +139,8 @@ public class CarTelemetryHandler : MonoBehaviour
 
         Debug.Log($"🎯 Платформа: Pitch={_currentPitch:F1}°, Roll={_currentRoll:F1}° | " + $"Ускорение: {longitudinalAccel:F2} m/s², Боковое: {lateralAccel:F2} m/s²");
 
+        // !!! проблема: при стоянке на наклоне платформа 2dof не наклоняется !!!
 
         _telemetryDataData.Angles = new Vector3(_currentPitch, 0, _currentRoll); // отправка данных на платформу 2DOF
-
     }
 }

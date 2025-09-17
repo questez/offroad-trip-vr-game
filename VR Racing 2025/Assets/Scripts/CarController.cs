@@ -89,7 +89,7 @@ public class CarController : MonoBehaviour
         {
             if (info.isSteering)
             {
-                SteeringWheelTransform.localRotation = Quaternion.Euler(24f, 0, -steering_angle * 2.5f); // поворот руля при повороте колес
+                SteeringWheelTransform.localRotation = Quaternion.Euler(24f, 0, -steering_angle * 2.8f); // поворот руля при повороте колес
                 info.rightWheel.steerAngle = steering_angle;
                 info.leftWheel.steerAngle = steering_angle;
             }
