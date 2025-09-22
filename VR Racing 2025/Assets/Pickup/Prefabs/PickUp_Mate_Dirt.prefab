@@ -700,8 +700,8 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095810675403592}
   serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.25
+  m_Center: {x: 0.15, y: 0.15, z: 0}
+  m_Radius: 0.4
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -1602,8 +1602,8 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200596834918802}
   serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.25
+  m_Center: {x: 0.15, y: 0.15, z: 0}
+  m_Radius: 0.4
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -4225,8 +4225,8 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577314712950392}
   serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.25
+  m_Center: {x: 0.15, y: 0.15, z: 0}
+  m_Radius: 0.4
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -4437,8 +4437,8 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609879254360096}
   serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.25
+  m_Center: {x: 0.15, y: 0.15, z: 0}
+  m_Radius: 0.4
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -7191,7 +7191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputControllerReader: {fileID: 11400000, guid: 8268bb9eff5a1954492cd4817fb37528, type: 2}
-  SteeringWheelTransform: {fileID: 4054606671126250}
+  steeringWheelTransform: {fileID: 4054606671126250}
   axleInfos:
   - leftWheel: {fileID: 7414803239978697607}
     rightWheel: {fileID: 2318380542126089628}
@@ -7201,7 +7201,7 @@ MonoBehaviour:
     rightWheel: {fileID: 3860699036559917258}
     isMotor: 1
     isSteering: 0
-  maxEnginePower: 1500
+  enginePower: 879
   maxSteeringAngle: 30
   BrakeForce: 600
 --- !u!1001 &4371352930867858926
