@@ -58,14 +58,15 @@ public class CarTelemetryHandler : MonoBehaviour
             yield return new WaitForSeconds(WAIT_TIME);
         }
     }
-
-
+    private float NormalizeAngle(float angle) // Нормализуем угол в диапазон -180 до 180
+    {
+        angle = angle > 180 ? angle - 360 : angle;
+        return angle;
+    }
 
     private void UpdatePlatformVelocity() // отправка данных о скорости на платформу
     {
-        telemetryDataData.Velocity = rb.linearVelocity;
-
-        //Debug.Log($"telemetryDataData.Velocity = {telemetryDataData.Velocity.magnitude * 3.6f}");
+        telemetryDataData.Velocity = rb.linearVelocity;        
     }
 
     private void UpdatePlatformAngles()
@@ -74,13 +75,12 @@ public class CarTelemetryHandler : MonoBehaviour
         float targetPitch = 0;        
         
         Vector3 currentLinearVelocity = rb.linearVelocity;
-        Vector3 VectorLinearAcceleration = (currentLinearVelocity - lastLinearVelocity) / Time.deltaTime; 
+        Vector3 VectorLinearAcceleration = (currentLinearVelocity - lastLinearVelocity) / Time.deltaTime; // вектор линейного ускорения
         lastLinearVelocity = currentLinearVelocity;     
         
-        float linearAcceleration = Vector3.Dot(VectorLinearAcceleration, vehicleTransform.forward); // учет направления вектора ускорения 
+        float linearAcceleration = Vector3.Dot(VectorLinearAcceleration, vehicleTransform.forward); // числовое значение ускорения с учетом направления вектора 
         linearAcceleration = Mathf.Lerp(lastLinearAccel, linearAcceleration, 0.01f);
         lastLinearAccel = linearAcceleration;
-
 
         if (linearAcceleration > 0.5f) // изменение угла при ускорении 
         {
@@ -90,49 +90,21 @@ public class CarTelemetryHandler : MonoBehaviour
         {
             targetPitch = Mathf.Clamp(Mathf.Abs(linearAcceleration), 0f, maxPlatformAngle);
         }
-
+         
+        targetPitch += NormalizeAngle(vehicleTransform.localEulerAngles.x); // учет наклона поверхности
         targetPitch = Mathf.Clamp(targetPitch, -maxPlatformAngle, maxPlatformAngle);
             
         currentPitch = Mathf.Lerp(currentPitch, targetPitch, 0.01f);
 
-
         //---------------------------------------------------------------------------
-        // считаем угловое ускорение для Roll [работает неправильно] (возможно нужно просто передавать угол наклона по Z)
-        float targetRoll = 0;
-
-        Vector3 currentAngularVelocity = rb.angularVelocity;
-        Vector3 VectorAngularAcceleration = (currentAngularVelocity - lastAngularVelocity) / Time.deltaTime;
-        lastAngularVelocity = currentAngularVelocity;
-
-        float angularAcceleration = Vector3.Dot(VectorAngularAcceleration, vehicleTransform.right); // учет направления вектора ускорения 
-        Debug.Log($"angularAcceleration = {angularAcceleration}");
-        angularAcceleration = Mathf.Lerp(lastAngularAccel, angularAcceleration, 0.01f);
-        lastAngularAccel = angularAcceleration;
-
-        
-
-        if (angularAcceleration > 0.5f) // изменение угла при ускорении 
-        {
-            targetRoll = -Mathf.Clamp(angularAcceleration, 0f, maxPlatformAngle);
-        }
-        else if (angularAcceleration < -0.5f) // изменение угла при торможении
-        {
-            targetRoll = Mathf.Clamp(Mathf.Abs(angularAcceleration), 0f, maxPlatformAngle);
-        }
-
+        // считаем Roll
+        float targetRoll = NormalizeAngle(vehicleTransform.localEulerAngles.z);
         targetRoll = Mathf.Clamp(targetRoll, -maxPlatformAngle, maxPlatformAngle);
 
-        currentRoll = Mathf.Lerp(currentRoll, targetRoll, 0.01f);
+        currentRoll = Mathf.Lerp(currentRoll, targetRoll, 0.005f);
 
-        Vector3 resultAngles = new Vector3(targetPitch, 0f, 0f); // конечный возврат углов для передачи данных в платформу
+        Vector3 resultAngles = new Vector3(targetPitch, 0f, targetRoll); // конечный возврат углов для передачи данных в платформу
 
         telemetryDataData.Angles = resultAngles;
-    }
-
-
-    private float NormalizeAngle(float angle) // Нормализуем угол в диапазон -180 до 180
-    {
-        angle = angle > 180 ? angle - 360 : angle;
-        return angle;
-    }
+    }    
 }

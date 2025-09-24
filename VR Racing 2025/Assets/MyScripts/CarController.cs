@@ -55,12 +55,9 @@ public class CarController : MonoBehaviour
     {
         Vector3 currentPos = transform.position;
         Vector3 calculatedVelocity = (currentPos - _lastPosition) / Time.deltaTime;
-        _lastPosition = currentPos;
+        _lastPosition = currentPos;   
 
-        //Debug.Log($"telemetryDataData.Velocity = {calculatedVelocity.magnitude * 3.6f}");
-    
-
-    float speed = 0f;
+        float speed = 0f;
 
         if (inputControllerReader.Throttle != 0)
         {
