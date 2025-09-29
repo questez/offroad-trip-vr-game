@@ -7203,7 +7203,7 @@ MonoBehaviour:
     isSteering: 0
   enginePower: 886
   maxSteeringAngle: 30
-  BrakeForce: 1760
+  BrakeForce: 2000
 --- !u!1001 &4371352930867858926
 PrefabInstance:
   m_ObjectHideFlags: 0

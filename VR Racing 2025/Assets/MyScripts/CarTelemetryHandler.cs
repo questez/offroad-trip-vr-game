@@ -13,10 +13,8 @@ public class CarTelemetryHandler : MonoBehaviour
     [SerializeField] private Rigidbody rb;
 
     private Vector3 lastLinearVelocity;
-    private Vector3 lastAngularVelocity;
 
     private float lastLinearAccel;
-    private float lastAngularAccel;
 
     private const float maxPlatformAngle = 10f; // Максимальный угол наклона платформы 2DOF
     private float currentPitch = 0f;
@@ -66,7 +64,8 @@ public class CarTelemetryHandler : MonoBehaviour
 
     private void UpdatePlatformVelocity() // отправка данных о скорости на платформу
     {
-        telemetryDataData.Velocity = rb.linearVelocity;        
+        telemetryDataData.Velocity = rb.linearVelocity;
+        Debug.Log($"rb.linearVelocity = {rb.linearVelocity.magnitude}");
     }
 
     private void UpdatePlatformAngles()
