@@ -65,7 +65,7 @@ public class CarTelemetryHandler : MonoBehaviour
     private void UpdatePlatformVelocity() // отправка данных о скорости на платформу
     {
         telemetryDataData.Velocity = rb.linearVelocity;
-        Debug.Log($"rb.linearVelocity = {rb.linearVelocity.magnitude}");
+        //Debug.Log($"rb.linearVelocity = {rb.linearVelocity.magnitude}");
     }
 
     private void UpdatePlatformAngles()
