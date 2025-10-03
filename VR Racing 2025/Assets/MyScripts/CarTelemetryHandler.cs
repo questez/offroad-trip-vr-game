@@ -1,5 +1,7 @@
-﻿using System.Collections;
-using _2DOF;
+﻿using _2DOF;
+using LogitechG29.Sample.Input;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class CarTelemetryHandler : MonoBehaviour
@@ -9,14 +11,18 @@ public class CarTelemetryHandler : MonoBehaviour
     private ObjectTelemetryData telemetryDataData;
     private SendingData _sendingData;
 
+    [SerializeField] private InputControllerReader inputControllerReader;
+
     [SerializeField] private Transform vehicleTransform;
     [SerializeField] private Rigidbody rb;
+
+    [SerializeField] private TextMeshProUGUI platformInfo;
 
     private Vector3 lastLinearVelocity;
 
     private float lastLinearAccel;
 
-    private const float maxPlatformAngle = 10f; // Максимальный угол наклона платформы 2DOF
+    private const float maxPlatformAngle = 15f; // Максимальный угол наклона платформы 2DOF
     private float currentPitch = 0f;
     private float currentRoll = 0f;
 
@@ -51,12 +57,13 @@ public class CarTelemetryHandler : MonoBehaviour
             UpdatePlatformAngles();
             UpdatePlatformVelocity();
             
+            
             //Debug.Log(telemetryDataData.ToString());
 
             yield return new WaitForSeconds(WAIT_TIME);
         }
     }
-    private float NormalizeAngle(float angle) // Нормализуем угол в диапазон -180 до 180
+    private float NormalizeAngle(float angle) // нормализуем угол в диапазон -180 до 180
     {
         angle = angle > 180 ? angle - 360 : angle;
         return angle;
@@ -83,11 +90,11 @@ public class CarTelemetryHandler : MonoBehaviour
 
         if (linearAcceleration > 0.5f) // изменение угла при ускорении 
         {
-            targetPitch = -Mathf.Clamp(linearAcceleration, 0f, maxPlatformAngle);
+            targetPitch = -Mathf.Clamp(linearAcceleration * 1.5f, 0f, maxPlatformAngle);
         }
         else if (linearAcceleration < -0.8f) // изменение угла при торможении
         {
-            targetPitch = Mathf.Clamp(Mathf.Abs(linearAcceleration), 0f, maxPlatformAngle);
+            targetPitch = Mathf.Clamp(Mathf.Abs(linearAcceleration) * 1.5f, 0f, maxPlatformAngle);
         }
          
         targetPitch += NormalizeAngle(vehicleTransform.localEulerAngles.x); // учет наклона поверхности
@@ -105,5 +112,38 @@ public class CarTelemetryHandler : MonoBehaviour
         Vector3 resultAngles = new Vector3(targetPitch, 0f, targetRoll); // конечный возврат углов для передачи данных в платформу
 
         telemetryDataData.Angles = resultAngles;
+        if (inputControllerReader.RightStickButton)
+        {
+            telemetryDataData.Angles = new Vector3(0f, 0f, -15f);
+            telemetryDataData.Velocity = new Vector3(0f, 0f, -100f);
+        }
+        else if (inputControllerReader.LeftStickButton)
+        {
+            telemetryDataData.Angles = new Vector3(0f, 0f, 15f);
+            telemetryDataData.Velocity = new Vector3(0f, 0f, -100f);
+        }
+        if (inputControllerReader.Plus)
+        {
+            telemetryDataData.Angles = new Vector3(15f, 0f, 0f);
+            telemetryDataData.Velocity = new Vector3(100f, 0f, 0f);
+        }
+        else if (inputControllerReader.Minus)
+        {
+            telemetryDataData.Angles = new Vector3(-15f, 0f, 0f);
+            telemetryDataData.Velocity = new Vector3(100f, 0f, 0f);
+        }
+        if (inputControllerReader.RightBumper)
+        {
+            telemetryDataData.Angles = new Vector3(0f, 15f, 0f);
+            telemetryDataData.Velocity = new Vector3(0f, 100f, 0f);
+        }
+        else if (inputControllerReader.LeftBumper)
+        {
+            telemetryDataData.Angles = new Vector3(0f, -15f, 0f);
+            telemetryDataData.Velocity = new Vector3(0f, -100f, 0f);
+        }
+
+
+        platformInfo.text = "telemetryDataData: " + telemetryDataData.ToString() + "\n" + "Velocity: " + rb.linearVelocity.magnitude;
     }    
 }

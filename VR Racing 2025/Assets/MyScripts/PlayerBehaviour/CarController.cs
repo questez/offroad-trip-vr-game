@@ -1,6 +1,7 @@
 using LogitechG29.Sample.Input;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -24,6 +25,8 @@ public class CarController : MonoBehaviour
     private float MaxSpeed3 = 50f; // максимально допустима€ скорость машины на третьей передаче
     private float MaxSpeed4 = 75f; // максимально допустима€ скорость машины на четвертой передаче
     private float MaxSpeed5 = 100f; // максимально допустима€ скорость машины на п€той передаче
+      
+    [SerializeField] TextMeshProUGUI CurrentShifter;
 
     private bool isReverseGear; // включена ли задн€€ передача
     
@@ -82,7 +85,7 @@ public class CarController : MonoBehaviour
                 info.rightWheel.steerAngle = steering_angle;
                 info.leftWheel.steerAngle = steering_angle;
             }
-            if (info.isMotor) //calculatedVelocity.magnitude * 3.6f <= CurrentMaxSpeed
+            if (info.isMotor)
             {                
                 if (rb.linearVelocity.magnitude <= CurrentMaxSpeed / 3.6f)
                 {
@@ -104,8 +107,8 @@ public class CarController : MonoBehaviour
                 }                
             }            
 
-            info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
-            info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
+            info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
+            info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
         }
     }
 
@@ -113,40 +116,40 @@ public class CarController : MonoBehaviour
     {
         get
         { 
-            if (!inputControllerReader.Shifter6) isReverseGear = false;
+            if (!(inputControllerReader.Shifter6 || inputControllerReader.Shifter7)) isReverseGear = false;
 
             if (inputControllerReader.Shifter1)
             {
-                //Debug.Log("ѕерва€ передача!");
+                CurrentShifter.text = "1 передача!";
                 return MaxSpeed1;
             }
             else if (inputControllerReader.Shifter2)
             {
-                //Debug.Log("¬тора€ передача!");
+                CurrentShifter.text = "2 передача!";
                 return MaxSpeed2;
             }
             else if (inputControllerReader.Shifter3)
             {
-                //Debug.Log("“реть€ передача!");
+                CurrentShifter.text = "3 передача!";
                 return MaxSpeed3;
             }
             else if (inputControllerReader.Shifter4)
             {
-                //Debug.Log("„етверта€ передача!");
+                CurrentShifter.text = "4 передача!";
                 return MaxSpeed4;
             }
             else if (inputControllerReader.Shifter5)
             {
-                //Debug.Log("ѕ€та€ передача!");
+                CurrentShifter.text = "5 передача!";
                 return MaxSpeed5;
             }
-            else if (inputControllerReader.Shifter6)
+            else if (inputControllerReader.Shifter6 || inputControllerReader.Shifter7)
             {
-                //Debug.Log("«адн€€ передача!");
+                CurrentShifter.text = "«адн€€ передача!";
                 isReverseGear = true;
                 return MaxSpeedR;
-            }            
-            //Debug.Log("Ќейтральна€ передача!");
+            }
+            CurrentShifter.text = "Ќейтральна€ передача!";
             return 0;                           
         }
     }

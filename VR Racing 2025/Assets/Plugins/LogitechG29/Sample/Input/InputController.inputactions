@@ -224,6 +224,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9e116362-6278-43e0-91bf-fd8cfe08d71e",
+                    "path": "<Keyboard>/leftBracket",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Bumper",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6fcd4a03-0374-4139-85ff-3f8a7c68824b",
                     "path": "<Logitech G29 Racing Wheel>/leftShiftButton",
                     "interactions": "",
@@ -240,6 +251,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Logitech G29",
+                    "action": "Left Stick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0da87d7a-028b-4aaa-9bef-da2db66634e7",
+                    "path": "<Keyboard>/minus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Left Stick",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -279,6 +301,17 @@
                 },
                 {
                     "name": "",
+                    "id": "0dc79ef1-2d38-43d3-8db3-b4bf94dde794",
+                    "path": "<Keyboard>/rightBracket",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Bumper",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cf8c79ef-8c04-4567-8a69-3d3a772aa783",
                     "path": "<Logitech G29 Racing Wheel>/rightStickButton",
                     "interactions": "",
@@ -290,11 +323,33 @@
                 },
                 {
                     "name": "",
+                    "id": "8651732f-8f1f-4336-bb95-f1d8ddd902e7",
+                    "path": "<Keyboard>/equals",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Stick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9071e17d-326b-45ac-9e1b-8863dbdf5280",
                     "path": "<Logitech G29 Racing Wheel>/minusButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Logitech G29",
+                    "action": "Minus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2faa40c-49d1-47b0-9622-6194026e5369",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Minus",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -328,6 +383,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Logitech G29",
+                    "action": "Plus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e7164f9-43fa-437c-af3b-5c3f2be713df",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Plus",
                     "isComposite": false,
                     "isPartOfComposite": false
