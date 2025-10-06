@@ -13,13 +13,12 @@ public class CarTelemetryHandler : MonoBehaviour
 
     [SerializeField] private InputControllerReader inputControllerReader;
 
-    [SerializeField] private Transform vehicleTransform;
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private TextMeshProUGUI platformDebug;
 
-    [SerializeField] private TextMeshProUGUI platformInfo;
+    [SerializeField] private Transform vehicleTransform;
+    [SerializeField] private Rigidbody rb;    
 
     private Vector3 lastLinearVelocity;
-
     private float lastLinearAccel;
 
     private const float maxPlatformAngle = 15f; // Максимальный угол наклона платформы 2DOF
@@ -56,9 +55,10 @@ public class CarTelemetryHandler : MonoBehaviour
             }
             UpdatePlatformAngles();
             UpdatePlatformVelocity();
-            
-            
+
+
             //Debug.Log(telemetryDataData.ToString());
+            platformDebug.text = "telemetryDataData: " + telemetryDataData.ToString();
 
             yield return new WaitForSeconds(WAIT_TIME);
         }
@@ -142,8 +142,5 @@ public class CarTelemetryHandler : MonoBehaviour
             telemetryDataData.Angles = new Vector3(0f, -15f, 0f);
             telemetryDataData.Velocity = new Vector3(0f, -100f, 0f);
         }
-
-
-        platformInfo.text = "telemetryDataData: " + telemetryDataData.ToString() + "\n" + "Velocity: " + rb.linearVelocity.magnitude;
     }    
 }

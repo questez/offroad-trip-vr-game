@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    private Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
 
     [SerializeField] private InputControllerReader inputControllerReader;
 
@@ -24,9 +24,10 @@ public class CarController : MonoBehaviour
     private float MaxSpeed2 = 35f; // максимально допустимая скорость машины на второй передаче
     private float MaxSpeed3 = 50f; // максимально допустимая скорость машины на третьей передаче
     private float MaxSpeed4 = 75f; // максимально допустимая скорость машины на четвертой передаче
-    private float MaxSpeed5 = 100f; // максимально допустимая скорость машины на пятой передаче
-      
-    [SerializeField] TextMeshProUGUI CurrentShifter;
+    private float MaxSpeed5 = 100f; // максимально допустимая скорость машины на пятой передаче      
+    
+
+    [NonSerialized] public static char current_shifter;
 
     private bool isReverseGear; // включена ли задняя передача
     
@@ -34,7 +35,7 @@ public class CarController : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        current_shifter = 'N';
         EngineIsRunning = false;
     }
 
@@ -51,11 +52,8 @@ public class CarController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {        
-        if (EngineIsRunning)
-        {
-            UpdateWheelState();
-        }
+    {     
+        UpdateWheelState();
     }
 
     private void UpdateWheelState() // поведение колес и повороты рулем
@@ -87,7 +85,7 @@ public class CarController : MonoBehaviour
             }
             if (info.isMotor)
             {                
-                if (rb.linearVelocity.magnitude <= CurrentMaxSpeed / 3.6f)
+                if (rb.linearVelocity.magnitude <= CurrentMaxSpeed / 3.6f && EngineIsRunning)
                 {
                     if (!isReverseGear)
                     {
@@ -120,36 +118,36 @@ public class CarController : MonoBehaviour
 
             if (inputControllerReader.Shifter1)
             {
-                CurrentShifter.text = "1 передача!";
+                current_shifter = '1';
                 return MaxSpeed1;
             }
             else if (inputControllerReader.Shifter2)
             {
-                CurrentShifter.text = "2 передача!";
+                current_shifter = '2';
                 return MaxSpeed2;
             }
             else if (inputControllerReader.Shifter3)
             {
-                CurrentShifter.text = "3 передача!";
+                current_shifter = '3';
                 return MaxSpeed3;
             }
             else if (inputControllerReader.Shifter4)
             {
-                CurrentShifter.text = "4 передача!";
+                current_shifter = '4';
                 return MaxSpeed4;
             }
             else if (inputControllerReader.Shifter5)
             {
-                CurrentShifter.text = "5 передача!";
+                current_shifter = '5';
                 return MaxSpeed5;
             }
             else if (inputControllerReader.Shifter6 || inputControllerReader.Shifter7)
             {
-                CurrentShifter.text = "Задняя передача!";
                 isReverseGear = true;
+                current_shifter = 'R';
                 return MaxSpeedR;
             }
-            CurrentShifter.text = "Нейтральная передача!";
+            current_shifter = 'N';
             return 0;                           
         }
     }
