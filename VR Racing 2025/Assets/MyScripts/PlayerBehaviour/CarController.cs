@@ -85,7 +85,7 @@ public class CarController : MonoBehaviour
             }
             if (info.isMotor)
             {                
-                if (rb.linearVelocity.magnitude <= CurrentMaxSpeed / 3.6f && EngineIsRunning)
+                if ((rb.linearVelocity.magnitude <= CurrentMaxSpeed / 3.6f) && EngineIsRunning)
                 {
                     if (!isReverseGear)
                     {
@@ -103,10 +103,12 @@ public class CarController : MonoBehaviour
                     info.rightWheel.motorTorque = 0;
                     info.leftWheel.motorTorque = 0;
                 }                
-            }            
+            }
 
-            info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
-            info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
+            //info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
+            //info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
+            info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
+            info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;            
         }
     }
 

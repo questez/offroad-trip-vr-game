@@ -7224,7 +7224,7 @@ MonoBehaviour:
     isSteering: 0
   enginePower: 1100
   maxSteeringAngle: 30
-  BrakeForce: 2500
+  BrakeForce: 4000
 --- !u!1 &1118337006900523045
 GameObject:
   m_ObjectHideFlags: 0
