@@ -7222,9 +7222,9 @@ MonoBehaviour:
     rightWheel: {fileID: 3860699036559917258}
     isMotor: 1
     isSteering: 0
-  enginePower: 1100
+  enginePower: 1200
   maxSteeringAngle: 30
-  BrakeForce: 4000
+  BrakeForce: 12500
 --- !u!1 &1118337006900523045
 GameObject:
   m_ObjectHideFlags: 0
