@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 284.80005
     height: 558.4
-  m_MinSize: {x: 52, y: 76}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 50, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 7034
+  controlID: 50
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -218,8 +218,8 @@ MonoBehaviour:
     y: 0
     width: 237.6
     height: 812.8
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -297,8 +297,8 @@ MonoBehaviour:
     y: 558.4
     width: 855.2001
     height: 254.39996
-  m_MinSize: {x: 52, y: 76}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 50, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
@@ -475,21 +475,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 00d9e1ff76d9e1ff86d8ffffd2faffffa8c0000092d0000004d1000006d3000054d50000cad60000
+      m_ExpandedIDs: d2faffff00c60000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Cargo1
-        m_OriginalName: Cargo1
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -1976064
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 9}
@@ -1051,9 +1051,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 25.632969, y: -1.2955959, z: 18.982687}
+    m_Target: {x: 15.62016, y: -13.502882, z: -50.751442}
     speed: 2
-    m_Value: {x: 25.632969, y: -1.2955959, z: 18.982687}
+    m_Value: {x: 15.62016, y: -13.502882, z: -50.751442}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1099,13 +1099,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.041527156, y: -0.29516986, z: 0.014128276, w: -0.95556545}
+    m_Target: {x: 0.40655887, y: 0.002641877, z: -0.005003887, w: 0.9148208}
     speed: 2
-    m_Value: {x: -0.042662065, y: -0.2925436, z: 0.014365923, w: -0.955192}
+    m_Value: {x: 0.4061085, y: 0.0026389502, z: -0.004998344, w: 0.9138074}
   m_Size:
     m_Target: 12.124356
     speed: 2
-    m_Value: 12.124357
+    m_Value: 12.124356
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1219,7 +1219,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/MyScripts/MissionsWork
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1227,18 +1227,18 @@ MonoBehaviour:
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
-  m_StartGridSize: 60
+  m_StartGridSize: 16
   m_LastFolders:
-  - Assets
-  m_LastFoldersGridSize: 60
+  - Assets/MyScripts/MissionsWork
+  m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\IVAN\UnityPROJECTS\VR-RACING-2025\VR Racing 2025
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: faf10000
-    m_LastClickedID: 61946
-    m_ExpandedIDs: 00000000faf1000032f3000034f3000036f3000040f3000044f3000098f3000060f5000062f50000def70000e2f70000eaf70000f2f7000000ca9a3bffffff7f
+    m_SelectedIDs: aef30000
+    m_LastClickedID: 62382
+    m_ExpandedIDs: 0000000008f200004cf3000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1267,7 +1267,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000faf10000
+    m_ExpandedIDs: 0000000008f20000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1293,24 +1293,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f844ffff
-    m_LastClickedInstanceID: -47880
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 588dffff
+    m_LastClickedInstanceID: -29352
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000fcae0000a0c800008cb00000bcb700000cb50000f2fa0100f0fa01001c2d01003644020020bc0000ca24010064290100c82701004417010054170100ace60000a219010044bb00004abb0000d6ce00007ec00000c6cd0000e0ce00009805010036e6010052e601009c380200d43a0200d07b020048c90000f0c8000028c900005cc9000028f9000020e6000010c600001408010094150100541a0100465601001c5701004ccc00008c5c0100f0610100ee6301005ecc000050cc0000a0cb000010080100a6cb0000c04a0100f8530100fa53010054cd0000c0bc00000ecc000078ef000020c50000b4cc000028e0000040e000001ce000007c30010078300100fc880100a6d2000082ce000024b4000000000000cc8d0100a82b02002eff0000fa370100c6f4000074dd0000b4b900008c21010014e2000074f90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: CarController
-      m_OriginalName: CarController
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 40830
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 12}
@@ -1322,7 +1322,7 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 60
+    m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 152.2
 --- !u!114 &19

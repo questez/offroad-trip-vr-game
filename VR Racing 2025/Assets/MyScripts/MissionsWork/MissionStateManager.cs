@@ -13,13 +13,14 @@ public class MissionStateManager : MonoBehaviour
 
     [SerializeField] private Transform spawnPoint;
 
-    private List<GameObject> Buffer;
+    private List<GameObject> spawnedCargos = new List<GameObject>();
 
-    public static char CurrentMission;    
+    public static char CurrentMission;
 
     private void Start()
     {
-        CurrentMission = '0';                
+        CurrentMission = '0';
+        DestroyCargos();
     }
 
 
@@ -34,13 +35,19 @@ public class MissionStateManager : MonoBehaviour
                 {
                     if (other.gameObject.name == "LoadingPlatform1")
                     {
-                        Instantiate(Barrel, spawnPoint.position, Quaternion.Euler(0f, 0f, 90f));
-                        Instantiate(Barrel, new Vector3(spawnPoint.position.x + 0.7f, spawnPoint.position.y, spawnPoint.position.z), Quaternion.Euler(0f, 0f, 90f));
-                        Instantiate(Barrel, new Vector3(spawnPoint.position.x - 0.7f, spawnPoint.position.y, spawnPoint.position.z), Quaternion.Euler(0f, 0f, 90f));
+                        // неправильный поворот при спавне
+                        Quaternion spawnrotation = Quaternion.Euler(0, 0, 90f) * spawnPoint.rotation;
+                        GameObject barrel1 = Instantiate(Barrel, spawnPoint.position, spawnrotation);
+                        GameObject barrel2 = Instantiate(Barrel, new Vector3(spawnPoint.position.x + 0.7f, spawnPoint.position.y, spawnPoint.position.z), spawnrotation);
+                        GameObject barrel3 = Instantiate(Barrel, new Vector3(spawnPoint.position.x - 0.7f, spawnPoint.position.y, spawnPoint.position.z), spawnrotation);
+
+                        spawnedCargos.Add(barrel1);
+                        spawnedCargos.Add(barrel2);
+                        spawnedCargos.Add(barrel3);
 
                         CurrentMission = '1';
                     }
-                    else if (other.gameObject.name == "LoadingPlatform2")
+                    else if (other.gameObject.name == "LoadingPlatfыorm2")
                     {                                                   
                         CurrentMission = '2';
                     }
@@ -65,7 +72,8 @@ public class MissionStateManager : MonoBehaviour
                 {
                     if (CurrentMission == '1' && other.gameObject.name == "DeliveryPlatform1")
                     {
-                        ;
+                        DestroyCargos();
+                        CurrentMission = '0';
                     }
                     Debug.Log("Завершена миссия " + CurrentMission);
                 }
@@ -73,12 +81,24 @@ public class MissionStateManager : MonoBehaviour
         }
     }
 
-
+    private void DestroyCargos()
+    {
+        if (spawnedCargos != null)
+        {
+            foreach (var c in spawnedCargos)
+            {
+                if (c != null)
+                {
+                    Destroy(c);
+                }
+            }            
+        }
+        spawnedCargos.Clear();
+    }
 
     private void OnTriggerStay(Collider other)
     {
         CheckLoading(other);
         CheckDelivery(other);
     }
-
 }
