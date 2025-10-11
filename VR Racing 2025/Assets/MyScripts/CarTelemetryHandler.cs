@@ -55,6 +55,7 @@ public class CarTelemetryHandler : MonoBehaviour
             }
             UpdatePlatformAngles();
             UpdatePlatformVelocity();
+            CheckPlatformState();
 
 
             //Debug.Log(telemetryDataData.ToString());
@@ -111,7 +112,11 @@ public class CarTelemetryHandler : MonoBehaviour
 
         Vector3 resultAngles = new Vector3(targetPitch, 0f, targetRoll); // конечный возврат углов для передачи данных в платформу
 
-        telemetryDataData.Angles = resultAngles;
+        telemetryDataData.Angles = resultAngles;        
+    }
+    
+    private void CheckPlatformState()
+    {
         if (inputControllerReader.RightStickButton)
         {
             telemetryDataData.Angles = new Vector3(0f, 0f, -15f);
@@ -142,5 +147,5 @@ public class CarTelemetryHandler : MonoBehaviour
             telemetryDataData.Angles = new Vector3(0f, -15f, 0f);
             telemetryDataData.Velocity = new Vector3(0f, -100f, 0f);
         }
-    }    
+    }
 }

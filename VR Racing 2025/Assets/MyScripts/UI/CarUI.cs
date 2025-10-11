@@ -1,12 +1,9 @@
 using TMPro;
 using UnityEngine;
-using _2DOF;
 
 
 public class CarUI : MonoBehaviour
 {
-    private ObjectTelemetryData telemetryDataData;
-
     [SerializeField] private Rigidbody rb;
 
     [SerializeField] private TextMeshProUGUI currentShifter;

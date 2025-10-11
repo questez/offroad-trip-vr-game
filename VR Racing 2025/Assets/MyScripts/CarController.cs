@@ -1,7 +1,6 @@
 using LogitechG29.Sample.Input;
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
