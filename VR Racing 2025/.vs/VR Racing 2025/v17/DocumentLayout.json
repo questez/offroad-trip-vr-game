@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
               "ToolTip": "D:\\IVAN\\UnityPROJECTS\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
               "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADEAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwC0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-11T12:29:31.894Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "Assets\\MyScripts\\CarTelemetryHandler.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAvwDkAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T18:44:58.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T18:44:58.02Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "Assets\\MyScripts\\CarController.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAkwAkAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T13:13:34.474Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-11T13:13:34.474Z"
             }
           ]
         }

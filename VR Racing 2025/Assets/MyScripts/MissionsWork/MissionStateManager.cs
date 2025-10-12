@@ -35,19 +35,30 @@ public class MissionStateManager : MonoBehaviour
                 {
                     if (other.gameObject.name == "LoadingPlatform1")
                     {
-                        // неправильный поворот при спавне
-                        Quaternion spawnrotation = Quaternion.Euler(0, 0, 90f) * spawnPoint.rotation;
-                        GameObject barrel1 = Instantiate(Barrel, spawnPoint.position, spawnrotation);
-                        GameObject barrel2 = Instantiate(Barrel, new Vector3(spawnPoint.position.x + 0.7f, spawnPoint.position.y, spawnPoint.position.z), spawnrotation);
-                        GameObject barrel3 = Instantiate(Barrel, new Vector3(spawnPoint.position.x - 0.7f, spawnPoint.position.y, spawnPoint.position.z), spawnrotation);
+                        // Смещения относительно spawnPoint (кузова)
+                        Vector3[] localOffsets =
+                        {
+                            new Vector3(0f, 0f, 0f),
+                            new Vector3(0f, 0f, 0.7f),
+                            new Vector3(0f, 0f, -0.7f)
+                        };
 
-                        spawnedCargos.Add(barrel1);
-                        spawnedCargos.Add(barrel2);
-                        spawnedCargos.Add(barrel3);
+                        // Мировая позиция кузова
+                        Vector3 basePos = spawnPoint.position;
+
+                        foreach (var offset in localOffsets)
+                        {
+                            // Переводим локальные смещения в мировые координаты без вращения родителя
+                            Vector3 worldPos = spawnPoint.TransformPoint(offset);
+                            Quaternion worldRot = Quaternion.Euler(90f, spawnPoint.rotation.eulerAngles.y, 0f);
+
+                            GameObject barrel = Instantiate(Barrel, worldPos, worldRot);
+                            spawnedCargos.Add(barrel);
+                        }
 
                         CurrentMission = '1';
                     }
-                    else if (other.gameObject.name == "LoadingPlatfыorm2")
+                    else if (other.gameObject.name == "LoadingPlatform2")
                     {                                                   
                         CurrentMission = '2';
                     }
