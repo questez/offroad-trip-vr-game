@@ -1,11 +1,17 @@
 using LogitechG29.Sample.Input;
 using System.Collections.Generic;
-using System.Linq;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class MissionStateManager : MonoBehaviour
 {
     [SerializeField] private InputControllerReader inputControllerReader;
+
+    [SerializeField] private GameObject LoadingCarScreen;
+    [SerializeField] private Slider slider1;
+    [SerializeField] private GameObject DeliveryCarScreen;
+    [SerializeField] private Slider slider2;
+    
 
     [SerializeField] private GameObject Barrel;
     [SerializeField] private GameObject Plank;
@@ -18,10 +24,50 @@ public class MissionStateManager : MonoBehaviour
 
     public static char CurrentMission;
 
+    private float North_button_hold_timer;
+
     private void Start()
     {
+        North_button_hold_timer = 0f;
+        if (DeliveryCarScreen != null && LoadingCarScreen)
+        { 
+            DeliveryCarScreen.SetActive(false);
+            LoadingCarScreen.SetActive(false);
+        }        
         CurrentMission = '0';
         DestroyCargos();
+    }
+
+    private void OnLoadingCarScreen()
+    {
+        LoadingCarScreen.SetActive(true);
+        North_button_hold_timer += Time.deltaTime;
+        slider1.value = Mathf.Lerp(0, North_button_hold_timer, 0.25f);
+        Debug.Log("ћетод OnLoadingCarScreen выполн€етс€!");
+    }
+
+    private void OffLoadingCarScreen()
+    {
+        North_button_hold_timer = 0;
+        slider1.value = 0;
+        LoadingCarScreen.SetActive(false);
+        Debug.Log("ћетод OffLoadingCarScreen выполн€етс€!");
+    }
+
+    private void OnDeliveryCarScreen()
+    {
+        DeliveryCarScreen.SetActive(true);
+        North_button_hold_timer += Time.deltaTime;
+        slider2.value = Mathf.Lerp(0, North_button_hold_timer, 0.25f);
+        Debug.Log("ћетод OnDeliveryCarScreen выполн€етс€!");
+    }
+
+    private void OffDeliveryCarScreen()
+    {
+        North_button_hold_timer = 0;
+        slider2.value = 0;
+        DeliveryCarScreen.SetActive(false);
+        Debug.Log("ћетод OffDeliveryCarScreen выполн€етс€!");
     }
 
     private void CheckLoading(Collider other)
@@ -32,32 +78,35 @@ public class MissionStateManager : MonoBehaviour
             {
                 if (inputControllerReader.NorthButton)
                 {
-                    if (other.gameObject.name.Contains('1'))
-                    {
-                        // —мещени€ относительно spawnPoint (кузова)
-                        Vector3[] localOffsets =
+                    OnLoadingCarScreen();
+                    if (slider1.value == 5f)
+                    {                        
+                        if (other.gameObject.name.Contains('1'))
                         {
+                            // —мещени€ относительно spawnPoint (кузова)
+                            Vector3[] localOffsets =
+                            {
                             new Vector3(0f, 0f, 0f),
                             new Vector3(0f, 0f, 0.7f),
                             new Vector3(0f, 0f, -0.7f)
                         };
 
-                        foreach (var offset in localOffsets)
-                        {
-                            // ѕереводим локальные смещени€ в мировые координаты без вращени€ родител€
-                            Vector3 worldPos = spawnPoint.TransformPoint(offset);
-                            Quaternion worldRot = Quaternion.Euler(90f, spawnPoint.eulerAngles.y, 0f);                            
-                            GameObject barrel = Instantiate(Barrel, worldPos, worldRot);
-                            spawnedCargos.Add(barrel);
-                        }
+                            foreach (var offset in localOffsets)
+                            {
+                                // ѕереводим локальные смещени€ в мировые координаты без вращени€ родител€
+                                Vector3 worldPos = spawnPoint.TransformPoint(offset);
+                                Quaternion worldRot = Quaternion.Euler(90f, spawnPoint.eulerAngles.y, 0f);
+                                GameObject barrel = Instantiate(Barrel, worldPos, worldRot);
+                                spawnedCargos.Add(barrel);
+                            }
 
-                        CurrentMission = '1';
-                    }
-                    else if (other.gameObject.name.Contains('2'))
-                    {
-                        // —мещени€ относительно spawnPoint (кузова)
-                        Vector3[] localOffsets =
+                            CurrentMission = '1';
+                        }
+                        else if (other.gameObject.name.Contains('2'))
                         {
+                            // —мещени€ относительно spawnPoint (кузова)
+                            Vector3[] localOffsets =
+                            {
                             new Vector3(0f, 0.3f, 0f),
                             new Vector3(0.2f, 0.3f, 0f),
                             new Vector3(-0.2f, 0.3f, 0f),
@@ -68,51 +117,54 @@ public class MissionStateManager : MonoBehaviour
                             new Vector3(0f, 0.5f, 0f)
                         };
 
-                        foreach (var offset in localOffsets)
-                        {
-                            // ѕереводим локальные смещени€ в мировые координаты без вращени€ родител€
-                            Vector3 worldPos = spawnPoint.TransformPoint(offset);
-                            Quaternion worldRot = Quaternion.Euler(0f, spawnPoint.eulerAngles.y, 0f);
-                            GameObject plank = Instantiate(Plank, worldPos, worldRot);
-                            spawnedCargos.Add(plank);
+                            foreach (var offset in localOffsets)
+                            {
+                                // ѕереводим локальные смещени€ в мировые координаты без вращени€ родител€
+                                Vector3 worldPos = spawnPoint.TransformPoint(offset);
+                                Quaternion worldRot = Quaternion.Euler(0f, spawnPoint.eulerAngles.y, 0f);
+                                GameObject plank = Instantiate(Plank, worldPos, worldRot);
+                                spawnedCargos.Add(plank);
+                            }
+                            CurrentMission = '2';
                         }
-                        CurrentMission = '2';
-                    }
-                    else
-                    {
-                        // —мещени€ относительно spawnPoint (кузова)
-                        Vector3[] localOffsetsForBox =
+                        else
                         {
+                            // —мещени€ относительно spawnPoint (кузова)
+                            Vector3[] localOffsetsForBox =
+                            {
                             new Vector3(0.4f, 0f, 1f),
-                            new Vector3(-0.4f, 0f, 1f),                            
+                            new Vector3(-0.4f, 0f, 1f),
                             new Vector3(0f, 0f, 0.4f)
                         };
-                        Vector3[] localOffsetsForChest =
-                        {
+                            Vector3[] localOffsetsForChest =
+                            {
                             new Vector3(0.28f, 0f, -0.5f),
                             new Vector3(-0.28f, 0f, -0.5f)
                         };
 
-                        foreach (var offset in localOffsetsForBox)
-                        {
-                            // ѕереводим локальные смещени€ в мировые координаты без вращени€ родител€
-                            Vector3 worldPos = spawnPoint.TransformPoint(offset);
-                            Quaternion worldRot = Quaternion.Euler(0f, spawnPoint.eulerAngles.y, 0f);
-                            GameObject box = Instantiate(Box, worldPos, worldRot);
-                            spawnedCargos.Add(box);
+                            foreach (var offset in localOffsetsForBox)
+                            {
+                                // ѕереводим локальные смещени€ в мировые координаты без вращени€ родител€
+                                Vector3 worldPos = spawnPoint.TransformPoint(offset);
+                                Quaternion worldRot = Quaternion.Euler(0f, spawnPoint.eulerAngles.y, 0f);
+                                GameObject box = Instantiate(Box, worldPos, worldRot);
+                                spawnedCargos.Add(box);
+                            }
+                            foreach (var offset in localOffsetsForChest)
+                            {
+                                // ѕереводим локальные смещени€ в мировые координаты без вращени€ родител€
+                                Vector3 worldPos = spawnPoint.TransformPoint(offset);
+                                Quaternion worldRot = Quaternion.Euler(0f, spawnPoint.eulerAngles.y - 90f, 0f);
+                                GameObject chest = Instantiate(Chest, worldPos, worldRot);
+                                spawnedCargos.Add(chest);
+                            }
+                            CurrentMission = '3';
                         }
-                        foreach (var offset in localOffsetsForChest)
-                        {
-                            // ѕереводим локальные смещени€ в мировые координаты без вращени€ родител€
-                            Vector3 worldPos = spawnPoint.TransformPoint(offset);
-                            Quaternion worldRot = Quaternion.Euler(0f, spawnPoint.eulerAngles.y - 90f, 0f);
-                            GameObject chest = Instantiate(Chest, worldPos, worldRot);
-                            spawnedCargos.Add(chest);
-                        }
-                        CurrentMission = '3';                        
-                    }                   
+                        OffLoadingCarScreen();
+                        Debug.Log("Ќачата мисси€ " + CurrentMission);
+                    }                                      
 
-                    Debug.Log("Ќачата мисси€ " + CurrentMission);
+                    
                 }
             }
         }
@@ -126,25 +178,29 @@ public class MissionStateManager : MonoBehaviour
             {
                 if (inputControllerReader.NorthButton)
                 {
-                    if (CurrentMission == '1' && other.gameObject.name.Contains('1'))
-                    {
-                        Debug.Log("«авершена мисси€ " + CurrentMission);
-                        DestroyCargos();
-                        CurrentMission = '0';
+                    OnDeliveryCarScreen();
+                    if (slider2.value == 5f)
+                    {                        
+                        if (CurrentMission == '1' && other.gameObject.name.Contains('1'))
+                        {
+                            Debug.Log("«авершена мисси€ " + CurrentMission);
+                            DestroyCargos();
+                            CurrentMission = '0';
+                        }
+                        else if (CurrentMission == '2' && other.gameObject.name.Contains('2'))
+                        {
+                            Debug.Log("«авершена мисси€ " + CurrentMission);
+                            DestroyCargos();
+                            CurrentMission = '0';
+                        }
+                        else if (CurrentMission == '3' && other.gameObject.name.Contains('3'))
+                        {
+                            Debug.Log("«авершена мисси€ " + CurrentMission);
+                            DestroyCargos();
+                            CurrentMission = '0';
+                        }
+                        OffDeliveryCarScreen();
                     }
-                    else if (CurrentMission == '2' && other.gameObject.name.Contains('2'))
-                    {
-                        Debug.Log("«авершена мисси€ " + CurrentMission);
-                        DestroyCargos();
-                        CurrentMission = '0';
-                    }
-                    else if (CurrentMission == '3' && other.gameObject.name.Contains('3'))
-                    {
-                        Debug.Log("«авершена мисси€ " + CurrentMission);
-                        DestroyCargos();
-                        CurrentMission = '0';
-                    }
-
                 }
             }                
         }
@@ -163,11 +219,30 @@ public class MissionStateManager : MonoBehaviour
             }            
         }
         spawnedCargos.Clear();
-    }
+    }   
+
 
     private void OnTriggerStay(Collider other)
     {
         CheckLoading(other);
         CheckDelivery(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (CurrentMission == '0')
+        {            
+            if (other.gameObject.CompareTag("LoadingPlace"))
+            {
+                OffLoadingCarScreen();
+            }
+        }
+        else
+        {
+            if (other.gameObject.CompareTag("DeliveryPlace"))
+            {
+                OffDeliveryCarScreen();
+            }            
+        }
     }
 }

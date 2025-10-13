@@ -2,19 +2,19 @@ using TMPro;
 using UnityEngine;
 
 
+
 public class CarUI : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
 
     [SerializeField] private TextMeshProUGUI currentShifter;
-    [SerializeField] private TextMeshProUGUI currentSpeed;   
-    
+    [SerializeField] private TextMeshProUGUI currentSpeed;
+
 
     private void Update()
     {
         UpdateBoardInfo();               
     }
-
 
     private void UpdateBoardInfo()
     {
@@ -26,5 +26,4 @@ public class CarUI : MonoBehaviour
             currentSpeed.text = speed.ToString() + " κμ/χ";
         }        
     }
-
 }
