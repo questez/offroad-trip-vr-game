@@ -6639,10 +6639,9 @@ GameObject:
   - component: {fileID: 2777152699443076368}
   - component: {fileID: 4867028163572588915}
   - component: {fileID: 8395338449693131403}
-  - component: {fileID: 7247869317526082956}
   m_Layer: 0
   m_Name: Body2
-  m_TagString: Trunk
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6782,27 +6781,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9610698, y: 0.1760883, z: 2.587815}
   m_Center: {x: -0.00000005960464, y: -0.27297622, z: -1.3551915}
---- !u!65 &7247869317526082956
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978888623974520}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.9610698, y: 1.520128, z: 2.587815}
-  m_Center: {x: -0.00000005960464, y: 0.39904356, z: -1.3551915}
 --- !u!1 &1987816528987982
 GameObject:
   m_ObjectHideFlags: 0
@@ -7226,7 +7204,7 @@ MonoBehaviour:
     isSteering: 0
   enginePower: 1200
   maxSteeringAngle: 30
-  BrakeForce: 12500
+  BrakeForce: 15000
 --- !u!114 &7885747756135816397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7241,8 +7219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputControllerReader: {fileID: 11400000, guid: 8268bb9eff5a1954492cd4817fb37528, type: 2}
   Barrel: {fileID: 1074428586455079027, guid: d3edce70a8fc5bf439a4baed196ba427, type: 3}
+  Plank: {fileID: 481893572996699409, guid: 6a4c8f4dced1e5a4fa60caab0a708ca0, type: 3}
   Box: {fileID: 5052173253573610260, guid: bfa1308cc2dd692479b5e18a2d9b6564, type: 3}
-  Plank: {fileID: 0}
   Chest: {fileID: 9182821020012449371, guid: 4962eca7bc0101b4296b846e7d3c1849, type: 3}
   spawnPoint: {fileID: 4259697338157381363}
 --- !u!1 &1118337006900523045

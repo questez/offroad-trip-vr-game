@@ -8,7 +8,6 @@ TagManager:
   - LoadingPlace
   - DeliveryPlace
   - Cargo
-  - Trunk
   layers:
   - Default
   - TransparentFX
