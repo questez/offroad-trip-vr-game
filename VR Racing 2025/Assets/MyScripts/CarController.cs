@@ -32,6 +32,8 @@ public class CarController : MonoBehaviour
     
     private bool EngineIsRunning; // запущен ли двигатель
 
+    private bool InMud; // едет ли машина по гр€зи
+
     private void Start()
     {
         current_shifter = 'N';
@@ -40,13 +42,11 @@ public class CarController : MonoBehaviour
 
     private void OnEnable()
     {
-        inputControllerReader.OnHomeCallback += HandleOnHomeCallback;
         inputControllerReader.OnSouthButtonCallback += HandleOnSouthCallback;
     }
 
     private void OnDisable()
     {
-        inputControllerReader.OnHomeCallback -= HandleOnHomeCallback;
         inputControllerReader.OnSouthButtonCallback -= HandleOnSouthCallback;
     }
 
@@ -76,6 +76,7 @@ public class CarController : MonoBehaviour
 
         foreach (var info in axleInfos)
         {
+            CheckWheelCollision(info);
             if (info.isSteering)
             {
                 steeringWheelTransform.localRotation = Quaternion.Euler(24f, 0, -steering_angle * 3.5f); // поворот рул€ при повороте колес
@@ -108,6 +109,65 @@ public class CarController : MonoBehaviour
             //info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
             info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
             info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;            
+        }
+    }
+
+    private void CheckWheelCollision(AxleInfo info)
+    {
+        WheelHit hitLeft, hitRight;        
+        bool leftGrounded = info.leftWheel.GetGroundHit(out hitLeft);
+        bool rightGrounded = info.rightWheel.GetGroundHit(out hitRight);
+        
+        if (leftGrounded && hitLeft.collider.gameObject.layer == LayerMask.NameToLayer("Water") ||
+                rightGrounded && hitRight.collider.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            if (rb.linearVelocity.magnitude * 3.6f > 15f)
+            {
+                info.leftWheel.wheelDampingRate = 55f;
+                info.rightWheel.wheelDampingRate = 55f;
+            }
+            else
+            {
+                info.leftWheel.wheelDampingRate = 1f;
+                info.rightWheel.wheelDampingRate = 1f;
+            }
+            var leftFriction = info.leftWheel.forwardFriction;
+            var rightFriction = info.rightWheel.forwardFriction;
+
+            leftFriction.extremumSlip = 25f;
+            rightFriction.extremumSlip = 25f;
+
+            info.leftWheel.forwardFriction = leftFriction;
+            info.rightWheel.forwardFriction = rightFriction;
+            Debug.Log("«аехал в лужу!!");
+        }
+
+        if (leftGrounded && InMud || rightGrounded && InMud)
+        {
+            var leftFriction = info.leftWheel.forwardFriction;
+            var rightFriction = info.rightWheel.forwardFriction;
+
+            leftFriction.extremumSlip = 7f;
+            rightFriction.extremumSlip = 7f;
+
+            info.leftWheel.forwardFriction = leftFriction;
+            info.rightWheel.forwardFriction = rightFriction;
+            Debug.Log("≈дет по гр€зи!!");
+        }
+
+        else
+        {
+            info.leftWheel.wheelDampingRate = 1f;
+            info.rightWheel.wheelDampingRate = 1f;
+
+            var leftFriction = info.leftWheel.forwardFriction;
+            var rightFriction = info.rightWheel.forwardFriction;
+
+            leftFriction.extremumSlip = 0.4f;
+            rightFriction.extremumSlip = 0.4f;
+
+            info.leftWheel.forwardFriction = leftFriction;
+            info.rightWheel.forwardFriction = rightFriction;
         }
     }
 
@@ -153,20 +213,6 @@ public class CarController : MonoBehaviour
         }
     }
 
-
-
-    private void HandleOnHomeCallback(bool value)
-    {
-        if (value)
-        {
-            // ¬ыполните действие при нажатии кнопки Home
-        }
-        else
-        {
-            // ¬ыполните действие при отпускании кнопки Home
-        }
-    }
-
     private void HandleOnSouthCallback(bool value)
     {
         if (value)
@@ -184,5 +230,15 @@ public class CarController : MonoBehaviour
         public WheelCollider rightWheel;
         public bool isMotor; // это колесо прикреплено к мотору?
         public bool isSteering; // может ли это колесо поворачивать?
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Mud")) InMud = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Mud")) InMud = false;
     }
 }

@@ -8,6 +8,8 @@ TagManager:
   - LoadingPlace
   - DeliveryPlace
   - Cargo
+  - Mud
+  - Wheel
   layers:
   - Default
   - TransparentFX

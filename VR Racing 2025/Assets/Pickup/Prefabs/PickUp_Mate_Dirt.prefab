@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 2318380542126089628}
   m_Layer: 0
   m_Name: Wheel_fr
-  m_TagString: Untagged
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -709,7 +709,7 @@ WheelCollider:
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0.7
   m_Mass: 30
-  m_WheelDampingRate: 0.5
+  m_WheelDampingRate: 1
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
@@ -717,7 +717,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -1521,7 +1521,7 @@ GameObject:
   - component: {fileID: 3860699036559917258}
   m_Layer: 0
   m_Name: Wheel_br
-  m_TagString: Untagged
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1611,7 +1611,7 @@ WheelCollider:
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0.7
   m_Mass: 30
-  m_WheelDampingRate: 0.5
+  m_WheelDampingRate: 1
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
@@ -1619,7 +1619,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -4144,7 +4144,7 @@ GameObject:
   - component: {fileID: 7414803239978697607}
   m_Layer: 0
   m_Name: Wheel_fl
-  m_TagString: Untagged
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4234,7 +4234,7 @@ WheelCollider:
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0.7
   m_Mass: 30
-  m_WheelDampingRate: 0.5
+  m_WheelDampingRate: 1
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
@@ -4242,7 +4242,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -4356,7 +4356,7 @@ GameObject:
   - component: {fileID: 4921267126384299187}
   m_Layer: 0
   m_Name: Wheel_bl
-  m_TagString: Untagged
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4446,7 +4446,7 @@ WheelCollider:
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0.7
   m_Mass: 30
-  m_WheelDampingRate: 0.5
+  m_WheelDampingRate: 1
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
@@ -4454,7 +4454,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
