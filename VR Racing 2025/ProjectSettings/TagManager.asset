@@ -10,6 +10,7 @@ TagManager:
   - Cargo
   - Mud
   - Wheel
+  - Water
   layers:
   - Default
   - TransparentFX

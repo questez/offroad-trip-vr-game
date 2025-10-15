@@ -26,13 +26,14 @@ public class CarController : MonoBehaviour
     private float MaxSpeed5 = 100f; // максимально допустимая скорость машины на пятой передаче      
     
 
-    [NonSerialized] public static char current_shifter;
+    public static char current_shifter; // текущая передача
 
     private bool isReverseGear; // включена ли задняя передача
     
     private bool EngineIsRunning; // запущен ли двигатель
 
     private bool InMud; // едет ли машина по грязи
+    private bool InWater; // едет ли машина по лужам
 
     private void Start()
     {
@@ -118,57 +119,104 @@ public class CarController : MonoBehaviour
         bool leftGrounded = info.leftWheel.GetGroundHit(out hitLeft);
         bool rightGrounded = info.rightWheel.GetGroundHit(out hitRight);
         
-        if (leftGrounded && hitLeft.collider.gameObject.layer == LayerMask.NameToLayer("Water") ||
-                rightGrounded && hitRight.collider.gameObject.layer == LayerMask.NameToLayer("Water"))
+        if (leftGrounded && InWater || rightGrounded && InWater)
         {
-            if (rb.linearVelocity.magnitude * 3.6f > 15f)
-            {
-                info.leftWheel.wheelDampingRate = 55f;
-                info.rightWheel.wheelDampingRate = 55f;
-            }
-            else
-            {
-                info.leftWheel.wheelDampingRate = 1f;
-                info.rightWheel.wheelDampingRate = 1f;
-            }
-            var leftFriction = info.leftWheel.forwardFriction;
-            var rightFriction = info.rightWheel.forwardFriction;
-
-            leftFriction.extremumSlip = 25f;
-            rightFriction.extremumSlip = 25f;
-
-            info.leftWheel.forwardFriction = leftFriction;
-            info.rightWheel.forwardFriction = rightFriction;
-            Debug.Log("Заехал в лужу!!");
+            ApplyValuesForWaterSurface(info);
         }
 
         if (leftGrounded && InMud || rightGrounded && InMud)
         {
-            var leftFriction = info.leftWheel.forwardFriction;
-            var rightFriction = info.rightWheel.forwardFriction;
-
-            leftFriction.extremumSlip = 7f;
-            rightFriction.extremumSlip = 7f;
-
-            info.leftWheel.forwardFriction = leftFriction;
-            info.rightWheel.forwardFriction = rightFriction;
-            Debug.Log("Едет по грязи!!");
+            ApplyValuesForMuddySurface(info);
         }
 
         else
         {
+            ApplyValuesForDefaultSurface(info);
+        }
+    }
+
+    private void ApplyValuesForWaterSurface(AxleInfo info)
+    {
+        if (rb.linearVelocity.magnitude * 3.6f > 15f)
+        {
+            info.leftWheel.wheelDampingRate = 71f;
+            info.rightWheel.wheelDampingRate = 71f;
+        }
+        else
+        {
             info.leftWheel.wheelDampingRate = 1f;
             info.rightWheel.wheelDampingRate = 1f;
-
-            var leftFriction = info.leftWheel.forwardFriction;
-            var rightFriction = info.rightWheel.forwardFriction;
-
-            leftFriction.extremumSlip = 0.4f;
-            rightFriction.extremumSlip = 0.4f;
-
-            info.leftWheel.forwardFriction = leftFriction;
-            info.rightWheel.forwardFriction = rightFriction;
         }
+
+        // пробуксовка для forwardFriction:
+        WheelFrictionCurve leftForwardFriction = info.leftWheel.forwardFriction;
+        WheelFrictionCurve rightForwardFriction = info.rightWheel.forwardFriction;
+
+        leftForwardFriction.extremumSlip = 30f;
+        rightForwardFriction.extremumSlip = 30f;
+
+        info.leftWheel.forwardFriction = leftForwardFriction;
+        info.rightWheel.forwardFriction = rightForwardFriction;
+
+        // пробуксовка для sidewaysFriction:
+        WheelFrictionCurve leftSidewaysFriction = info.leftWheel.sidewaysFriction;
+        WheelFrictionCurve rightSidewaysFriction = info.rightWheel.sidewaysFriction;
+
+        leftSidewaysFriction.extremumSlip = 0.6f;
+        rightSidewaysFriction.extremumSlip = 0.6f;
+
+        info.leftWheel.sidewaysFriction = leftSidewaysFriction;
+        info.rightWheel.sidewaysFriction = rightSidewaysFriction;
+        Debug.Log("Заехал в лужу!!"); ;
+    }
+    private void ApplyValuesForMuddySurface(AxleInfo info)
+    {
+        // пробуксовка для forwardFriction:
+        WheelFrictionCurve leftForwardFriction = info.leftWheel.forwardFriction;
+        WheelFrictionCurve rightForwardFriction = info.rightWheel.forwardFriction;
+
+        leftForwardFriction.extremumSlip = 11f;
+        rightForwardFriction.extremumSlip = 11f;
+
+        info.leftWheel.forwardFriction = leftForwardFriction;
+        info.rightWheel.forwardFriction = rightForwardFriction;
+
+        // пробуксовка для sidewaysFriction:
+        WheelFrictionCurve leftSidewaysFriction = info.leftWheel.sidewaysFriction;
+        WheelFrictionCurve rightSidewaysFriction = info.rightWheel.sidewaysFriction;
+
+        leftSidewaysFriction.extremumSlip = 0.5f;
+        rightSidewaysFriction.extremumSlip = 0.5f;
+
+        info.leftWheel.sidewaysFriction = leftSidewaysFriction;
+        info.rightWheel.sidewaysFriction = rightSidewaysFriction;
+        Debug.Log("Едет по грязи!!");
+    }
+
+    private void ApplyValuesForDefaultSurface(AxleInfo info)
+    {
+        info.leftWheel.wheelDampingRate = 1f;
+        info.rightWheel.wheelDampingRate = 1f;
+
+        // пробуксовка для forwardFriction:
+        WheelFrictionCurve leftForwardFriction = info.leftWheel.forwardFriction;
+        WheelFrictionCurve rightForwardFriction = info.rightWheel.forwardFriction;
+
+        leftForwardFriction.extremumSlip = 0.4f;
+        rightForwardFriction.extremumSlip = 0.4f;
+
+        info.leftWheel.forwardFriction = leftForwardFriction;
+        info.rightWheel.forwardFriction = rightForwardFriction;
+
+        // пробуксовка для sidewaysFriction:
+        WheelFrictionCurve leftSidewaysFriction = info.leftWheel.sidewaysFriction;
+        WheelFrictionCurve rightSidewaysFriction = info.rightWheel.sidewaysFriction;
+
+        leftSidewaysFriction.extremumSlip = 0.2f;
+        rightSidewaysFriction.extremumSlip = 0.2f;
+
+        info.leftWheel.sidewaysFriction = leftSidewaysFriction;
+        info.rightWheel.sidewaysFriction = rightSidewaysFriction;
     }
 
     private float CurrentMaxSpeed // максимально допустимая скорость машины на текущей передаче
@@ -235,10 +283,12 @@ public class CarController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Mud")) InMud = true;
+        else if (other.CompareTag("Water")) InWater = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Mud")) InMud = false;
+        else if (other.CompareTag("Water")) InWater = false;
     }
 }
