@@ -152,8 +152,16 @@ public class CarController : MonoBehaviour
 
     private void ApplyValuesForWaterSurface(AxleInfo info)
     {
-        info.leftWheel.wheelDampingRate = 600f;
-        info.rightWheel.wheelDampingRate = 600f;
+        if (rb.linearVelocity.magnitude * 3.6f > 30f)
+        {
+            info.leftWheel.wheelDampingRate = 1500f;
+            info.rightWheel.wheelDampingRate = 1500f;
+        }
+        else
+        {
+            info.leftWheel.wheelDampingRate = 20f;
+            info.rightWheel.wheelDampingRate = 20f;
+        }        
 
         // пробуксовка для forwardFriction:
         WheelFrictionCurve leftForwardFriction = info.leftWheel.forwardFriction;
@@ -169,8 +177,8 @@ public class CarController : MonoBehaviour
         WheelFrictionCurve leftSidewaysFriction = info.leftWheel.sidewaysFriction;
         WheelFrictionCurve rightSidewaysFriction = info.rightWheel.sidewaysFriction;
 
-        leftSidewaysFriction.extremumSlip = 3.2f;
-        rightSidewaysFriction.extremumSlip = 3.2f;
+        leftSidewaysFriction.extremumSlip = 2.2f;
+        rightSidewaysFriction.extremumSlip = 2.2f;
 
         info.leftWheel.sidewaysFriction = leftSidewaysFriction;
         info.rightWheel.sidewaysFriction = rightSidewaysFriction;
