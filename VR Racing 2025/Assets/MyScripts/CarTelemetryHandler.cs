@@ -19,9 +19,12 @@ public class CarTelemetryHandler : MonoBehaviour
     [SerializeField] private Rigidbody rb;    
 
     private Vector3 lastLinearVelocity;
+    private Vector3 lastAngularVelocity;
     private float lastLinearAccel;
+    private float lastAngularAccel;
 
-    private const float maxPlatformAngle = 15f; // Максимальный угол наклона платформы 2DOF
+    private const float maxPlatformAngleX = 15f; // Максимальный угол наклона платформы 2DOF по X
+    private const float maxPlatformAngleZ = 100f; // Максимальный угол наклона платформы 2DOF по Z
     private float currentPitch = 0f;
     private float currentRoll = 0f;
 
@@ -72,13 +75,13 @@ public class CarTelemetryHandler : MonoBehaviour
 
     private void UpdatePlatformVelocity() // отправка данных о скорости на платформу
     {
-        telemetryDataData.Velocity = rb.linearVelocity;
-        //Debug.Log($"rb.linearVelocity = {rb.linearVelocity.magnitude}");
+        telemetryDataData.Velocity = new Vector3(rb.linearVelocity.x, rb.angularVelocity.y, rb.linearVelocity.z);
+        //Debug.Log($" = {}");
     }
 
     private void UpdatePlatformAngles()
     {
-        // считаем линейное ускорение для Pitch
+        // считаем линейное ускорение для Pitch и сам Pitch
         float targetPitch = 0;        
         
         Vector3 currentLinearVelocity = rb.linearVelocity;
@@ -91,28 +94,47 @@ public class CarTelemetryHandler : MonoBehaviour
 
         if (linearAcceleration > 0.5f) // изменение угла при ускорении 
         {
-            targetPitch = -Mathf.Clamp(linearAcceleration * 1.5f, 0f, maxPlatformAngle);
+            targetPitch = -Mathf.Clamp(linearAcceleration * 1.5f, 0f, maxPlatformAngleX);
         }
-        else if (linearAcceleration < -0.8f) // изменение угла при торможении
+        else if (linearAcceleration < -0.5f) // изменение угла при торможении
         {
-            targetPitch = Mathf.Clamp(Mathf.Abs(linearAcceleration) * 1.5f, 0f, maxPlatformAngle);
+            targetPitch = Mathf.Clamp(Mathf.Abs(linearAcceleration) * 1.5f, 0f, maxPlatformAngleX);
         }
-         
-        targetPitch += NormalizeAngle(vehicleTransform.localEulerAngles.x); // учет наклона поверхности
-        targetPitch = Mathf.Clamp(targetPitch, -maxPlatformAngle, maxPlatformAngle);
+
+        targetPitch += NormalizeAngle(vehicleTransform.eulerAngles.x); // учет наклона поверхности
+        targetPitch = Mathf.Clamp(targetPitch, -maxPlatformAngleX, maxPlatformAngleX);
             
         currentPitch = Mathf.Lerp(currentPitch, targetPitch, 0.01f);
 
         //---------------------------------------------------------------------------
-        // считаем Roll
-        float targetRoll = NormalizeAngle(vehicleTransform.localEulerAngles.z);
-        targetRoll = Mathf.Clamp(targetRoll, -maxPlatformAngle, maxPlatformAngle);
+        // считаем угловое ускорение для Roll и сам Roll
+        float targetRoll = 0;
 
-        currentRoll = Mathf.Lerp(currentRoll, targetRoll, 0.005f);
+        Vector3 currentAngularVelocity = rb.angularVelocity;
+        Vector3 VectorAngularAcceleration = (currentAngularVelocity - lastAngularVelocity) / Time.deltaTime; // вектор линейного ускорения
+        lastAngularVelocity = currentAngularVelocity;
+
+        float angularAcceleration = Vector3.Dot(VectorAngularAcceleration, vehicleTransform.up); // числовое значение ускорения с учетом направления вектора 
+        angularAcceleration = Mathf.Lerp(lastAngularAccel, angularAcceleration, 0.01f);
+        lastAngularAccel = angularAcceleration;
+
+        if (angularAcceleration > 0.05f) // изменение угла при ускорении
+        {
+            targetRoll = -Mathf.Clamp(angularAcceleration * 3.5f, 0f, maxPlatformAngleZ);
+        }
+        else if (angularAcceleration < -0.05f) // изменение угла при торможении
+        {
+            targetRoll = Mathf.Clamp(Mathf.Abs(angularAcceleration) * 3.5f, 0f, maxPlatformAngleZ);
+        }
+
+        targetRoll += NormalizeAngle(vehicleTransform.eulerAngles.z);
+        targetRoll = Mathf.Clamp(targetRoll, -maxPlatformAngleZ, maxPlatformAngleZ);
+
+        currentRoll = Mathf.Lerp(currentRoll, targetRoll, 0.01f);
+
 
         Vector3 resultAngles = new Vector3(targetPitch, 0f, targetRoll); // конечный возврат углов для передачи данных в платформу
-
-        telemetryDataData.Angles = resultAngles;        
+        telemetryDataData.Angles = resultAngles;
     }
     
     private void CheckPlatformState()
@@ -125,7 +147,7 @@ public class CarTelemetryHandler : MonoBehaviour
         else if (inputControllerReader.LeftStickButton)
         {
             telemetryDataData.Angles = new Vector3(0f, 0f, 15f);
-            telemetryDataData.Velocity = new Vector3(0f, 0f, -100f);
+            telemetryDataData.Velocity = new Vector3(0f, 0f, 100f);
         }
         if (inputControllerReader.Plus)
         {
@@ -135,7 +157,7 @@ public class CarTelemetryHandler : MonoBehaviour
         else if (inputControllerReader.Minus)
         {
             telemetryDataData.Angles = new Vector3(-15f, 0f, 0f);
-            telemetryDataData.Velocity = new Vector3(100f, 0f, 0f);
+            telemetryDataData.Velocity = new Vector3(-100f, 0f, 0f);
         }
         if (inputControllerReader.RightBumper)
         {

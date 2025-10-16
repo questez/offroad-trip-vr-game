@@ -7,8 +7,10 @@ public class CarUI : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
 
-    [SerializeField] private TextMeshProUGUI currentShifter;
     [SerializeField] private TextMeshProUGUI currentSpeed;
+    [SerializeField] private TextMeshProUGUI currentShifter;
+    [SerializeField] private TextMeshProUGUI currentWheelDriveMode;
+    
 
 
     private void Update()
@@ -24,6 +26,7 @@ public class CarUI : MonoBehaviour
 
             currentShifter.text = CarController.current_shifter.ToString();
             currentSpeed.text = speed.ToString() + " κμ/χ";
+            currentWheelDriveMode.text = CarController.wheel_drive_mode.ToString();
         }        
     }
 }

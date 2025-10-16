@@ -27,6 +27,7 @@ public class CarController : MonoBehaviour
     private float MaxSpeed5 = 100f; // максимально допустимая скорость машины на пятой передаче    
 
     public static char current_shifter; // текущая передача
+    public static string wheel_drive_mode; // задний/передний привод
 
     private bool isReverseGear; // включена ли задняя передача
     
@@ -293,7 +294,7 @@ public class CarController : MonoBehaviour
         if (value)
         {
             AllWheelDriveMode = !AllWheelDriveMode; // Переключаем полный привод
-            Debug.Log(AllWheelDriveMode ? "Включен полный привод!" : "Включен задний привод!");
+            wheel_drive_mode = AllWheelDriveMode ? "Полный привод" : "Задний привод";            
         }
     }
 
