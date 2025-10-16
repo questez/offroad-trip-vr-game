@@ -552,6 +552,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a173a811-1046-4c53-9ad3-5921d63aba86"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""West"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""184eac69-20fc-4e1f-8089-25117bb1859e"",
                     ""path"": ""<Logitech G29 Racing Wheel>/rightShiftButton"",
                     ""interactions"": """",

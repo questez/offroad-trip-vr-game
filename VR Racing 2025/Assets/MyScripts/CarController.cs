@@ -1,6 +1,8 @@
 using LogitechG29.Sample.Input;
 using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -14,7 +16,6 @@ public class CarController : MonoBehaviour
     [SerializeField] private List<AxleInfo> axleInfos; // информация о каждой отдельной оси автомобиля
 
     [SerializeField] private float enginePower; // максимальный крутящий момент, который двигатель может приложить к колесу (мощность двигателя)
-
     [SerializeField] private float maxSteeringAngle; // максимальный угол поворота, который может иметь колесо
     [SerializeField] private float BrakeForce; // тормозная сила
 
@@ -23,14 +24,14 @@ public class CarController : MonoBehaviour
     private float MaxSpeed2 = 35f; // максимально допустимая скорость машины на второй передаче
     private float MaxSpeed3 = 50f; // максимально допустимая скорость машины на третьей передаче
     private float MaxSpeed4 = 75f; // максимально допустимая скорость машины на четвертой передаче
-    private float MaxSpeed5 = 100f; // максимально допустимая скорость машины на пятой передаче      
-    
+    private float MaxSpeed5 = 100f; // максимально допустимая скорость машины на пятой передаче    
 
     public static char current_shifter; // текущая передача
 
     private bool isReverseGear; // включена ли задняя передача
     
     private bool EngineIsRunning; // запущен ли двигатель
+    private bool AllWheelDriveMode; // включен ли полный привод
 
     private bool InMud; // едет ли машина по грязи
     private bool InWater; // едет ли машина по лужам
@@ -39,16 +40,19 @@ public class CarController : MonoBehaviour
     {
         current_shifter = 'N';
         EngineIsRunning = false;
+        AllWheelDriveMode = false;
     }
 
     private void OnEnable()
     {
-        inputControllerReader.OnSouthButtonCallback += HandleOnSouthCallback;
+        inputControllerReader.OnSouthButtonCallback += StartEngine;
+        inputControllerReader.OnWestButtonCallback += OnAllWheelDriveMode;
     }
 
     private void OnDisable()
     {
-        inputControllerReader.OnSouthButtonCallback -= HandleOnSouthCallback;
+        inputControllerReader.OnSouthButtonCallback -= StartEngine;
+        inputControllerReader.OnWestButtonCallback -= OnAllWheelDriveMode;
     }
 
     private void FixedUpdate()
@@ -76,14 +80,24 @@ public class CarController : MonoBehaviour
 
 
         foreach (var info in axleInfos)
-        {
-            CheckWheelCollision(info);
+        {            
             if (info.isSteering)
             {
                 steeringWheelTransform.localRotation = Quaternion.Euler(24f, 0, -steering_angle * 3.5f); // поворот руля при повороте колес
                 info.rightWheel.steerAngle = steering_angle;
                 info.leftWheel.steerAngle = steering_angle;
+                if (AllWheelDriveMode)
+                {
+                    info.isMotor = true;
+                }
+                else
+                {
+                    info.rightWheel.motorTorque = 0;
+                    info.leftWheel.motorTorque = 0;
+                    info.isMotor = false;
+                }
             }
+            
             if (info.isMotor)
             {                
                 if ((rb.linearVelocity.magnitude <= CurrentMaxSpeed / 3.6f) && EngineIsRunning)
@@ -105,11 +119,12 @@ public class CarController : MonoBehaviour
                     info.leftWheel.motorTorque = 0;
                 }                
             }
-
             //info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
             //info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
             info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
-            info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;            
+            info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
+
+            CheckWheelCollision(info);
         }
     }
 
@@ -124,7 +139,7 @@ public class CarController : MonoBehaviour
             ApplyValuesForWaterSurface(info);
         }
 
-        if (leftGrounded && InMud || rightGrounded && InMud)
+        else if (leftGrounded && InMud || rightGrounded && InMud)
         {
             ApplyValuesForMuddySurface(info);
         }
@@ -137,23 +152,15 @@ public class CarController : MonoBehaviour
 
     private void ApplyValuesForWaterSurface(AxleInfo info)
     {
-        if (rb.linearVelocity.magnitude * 3.6f > 15f)
-        {
-            info.leftWheel.wheelDampingRate = 71f;
-            info.rightWheel.wheelDampingRate = 71f;
-        }
-        else
-        {
-            info.leftWheel.wheelDampingRate = 1f;
-            info.rightWheel.wheelDampingRate = 1f;
-        }
+        info.leftWheel.wheelDampingRate = 600f;
+        info.rightWheel.wheelDampingRate = 600f;
 
         // пробуксовка для forwardFriction:
         WheelFrictionCurve leftForwardFriction = info.leftWheel.forwardFriction;
         WheelFrictionCurve rightForwardFriction = info.rightWheel.forwardFriction;
 
-        leftForwardFriction.extremumSlip = 30f;
-        rightForwardFriction.extremumSlip = 30f;
+        leftForwardFriction.extremumSlip = 600f;
+        rightForwardFriction.extremumSlip = 600f;
 
         info.leftWheel.forwardFriction = leftForwardFriction;
         info.rightWheel.forwardFriction = rightForwardFriction;
@@ -162,8 +169,8 @@ public class CarController : MonoBehaviour
         WheelFrictionCurve leftSidewaysFriction = info.leftWheel.sidewaysFriction;
         WheelFrictionCurve rightSidewaysFriction = info.rightWheel.sidewaysFriction;
 
-        leftSidewaysFriction.extremumSlip = 0.6f;
-        rightSidewaysFriction.extremumSlip = 0.6f;
+        leftSidewaysFriction.extremumSlip = 3.2f;
+        rightSidewaysFriction.extremumSlip = 3.2f;
 
         info.leftWheel.sidewaysFriction = leftSidewaysFriction;
         info.rightWheel.sidewaysFriction = rightSidewaysFriction;
@@ -171,12 +178,15 @@ public class CarController : MonoBehaviour
     }
     private void ApplyValuesForMuddySurface(AxleInfo info)
     {
+        info.leftWheel.wheelDampingRate = 18f;
+        info.rightWheel.wheelDampingRate = 18f;
+
         // пробуксовка для forwardFriction:
         WheelFrictionCurve leftForwardFriction = info.leftWheel.forwardFriction;
         WheelFrictionCurve rightForwardFriction = info.rightWheel.forwardFriction;
 
-        leftForwardFriction.extremumSlip = 11f;
-        rightForwardFriction.extremumSlip = 11f;
+        leftForwardFriction.extremumSlip = 22f;
+        rightForwardFriction.extremumSlip = 22f;
 
         info.leftWheel.forwardFriction = leftForwardFriction;
         info.rightWheel.forwardFriction = rightForwardFriction;
@@ -185,8 +195,8 @@ public class CarController : MonoBehaviour
         WheelFrictionCurve leftSidewaysFriction = info.leftWheel.sidewaysFriction;
         WheelFrictionCurve rightSidewaysFriction = info.rightWheel.sidewaysFriction;
 
-        leftSidewaysFriction.extremumSlip = 0.5f;
-        rightSidewaysFriction.extremumSlip = 0.5f;
+        leftSidewaysFriction.extremumSlip = 0.75f;
+        rightSidewaysFriction.extremumSlip = 0.75f;
 
         info.leftWheel.sidewaysFriction = leftSidewaysFriction;
         info.rightWheel.sidewaysFriction = rightSidewaysFriction;
@@ -261,12 +271,21 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void HandleOnSouthCallback(bool value)
+    private void StartEngine(bool value)
     {
         if (value)
         {
             EngineIsRunning = !EngineIsRunning; // Переключаем состояние двигателя
             Debug.Log(EngineIsRunning ? "Двигатель запущен!" : "Двигатель заглушен!");
+        }
+    }
+
+    private void OnAllWheelDriveMode(bool value)
+    {
+        if (value)
+        {
+            AllWheelDriveMode = !AllWheelDriveMode; // Переключаем полный привод
+            Debug.Log(AllWheelDriveMode ? "Включен полный привод!" : "Включен задний привод!");
         }
     }
 
