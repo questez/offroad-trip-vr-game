@@ -1,12 +1,15 @@
 using LogitechG29.Sample.Input;
 using System;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    [SerializeField] private GameObject StartEngineScreen;
+    [SerializeField] private Slider slider3;
+    private float South_button_hold_timer;
+
     [SerializeField] private Rigidbody rb;
 
     [SerializeField] private InputControllerReader inputControllerReader;
@@ -18,6 +21,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float enginePower; // максимальный крутящий момент, который двигатель может приложить к колесу (мощность двигателя)
     [SerializeField] private float maxSteeringAngle; // максимальный угол поворота, который может иметь колесо
     [SerializeField] private float BrakeForce; // тормозная сила
+    [SerializeField] private float steeringAngleMultiplier;
 
     private float MaxSpeedR = 13f; // максимально допустимая скорость машины на задней передаче
     private float MaxSpeed1 = 20f; // максимально допустимая скорость машины на первой передаче
@@ -42,23 +46,32 @@ public class CarController : MonoBehaviour
         current_shifter = 'N';
         EngineIsRunning = false;
         AllWheelDriveMode = false;
+        South_button_hold_timer = 0f;
+        StartEngineScreen.SetActive(false);
+        wheel_drive_mode = "Задний привод";
     }
 
     private void OnEnable()
     {
-        inputControllerReader.OnSouthButtonCallback += StartEngine;
         inputControllerReader.OnWestButtonCallback += OnAllWheelDriveMode;
+        inputControllerReader.OnEastButtonCallback += OffEngine;
+        
     }
 
     private void OnDisable()
-    {
-        inputControllerReader.OnSouthButtonCallback -= StartEngine;
+    {        
         inputControllerReader.OnWestButtonCallback -= OnAllWheelDriveMode;
+        inputControllerReader.OnEastButtonCallback -= OffEngine;
     }
 
     private void FixedUpdate()
-    {     
-        UpdateWheelState();
+    {        
+        UpdateWheelState();        
+    }
+
+    private void Update()
+    {
+        OnEngine();
     }
 
     private void UpdateWheelState() // поведение колес и повороты рулем
@@ -70,21 +83,21 @@ public class CarController : MonoBehaviour
             speed = inputControllerReader.Throttle;
         }
 
-        //float current_power = speed * enginePower; // передача крутящего момента колесам (педали)        
-        float current_power = Input.GetAxis("Vertical") * enginePower; // передача крутящего момента колесам (клавиатура)
+        float current_power = speed * enginePower; // передача крутящего момента колесам (педали)        
+        //float current_power = Input.GetAxis("Vertical") * enginePower; // передача крутящего момента колесам (клавиатура)
 
-        //float steering_angle = maxSteeringAngle * inputControllerReader.Steering; // поворот (руль)
-        float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal"); // поворот (клавиатура)
-
-        //bool isBraking = inputControllerReader.Brake != 0; // тормоз (педали)
-        bool isBraking = Input.GetKey(KeyCode.Z); // тормоз (клавиатура)
+        float steering_angle = maxSteeringAngle * inputControllerReader.Steering; // поворот (руль)
+        //float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal"); // поворот (клавиатура)
+        Debug.Log($"steering_angle: {steering_angle}");
+        bool isBraking = inputControllerReader.Brake != 0; // тормоз (педали)
+        //bool isBraking = Input.GetKey(KeyCode.Z); // тормоз (клавиатура)
 
 
         foreach (var info in axleInfos)
         {            
             if (info.isSteering)
             {
-                steeringWheelTransform.localRotation = Quaternion.Euler(24f, 0, -steering_angle * 3.5f); // поворот руля при повороте колес
+                steeringWheelTransform.localRotation = Quaternion.Euler(24f, 0, -(steering_angle * steeringAngleMultiplier)); // поворот руля при повороте колес
                 info.rightWheel.steerAngle = steering_angle;
                 info.leftWheel.steerAngle = steering_angle;
                 if (AllWheelDriveMode)
@@ -120,10 +133,10 @@ public class CarController : MonoBehaviour
                     info.leftWheel.motorTorque = 0;
                 }                
             }
-            //info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
-            //info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
-            info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
-            info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
+            info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
+            info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
+            //info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
+            //info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
 
             CheckWheelCollision(info);
         }
@@ -280,12 +293,29 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void StartEngine(bool value)
+    private void OnEngine()
+    {        
+        if (inputControllerReader.SouthButton && !EngineIsRunning)
+        {
+            StartEngineScreen.SetActive(true);
+            South_button_hold_timer += Time.deltaTime;
+            slider3.value = Mathf.Lerp(0, South_button_hold_timer, 1f);
+            if (slider3.value == 5f)
+            {
+                StartEngineScreen.SetActive(false);
+                South_button_hold_timer = 0;
+                EngineIsRunning = true;
+                Debug.Log("Двигатель запущен!");
+            }
+        }        
+    }
+
+    private void OffEngine(bool value)
     {
         if (value)
         {
-            EngineIsRunning = !EngineIsRunning; // Переключаем состояние двигателя
-            Debug.Log(EngineIsRunning ? "Двигатель запущен!" : "Двигатель заглушен!");
+            EngineIsRunning = false;
+            Debug.Log("Двигатель заглушен!");
         }
     }
 
@@ -318,5 +348,5 @@ public class CarController : MonoBehaviour
     {
         if (other.CompareTag("Mud")) InMud = false;
         else if (other.CompareTag("Water")) InWater = false;
-    }
+    } 
 }

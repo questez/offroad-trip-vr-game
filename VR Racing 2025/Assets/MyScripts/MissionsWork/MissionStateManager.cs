@@ -10,8 +10,8 @@ public class MissionStateManager : MonoBehaviour
     [SerializeField] private GameObject LoadingCarScreen;
     [SerializeField] private Slider slider1;
     [SerializeField] private GameObject DeliveryCarScreen;
-    [SerializeField] private Slider slider2;
-    
+    [SerializeField] private Slider slider2;    
+
 
     [SerializeField] private GameObject Barrel;
     [SerializeField] private GameObject Plank;
@@ -25,11 +25,12 @@ public class MissionStateManager : MonoBehaviour
     public static char CurrentMission;
 
     private float North_button_hold_timer;
+    
 
     private void Start()
     {
         North_button_hold_timer = 0f;
-        if (DeliveryCarScreen != null && LoadingCarScreen)
+        if (DeliveryCarScreen != null && LoadingCarScreen != null)
         { 
             DeliveryCarScreen.SetActive(false);
             LoadingCarScreen.SetActive(false);

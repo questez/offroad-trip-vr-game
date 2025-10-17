@@ -299,6 +299,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3f140067-37f5-4fc3-bf05-dfad278ad85e"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""East"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""eb568b1f-28d1-48d6-8649-ece22a69b163"",
                     ""path"": ""<Logitech G29 Racing Wheel>/leftBumperButton"",
                     ""interactions"": """",
