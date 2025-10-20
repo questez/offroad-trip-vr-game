@@ -83,14 +83,14 @@ public class CarController : MonoBehaviour
             speed = inputControllerReader.Throttle;
         }
 
-        float current_power = speed * enginePower; // передача крутящего момента колесам (педали)        
-        //float current_power = Input.GetAxis("Vertical") * enginePower; // передача крутящего момента колесам (клавиатура)
+        //float current_power = speed * enginePower; // передача крутящего момента колесам (педали)        
+        float current_power = Input.GetAxis("Vertical") * enginePower; // передача крутящего момента колесам (клавиатура)
 
-        float steering_angle = maxSteeringAngle * inputControllerReader.Steering; // поворот (руль)
-        //float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal"); // поворот (клавиатура)
-        Debug.Log($"steering_angle: {steering_angle}");
-        bool isBraking = inputControllerReader.Brake != 0; // тормоз (педали)
-        //bool isBraking = Input.GetKey(KeyCode.Z); // тормоз (клавиатура)
+        //float steering_angle = maxSteeringAngle * inputControllerReader.Steering; // поворот (руль)
+        float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal"); // поворот (клавиатура)
+        
+        //bool isBraking = inputControllerReader.Brake != 0; // тормоз (педали)
+        bool isBraking = Input.GetKey(KeyCode.Z); // тормоз (клавиатура)
 
 
         foreach (var info in axleInfos)
@@ -143,10 +143,9 @@ public class CarController : MonoBehaviour
     }
 
     private void CheckWheelCollision(AxleInfo info)
-    {
-        WheelHit hitLeft, hitRight;        
-        bool leftGrounded = info.leftWheel.GetGroundHit(out hitLeft);
-        bool rightGrounded = info.rightWheel.GetGroundHit(out hitRight);
+    {      
+        bool leftGrounded = info.leftWheel.GetGroundHit(out WheelHit hitLeft);
+        bool rightGrounded = info.rightWheel.GetGroundHit(out WheelHit hitRight);
         
         if (leftGrounded && InWater || rightGrounded && InWater)
         {

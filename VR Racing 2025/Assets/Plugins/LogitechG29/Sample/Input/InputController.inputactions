@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "InputController",
     "maps": [
         {
@@ -12,7 +13,7 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Home",
@@ -196,6 +197,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Logitech G29",
+                    "action": "Home",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3d445b9-7749-4463-bfa0-37e694d12722",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Home",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -825,7 +837,7 @@
                 {
                     "name": "Handbrake",
                     "type": "PassThrough",
-                    "id": "9dc519ac-1b13-406a-b03a-0a0624a71978",
+                    "id": "634d86bb-f01c-45bc-83f2-8eb2445c23e7",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -835,12 +847,126 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "2e0501f1-5b0e-43d6-9fbd-35f5addc0cb8",
+                    "id": "ba5d71a9-d393-4611-ba80-0576fc5699dc",
                     "path": "<HID::wch.cn Hand Brake>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Handbrake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "3b7626dc-caed-4996-a891-4dc864512e79",
+            "actions": [
+                {
+                    "name": "Dpad",
+                    "type": "PassThrough",
+                    "id": "eec3eed3-df30-4dd5-a0d7-734f1a1a44ce",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "South",
+                    "type": "PassThrough",
+                    "id": "5a5928bc-7214-4b63-8bb8-e001ef6896fc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3f775c1c-8f15-4cfa-b868-86b26156a3c4",
+                    "path": "<Logitech G29 Racing Wheel>/hatSwitch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Logitech G29",
+                    "action": "Dpad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "ec1da6a1-5073-4dfc-bf86-7af419e44c89",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dpad",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "0b5d1af1-9b4e-4d64-99d3-5f6c8bad3639",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dpad",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "d353c1e9-a889-44cf-aa6e-7f878dc3741d",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dpad",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "943a007b-14d3-46a6-a96f-23d5432ba0fa",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dpad",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c0be0f74-a70d-413f-84b0-c409c58e89c3",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dpad",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e2b379ce-bb0b-4098-b39b-ed28fd0f6d18",
+                    "path": "<Logitech G29 Racing Wheel>/southButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Logitech G29",
+                    "action": "South",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06749248-4a00-4be9-bb44-daa40ee9ebfb",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "South",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
