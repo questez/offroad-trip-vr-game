@@ -1,7 +1,7 @@
 using LogitechG29.Sample.Input;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MissionStateManager : MonoBehaviour
 {
@@ -80,7 +80,7 @@ public class MissionStateManager : MonoBehaviour
                 if (inputControllerReader.NorthButton)
                 {
                     OnLoadingCarScreen();
-                    if (slider1.value == 5f)
+                    if (slider1.value == slider1.maxValue)
                     {                        
                         if (other.gameObject.name.Contains('1'))
                         {
@@ -180,7 +180,7 @@ public class MissionStateManager : MonoBehaviour
                 if (inputControllerReader.NorthButton)
                 {
                     OnDeliveryCarScreen();
-                    if (slider2.value == 5f)
+                    if (slider2.value == slider2.maxValue)
                     {                        
                         if (CurrentMission == '1' && other.gameObject.name.Contains('1'))
                         {

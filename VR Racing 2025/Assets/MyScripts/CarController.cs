@@ -133,10 +133,10 @@ public class CarController : MonoBehaviour
                     info.leftWheel.motorTorque = 0;
                 }                
             }
-            info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
-            info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
-            //info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
-            //info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
+            //info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
+            //info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
+            info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
+            info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
 
             CheckWheelCollision(info);
         }
@@ -298,8 +298,8 @@ public class CarController : MonoBehaviour
         {
             StartEngineScreen.SetActive(true);
             South_button_hold_timer += Time.deltaTime;
-            slider3.value = Mathf.Lerp(0, South_button_hold_timer, 1f);
-            if (slider3.value == 5f)
+            slider3.value = Mathf.Lerp(0, South_button_hold_timer, 5f);
+            if (slider3.value == slider3.maxValue)
             {
                 StartEngineScreen.SetActive(false);
                 South_button_hold_timer = 0;
