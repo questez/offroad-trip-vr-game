@@ -65,13 +65,19 @@ public class CarController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {        
-        UpdateWheelState();        
+    {
+        if (!PauseScreenWork.isPaused)
+        {
+            UpdateWheelState();
+        }                
     }
 
     private void Update()
-    {
-        OnEngine();
+    {        
+        if (!PauseScreenWork.isPaused)
+        {
+            OnEngine();
+        }
     }
 
     private void UpdateWheelState() // поведение колес и повороты рулем
@@ -311,7 +317,7 @@ public class CarController : MonoBehaviour
 
     private void OffEngine(bool value)
     {
-        if (value)
+        if (value && PauseScreenWork.isPaused)
         {
             EngineIsRunning = false;
             Debug.Log("Двигатель заглушен!");

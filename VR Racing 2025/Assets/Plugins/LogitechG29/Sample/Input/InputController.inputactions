@@ -879,15 +879,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Enter",
-                    "type": "PassThrough",
-                    "id": "704c1edb-190a-40eb-b7a4-b8a0cbc11540",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -976,17 +967,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "South",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "126fb9dd-a4e2-447b-b3cf-ba80bc5bfb1e",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Enter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

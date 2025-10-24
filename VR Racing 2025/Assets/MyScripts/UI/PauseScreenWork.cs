@@ -8,7 +8,7 @@ public class PauseScreenWork : MonoBehaviour
 {
     [SerializeField] private InputControllerReader inputControllerReader;
 
-    private bool isPaused;
+    public static bool isPaused;
     [SerializeField] GameObject PauseScreen;
     [SerializeField] Button ResumeButton;
     [SerializeField] Button RestartButton;
@@ -94,6 +94,8 @@ public class PauseScreenWork : MonoBehaviour
 
     private void ConfirmRestart() // рестарт игры
     {
+        isPaused = false;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(active_scene_name);
     }
     private void CancelRestart() // отмена рестарта
@@ -112,7 +114,7 @@ public class PauseScreenWork : MonoBehaviour
 
     private void ConfirmQuit() // выход в меню
     {
-        //SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
         Debug.Log("Вышел в главное меню!");
     }
     private void CancelQuit() // отмена выхода в меню
@@ -127,8 +129,11 @@ public class PauseScreenWork : MonoBehaviour
         SwitchInteractableState(false);
 
         yield return new WaitForSecondsRealtime(0.3f);
-                
-        buttonToSelect.Select();       
+
+        if (buttonToSelect != null)
+        {
+            buttonToSelect.Select();
+        }
         SwitchInteractableState(true);
     }
 
