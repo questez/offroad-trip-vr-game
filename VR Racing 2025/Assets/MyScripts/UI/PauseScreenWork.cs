@@ -2,6 +2,7 @@ using LogitechG29.Sample.Input;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PauseScreenWork : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PauseScreenWork : MonoBehaviour
     [SerializeField] GameObject PauseScreen;
     [SerializeField] Button ResumeButton;
     [SerializeField] Button RestartButton;
-    [SerializeField] Button QuitButton;       
+    [SerializeField] Button QuitButton;
 
     [SerializeField] GameObject RestartScreenConfirm;
     [SerializeField] Button YesRestart;
@@ -58,10 +59,10 @@ public class PauseScreenWork : MonoBehaviour
         inputControllerReader.OnHomeCallback -= TogglePause;
     }
 
-    private void TogglePause(bool value)
+    private void TogglePause(bool value) // вкл/выкл режим паузы
     {
         if (value)
-        {            
+        {
             if (!isPaused)
             {
                 Time.timeScale = 0f;
@@ -73,51 +74,72 @@ public class PauseScreenWork : MonoBehaviour
                 Time.timeScale = 1f;
                 isPaused = false;
             }
-            PauseScreen.SetActive(isPaused);            
+            PauseScreen.SetActive(isPaused);
         }
     }
 
-    private void Resume()
+    private void Resume() // продолжить игру
     {
         PauseScreen.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
 
-    private void Restart()
+    private void Restart() // переход на окно подтверждени€ рестарта игры
     {
         PauseScreen.SetActive(false);
         RestartScreenConfirm.SetActive(true);
-        YesRestart.Select();
+        StartCoroutine(DelayBetweenScreens(YesRestart));
     }
 
-    private void ConfirmRestart()
+    private void ConfirmRestart() // рестарт игры
     {
         SceneManager.LoadScene(active_scene_name);
     }
-    private void CancelRestart()
+    private void CancelRestart() // отмена рестарта
     {
         PauseScreen.SetActive(true);
         RestartScreenConfirm.SetActive(false);
-        ResumeButton.Select();
+        StartCoroutine(DelayBetweenScreens(ResumeButton));
     }
 
-    private void Quit()
+    private void Quit() // переход на окно подтверждени€ выхода в меню
     {
         PauseScreen.SetActive(false);
         QuitScreenConfirm.SetActive(true);
-        YesQuit.Select();
+        StartCoroutine(DelayBetweenScreens(YesQuit));
     }
 
-    private void ConfirmQuit()
+    private void ConfirmQuit() // выход в меню
     {
         //SceneManager.LoadScene("MainMenu");
         Debug.Log("¬ышел в главное меню!");
     }
-    private void CancelQuit()
+    private void CancelQuit() // отмена выхода в меню
     {
         PauseScreen.SetActive(true);
-        QuitScreenConfirm.SetActive(false);
-        ResumeButton.Select();
+        QuitScreenConfirm.SetActive(false);        
+        StartCoroutine(DelayBetweenScreens(ResumeButton));
+    }
+
+    private IEnumerator DelayBetweenScreens(Button buttonToSelect) // задержка во врем€ переключени€ между экранами паузы
+    {
+        SwitchInteractableState(false);
+
+        yield return new WaitForSecondsRealtime(0.3f);
+                
+        buttonToSelect.Select();       
+        SwitchInteractableState(true);
+    }
+
+    private void SwitchInteractableState(bool value)
+    {
+        ResumeButton.interactable = value;
+        RestartButton.interactable = value;
+        QuitButton.interactable = value;
+        YesRestart.interactable = value;
+        NoStay1.interactable = value;
+        YesQuit.interactable = value;
+        NoStay2.interactable = value;
     }
 }
