@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Collections;
 
 public class CarController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CarController : MonoBehaviour
 
     [SerializeField] private Rigidbody rb;
 
+    public static bool OffInput { get; private set; }
     [SerializeField] private InputControllerReader inputControllerReader;
 
     [SerializeField] private Transform steeringWheelTransform;    
@@ -49,6 +51,7 @@ public class CarController : MonoBehaviour
         South_button_hold_timer = 0f;
         StartEngineScreen.SetActive(false);
         wheel_drive_mode = "Задний привод";
+        OffInput = false;
     }
 
     private void OnEnable()
@@ -66,7 +69,7 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!PauseScreenWork.isPaused)
+        if (!PauseScreenWork.isPaused && !OffInput)
         {
             UpdateWheelState();
         }                
@@ -74,7 +77,7 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {        
-        if (!PauseScreenWork.isPaused)
+        if (!PauseScreenWork.isPaused && !OffInput)
         {
             OnEngine();
         }
@@ -317,7 +320,7 @@ public class CarController : MonoBehaviour
 
     private void OffEngine(bool value)
     {
-        if (value && PauseScreenWork.isPaused)
+        if (value && !PauseScreenWork.isPaused)
         {
             EngineIsRunning = false;
             Debug.Log("Двигатель заглушен!");
@@ -353,5 +356,12 @@ public class CarController : MonoBehaviour
     {
         if (other.CompareTag("Mud")) InMud = false;
         else if (other.CompareTag("Water")) InWater = false;
-    } 
+    }
+
+    public static IEnumerator OffInputDelay() // сигнал для отключения ввода с руля и педалей, когда это нужно
+    {
+        OffInput = true;
+        yield return new WaitForSecondsRealtime(3f);
+        OffInput = false;
+    }
 }

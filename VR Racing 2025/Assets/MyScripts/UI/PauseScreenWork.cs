@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
 
 public class PauseScreenWork : MonoBehaviour
 {
@@ -24,39 +25,39 @@ public class PauseScreenWork : MonoBehaviour
 
     private string active_scene_name;
 
-    private void Awake()
+    [SerializeField] TextMeshProUGUI playerBalanceText; 
+    [SerializeField] TextMeshProUGUI finishedMissionsCounterText;
+    [SerializeField] TextMeshProUGUI CurrentMissionText;
+
+    private void Start()
     {
         active_scene_name = SceneManager.GetActiveScene().name;
         isPaused = false;
         PauseScreen.SetActive(false);
         QuitScreenConfirm.SetActive(false);
         RestartScreenConfirm.SetActive(false);
+        PlayerBehaviour.PlayerBalance = 0;
+        PlayerBehaviour.CurrentMission = '0';
+        PlayerBehaviour.FinishedMissionsCounter = 0;
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        ResumeButton.onClick.AddListener(Resume);
-        RestartButton.onClick.AddListener(Restart);
-        YesRestart.onClick.AddListener(ConfirmRestart);
-        NoStay1.onClick.AddListener(CancelRestart);
-        QuitButton.onClick.AddListener(Quit);
-        YesQuit.onClick.AddListener(ConfirmQuit);
-        NoStay2.onClick.AddListener(CancelQuit);
+        SetTextInfo();
+    }    
 
-        inputControllerReader.OnHomeCallback += TogglePause;
-    }
-
-    private void OnDisable()
+    private void SetTextInfo()
     {
-        ResumeButton.onClick.RemoveListener(Resume);
-        RestartButton.onClick.RemoveListener(Restart);
-        YesRestart.onClick.RemoveListener(ConfirmRestart);
-        NoStay1.onClick.RemoveListener(CancelRestart);
-        QuitButton.onClick.RemoveListener(Quit);
-        YesQuit.onClick.RemoveListener(ConfirmQuit);
-        NoStay2.onClick.RemoveListener(CancelQuit);
-
-        inputControllerReader.OnHomeCallback -= TogglePause;
+        playerBalanceText.text = "Баланс: " + PlayerBehaviour.PlayerBalance + "руб";
+        finishedMissionsCounterText.text = "Пройдено миссий: " + PlayerBehaviour.FinishedMissionsCounter;
+        if (PlayerBehaviour.CurrentMission != '0')
+        {
+            CurrentMissionText.text = "Текущая миссия: " + PlayerBehaviour.CurrentMission;
+        }
+        else
+        {
+            CurrentMissionText.text = "Текущая миссия: -";
+        }
     }
 
     private void TogglePause(bool value) // вкл/выкл режим паузы
@@ -73,6 +74,7 @@ public class PauseScreenWork : MonoBehaviour
             {
                 Time.timeScale = 1f;
                 isPaused = false;
+                StartCoroutine(CarController.OffInputDelay());
             }
             PauseScreen.SetActive(isPaused);
         }
@@ -83,6 +85,7 @@ public class PauseScreenWork : MonoBehaviour
         PauseScreen.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        StartCoroutine(CarController.OffInputDelay());
     }
 
     private void Restart() // переход на окно подтверждения рестарта игры
@@ -114,6 +117,7 @@ public class PauseScreenWork : MonoBehaviour
 
     private void ConfirmQuit() // выход в меню
     {
+        StartCoroutine(CarController.OffInputDelay());
         SceneManager.LoadScene("MainMenu");
         Debug.Log("Вышел в главное меню!");
     }
@@ -128,7 +132,7 @@ public class PauseScreenWork : MonoBehaviour
     {
         SwitchInteractableState(false);
 
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         if (buttonToSelect != null)
         {
@@ -146,5 +150,31 @@ public class PauseScreenWork : MonoBehaviour
         NoStay1.interactable = value;
         YesQuit.interactable = value;
         NoStay2.interactable = value;
+    }
+
+    private void OnEnable()
+    {
+        ResumeButton.onClick.AddListener(Resume);
+        RestartButton.onClick.AddListener(Restart);
+        YesRestart.onClick.AddListener(ConfirmRestart);
+        NoStay1.onClick.AddListener(CancelRestart);
+        QuitButton.onClick.AddListener(Quit);
+        YesQuit.onClick.AddListener(ConfirmQuit);
+        NoStay2.onClick.AddListener(CancelQuit);
+
+        inputControllerReader.OnHomeCallback += TogglePause;
+    }
+
+    private void OnDisable()
+    {
+        ResumeButton.onClick.RemoveListener(Resume);
+        RestartButton.onClick.RemoveListener(Restart);
+        YesRestart.onClick.RemoveListener(ConfirmRestart);
+        NoStay1.onClick.RemoveListener(CancelRestart);
+        QuitButton.onClick.RemoveListener(Quit);
+        YesQuit.onClick.RemoveListener(ConfirmQuit);
+        NoStay2.onClick.RemoveListener(CancelQuit);
+
+        inputControllerReader.OnHomeCallback -= TogglePause;
     }
 }

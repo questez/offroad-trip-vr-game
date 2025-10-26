@@ -24,7 +24,8 @@ public class MainMenu : MonoBehaviour
     {
         MainMenuScreen.SetActive(true);
         SettingsScreen.SetActive(false);
-        QuitScreenConfirm.SetActive(false);        
+        QuitScreenConfirm.SetActive(false);
+        StartCoroutine(DelayBetweenScreens(PlayButton));
     }
 
     private void OnEnable()
@@ -35,7 +36,6 @@ public class MainMenu : MonoBehaviour
         CloseSettingsButton.onClick.AddListener(CloseSettings);
         YesQuit.onClick.AddListener(QuitConfirm);
         NoStay.onClick.AddListener(CancelQuit);
-        PlayButton.Select();
     }
 
     private void OnDisable()
@@ -50,9 +50,12 @@ public class MainMenu : MonoBehaviour
 
     private void StartGame()
     {
-        PauseScreenWork.isPaused = false;
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainScene");
+        if (!CarController.OffInput)
+
+            PauseScreenWork.isPaused = false;
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("MainScene");
+            StartCoroutine(CarController.OffInputDelay());  
     }
 
     private void OpenSettings()
@@ -93,7 +96,7 @@ public class MainMenu : MonoBehaviour
     {
         SwitchInteractableState(false);
 
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         if (buttonToSelect != null)
         {
