@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|z:\\unity\\projects\\vr-racing-2025\\vr racing 2025\\assets\\myscripts\\missionswork\\trunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\trunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\missionswork\\detailedtriggerchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\detailedtriggerchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|z:\\unity\\projects\\vr-racing-2025\\vr racing 2025\\assets\\myscripts\\missionswork\\missionstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\missionstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\ui\\carpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\ui\\carpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\missionswork\\playerbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\playerbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\ui\\pausescreenwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\ui\\pausescreenwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\cartelemetryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\cartelemetryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,24 +35,8 @@
       "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\missionswork\\missionstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\missionstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\ui\\carpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\ui\\carpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|z:\\unity\\projects\\vr-racing-2025\\vr racing 2025\\assets\\myscripts\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\ui\\pausescreenwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\ui\\pausescreenwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\missionswork\\playerbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\playerbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,31 +46,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PlayerBehaviour.cs",
-              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
-              "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
-              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
-              "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Trunk.cs",
+              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\Trunk.cs",
+              "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\Trunk.cs",
+              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\Trunk.cs",
+              "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\Trunk.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T14:23:21.868Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PauseScreenWork.cs",
-              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\UI\\PauseScreenWork.cs",
-              "RelativeDocumentMoniker": "Assets\\MyScripts\\UI\\PauseScreenWork.cs",
-              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\UI\\PauseScreenWork.cs",
-              "RelativeToolTip": "Assets\\MyScripts\\UI\\PauseScreenWork.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAAGUAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T16:55:13.812Z"
+              "WhenOpened": "2025-10-29T09:25:42.261Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -72,14 +69,52 @@
               "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
               "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
               "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAkwDIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAQBAAAAAAAAAAAswLwAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-11T12:29:31.894Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DetailedTriggerChecker.cs",
+              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\DetailedTriggerChecker.cs",
+              "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\DetailedTriggerChecker.cs",
+              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\DetailedTriggerChecker.cs",
+              "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\DetailedTriggerChecker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T07:25:58.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "PlayerBehaviour.cs",
+              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
+              "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
+              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
+              "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T14:23:21.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PauseScreenWork.cs",
+              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\UI\\PauseScreenWork.cs",
+              "RelativeDocumentMoniker": "Assets\\MyScripts\\UI\\PauseScreenWork.cs",
+              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\UI\\PauseScreenWork.cs",
+              "RelativeToolTip": "Assets\\MyScripts\\UI\\PauseScreenWork.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAAGUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T16:55:13.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\UI\\MainMenu.cs",
               "RelativeDocumentMoniker": "Assets\\MyScripts\\UI\\MainMenu.cs",
@@ -87,8 +122,7 @@
               "RelativeToolTip": "Assets\\MyScripts\\UI\\MainMenu.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T16:10:46.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-24T16:10:46.534Z"
             },
             {
               "$type": "Document",
@@ -98,14 +132,14 @@
               "RelativeDocumentMoniker": "Assets\\MyScripts\\UI\\CarPanel.cs",
               "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\UI\\CarPanel.cs",
               "RelativeToolTip": "Assets\\MyScripts\\UI\\CarPanel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T16:54:40.662Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "CarController.cs",
               "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\CarController.cs",
               "RelativeDocumentMoniker": "Assets\\MyScripts\\CarController.cs",
@@ -113,21 +147,19 @@
               "RelativeToolTip": "Assets\\MyScripts\\CarController.cs",
               "ViewState": "AgIAABUBAAAAAAAAAADwv6UAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T13:13:34.474Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-11T13:13:34.474Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "CarTelemetryHandler.cs",
               "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\CarTelemetryHandler.cs",
               "RelativeDocumentMoniker": "Assets\\MyScripts\\CarTelemetryHandler.cs",
               "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\CarTelemetryHandler.cs",
               "RelativeToolTip": "Assets\\MyScripts\\CarTelemetryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAIwAoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T18:44:58.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T18:44:58.02Z"
             }
           ]
         }

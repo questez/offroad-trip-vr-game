@@ -19,12 +19,23 @@ public class MissionStateManager : MonoBehaviour
 
     [SerializeField] private Transform spawnPoint;
 
-    private List<GameObject> spawnedCargos = new List<GameObject>();    
+    private List<GameObject> spawnedCargos = new List<GameObject>();
 
-    private float North_button_hold_timer;    
+    public static int spawnedCargosCount { get; private set; }
+
+    private DetailedTriggerChecker triggerChecker = new DetailedTriggerChecker();
+
+    [SerializeField] private GameObject Body1;
+    private Collider[] Body1Colliders;
+    [SerializeField] private GameObject Body2;
+    private Collider[] Body2Colliders;
+
+    private float North_button_hold_timer;
 
     private void Start()
     {
+        Body2Colliders = Body2.GetComponentsInChildren<Collider>();
+        Body1Colliders = Body1.GetComponentsInChildren<Collider>();
         North_button_hold_timer = 0f;
         if (DeliveryCarScreen != null && LoadingCarScreen != null)
         { 
@@ -35,19 +46,19 @@ public class MissionStateManager : MonoBehaviour
         DestroyCargos();
     }
 
-    private void GiveAward(char curr_mission)
+    private void GiveAward(char curr_mission, int counterOfObjects)
     {
         if (curr_mission == '1')
         {
-            PlayerBehaviour.PlayerBalance += (500 * 3);
+            PlayerBehaviour.PlayerBalance += (500 * counterOfObjects);
         }
         else if (curr_mission == '2')
         {
-            PlayerBehaviour.PlayerBalance += (8 * 200);
+            PlayerBehaviour.PlayerBalance += (200 * counterOfObjects);
         }
         else if (curr_mission == '3')
         {
-            PlayerBehaviour.PlayerBalance += (3 * 250 + 2 * 400);
+            PlayerBehaviour.PlayerBalance += (600 * counterOfObjects);
         }
 
         PlayerBehaviour.FinishedMissionsCounter++;
@@ -91,7 +102,7 @@ public class MissionStateManager : MonoBehaviour
         {
             if (other.gameObject.CompareTag("LoadingPlace"))
             {
-                if (inputControllerReader.NorthButton)
+                if (inputControllerReader.NorthButton && triggerChecker.IsObjectsCompletelyInsideTrigger(Body1Colliders, other) && triggerChecker.IsObjectsCompletelyInsideTrigger(Body2Colliders, other))
                 {
                     OnLoadingCarScreen();
                     if (slider1.value == slider1.maxValue)
@@ -175,6 +186,7 @@ public class MissionStateManager : MonoBehaviour
                             }
                             PlayerBehaviour.CurrentMission = '3';
                         }
+                        spawnedCargosCount = spawnedCargos.Count;
                         OffLoadingCarScreen();
                         Debug.Log("Начата миссия " + PlayerBehaviour.CurrentMission);
                     }                                      
@@ -191,7 +203,7 @@ public class MissionStateManager : MonoBehaviour
         {
             if (other.gameObject.CompareTag("DeliveryPlace"))
             {
-                if (inputControllerReader.NorthButton)
+                if (inputControllerReader.NorthButton && triggerChecker.IsObjectsCompletelyInsideTrigger(Body1Colliders, other) && triggerChecker.IsObjectsCompletelyInsideTrigger(Body2Colliders, other))
                 {
                     OnDeliveryCarScreen();
                     if (slider2.value == slider2.maxValue)
@@ -200,21 +212,21 @@ public class MissionStateManager : MonoBehaviour
                         {
                             Debug.Log("Завершена миссия " + PlayerBehaviour.CurrentMission);
                             DestroyCargos();
-                            GiveAward(PlayerBehaviour.CurrentMission);
+                            GiveAward(PlayerBehaviour.CurrentMission, Trunk.CounterOfObjectsInTrunk);
                             PlayerBehaviour.CurrentMission = '0';
                         }
                         else if (PlayerBehaviour.CurrentMission == '2' && other.gameObject.name.Contains('2'))
                         {
                             Debug.Log("Завершена миссия " + PlayerBehaviour.CurrentMission);
                             DestroyCargos();
-                            GiveAward(PlayerBehaviour.CurrentMission);
+                            GiveAward(PlayerBehaviour.CurrentMission, Trunk.CounterOfObjectsInTrunk);
                             PlayerBehaviour.CurrentMission = '0';
                         }
                         else if (PlayerBehaviour.CurrentMission == '3' && other.gameObject.name.Contains('3'))
                         {
                             Debug.Log("Завершена миссия " + PlayerBehaviour.CurrentMission);
                             DestroyCargos();
-                            GiveAward(PlayerBehaviour.CurrentMission);
+                            GiveAward(PlayerBehaviour.CurrentMission, Trunk.CounterOfObjectsInTrunk);
                             PlayerBehaviour.CurrentMission = '0';
                         }
                         OffDeliveryCarScreen();
@@ -223,6 +235,7 @@ public class MissionStateManager : MonoBehaviour
             }                
         }
     }
+    
 
     private void DestroyCargos()
     {

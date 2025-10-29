@@ -1,5 +1,4 @@
 ﻿using _2DOF;
-using LogitechG29.Sample.Input;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -9,9 +8,7 @@ public class CarTelemetryHandler : MonoBehaviour
     private const float WAIT_TIME = SendingData.WAIT_TIME / 1000f;
 
     private ObjectTelemetryData telemetryDataData;
-    private SendingData _sendingData;
-
-    [SerializeField] private InputControllerReader inputControllerReader;
+    private SendingData _sendingData;    
 
     [SerializeField] private TextMeshProUGUI platformDebug;
 

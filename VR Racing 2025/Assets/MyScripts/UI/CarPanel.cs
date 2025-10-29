@@ -7,7 +7,8 @@ public class CarPanel : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI currentSpeed;
     [SerializeField] private TextMeshProUGUI currentShifter;
-    [SerializeField] private TextMeshProUGUI currentWheelDriveMode;  
+    [SerializeField] private TextMeshProUGUI currentWheelDriveMode;
+    [SerializeField] private TextMeshProUGUI currentCounterOfObjectsInTrunk;
 
     private void Update()
     {
@@ -23,6 +24,14 @@ public class CarPanel : MonoBehaviour
             currentShifter.text = CarController.current_shifter.ToString();
             currentSpeed.text = speed.ToString() + " км/ч";
             currentWheelDriveMode.text = CarController.wheel_drive_mode;
+            if (PlayerBehaviour.CurrentMission != '0')
+            {
+                currentCounterOfObjectsInTrunk.text = $"Грузов в багажнике {Trunk.CounterOfObjectsInTrunk}/{MissionStateManager.spawnedCargosCount}";
+            }
+            else
+            {
+                currentCounterOfObjectsInTrunk.text = "";
+            }
         }        
     }
 }
