@@ -99,6 +99,7 @@ public class PauseScreenWork : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+        Trunk.CleanCounter();
         SceneManager.LoadScene(active_scene_name);
     }
     private void CancelRestart() // отмена рестарта

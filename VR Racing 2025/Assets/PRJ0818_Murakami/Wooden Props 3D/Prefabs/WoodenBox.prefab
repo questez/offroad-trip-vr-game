@@ -65,6 +65,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3229179814736536455, guid: 9242295afd4a00f449597e008d4d568d, type: 3}
+      propertyPath: m_TagString
+      value: Cargo
+      objectReference: {fileID: 0}
+    - target: {fileID: -3229179814736536455, guid: 9242295afd4a00f449597e008d4d568d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -74,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9242295afd4a00f449597e008d4d568d, type: 3}
       propertyPath: m_TagString
-      value: Cargo
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9242295afd4a00f449597e008d4d568d, type: 3}
       propertyPath: m_StaticEditorFlags

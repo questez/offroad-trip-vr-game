@@ -54,6 +54,7 @@ public class MainMenu : MonoBehaviour
 
             PauseScreenWork.isPaused = false;
             Time.timeScale = 1f;
+            Trunk.CleanCounter();
             SceneManager.LoadScene("MainScene");
             StartCoroutine(CarController.OffInputDelay());  
     }

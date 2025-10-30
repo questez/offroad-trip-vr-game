@@ -4,6 +4,11 @@ public class Trunk : MonoBehaviour
 {
     public static int CounterOfObjectsInTrunk { get; private set; }
 
+    private void Start()
+    {
+        CounterOfObjectsInTrunk = 0;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Cargo"))
@@ -17,5 +22,10 @@ public class Trunk : MonoBehaviour
         {
             CounterOfObjectsInTrunk--;
         }
+    }
+
+    public static void CleanCounter()
+    {
+        CounterOfObjectsInTrunk = 0;
     }
 }

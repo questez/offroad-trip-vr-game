@@ -229,6 +229,7 @@ public class MissionStateManager : MonoBehaviour
                             GiveAward(PlayerBehaviour.CurrentMission, Trunk.CounterOfObjectsInTrunk);
                             PlayerBehaviour.CurrentMission = '0';
                         }
+                        Trunk.CleanCounter();
                         OffDeliveryCarScreen();
                     }
                 }
