@@ -92,14 +92,14 @@ public class CarController : MonoBehaviour
             speed = inputControllerReader.Throttle;
         }
 
-        //float current_power = speed * enginePower; // передача крутящего момента колесам (педали)        
-        float current_power = Input.GetAxis("Vertical") * enginePower; // передача крутящего момента колесам (клавиатура)
+        float current_power = speed * enginePower; // передача крутящего момента колесам (педали)        
+        //float current_power = Input.GetAxis("Vertical") * enginePower; // передача крутящего момента колесам (клавиатура)
 
-        //float steering_angle = maxSteeringAngle * inputControllerReader.Steering; // поворот (руль)
-        float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal"); // поворот (клавиатура)
+        float steering_angle = maxSteeringAngle * inputControllerReader.Steering; // поворот (руль)
+        //float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal"); // поворот (клавиатура)
         
-        //bool isBraking = inputControllerReader.Brake != 0; // тормоз (педали)
-        bool isBraking = Input.GetKey(KeyCode.Z); // тормоз (клавиатура)
+        bool isBraking = inputControllerReader.Brake != 0; // тормоз (педали)
+        //bool isBraking = Input.GetKey(KeyCode.Z); // тормоз (клавиатура)
 
 
         foreach (var info in axleInfos)
@@ -142,10 +142,10 @@ public class CarController : MonoBehaviour
                     info.leftWheel.motorTorque = 0;
                 }                
             }
-            //info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
-            //info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
-            info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
-            info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
+            info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
+            info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
+            //info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
+            //info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
 
             CheckWheelCollision(info);
         }
@@ -225,8 +225,8 @@ public class CarController : MonoBehaviour
         WheelFrictionCurve leftSidewaysFriction = info.leftWheel.sidewaysFriction;
         WheelFrictionCurve rightSidewaysFriction = info.rightWheel.sidewaysFriction;
 
-        leftSidewaysFriction.extremumSlip = 0.75f;
-        rightSidewaysFriction.extremumSlip = 0.75f;
+        leftSidewaysFriction.extremumSlip = 0.85f;
+        rightSidewaysFriction.extremumSlip = 0.85f;
 
         info.leftWheel.sidewaysFriction = leftSidewaysFriction;
         info.rightWheel.sidewaysFriction = rightSidewaysFriction;
@@ -252,8 +252,8 @@ public class CarController : MonoBehaviour
         WheelFrictionCurve leftSidewaysFriction = info.leftWheel.sidewaysFriction;
         WheelFrictionCurve rightSidewaysFriction = info.rightWheel.sidewaysFriction;
 
-        leftSidewaysFriction.extremumSlip = 0.2f;
-        rightSidewaysFriction.extremumSlip = 0.2f;
+        leftSidewaysFriction.extremumSlip = 0.55f;
+        rightSidewaysFriction.extremumSlip = 0.55f;
 
         info.leftWheel.sidewaysFriction = leftSidewaysFriction;
         info.rightWheel.sidewaysFriction = rightSidewaysFriction;

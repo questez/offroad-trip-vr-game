@@ -82,8 +82,8 @@ public class MainMenu : MonoBehaviour
 
     private void QuitConfirm()
     {
-        //Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 
     private void CancelQuit()
