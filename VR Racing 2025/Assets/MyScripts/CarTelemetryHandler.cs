@@ -109,11 +109,11 @@ public class CarTelemetryHandler : MonoBehaviour
 
         if (linearAcceleration > 0.5f) // изменение угла при ускорении 
         {
-            targetPitch = -Mathf.Clamp(linearAcceleration * 5f, 0f, maxPlatformAngle);
+            targetPitch = -Mathf.Clamp(linearAcceleration * 2.3f, 0f, maxPlatformAngle);
         }
         else if (linearAcceleration < -0.5f) // изменение угла при торможении
         {
-            targetPitch = Mathf.Clamp(Mathf.Abs(linearAcceleration) * 5f, 0f, maxPlatformAngle);
+            targetPitch = Mathf.Clamp(Mathf.Abs(linearAcceleration) * 2.3f, 0f, maxPlatformAngle);
         }
 
         targetPitch += NormalizeAngle(vehicleTransform.eulerAngles.x); // учет наклона поверхности
@@ -145,7 +145,7 @@ public class CarTelemetryHandler : MonoBehaviour
         //    targetRoll = Mathf.Clamp(Mathf.Abs(angularAcceleration) * 35f, 0f, maxPlatformAngle);
         //}
 
-        float currentAngularVelocity = localAngularVelocity.y + localLinearVelocity.x * 6f;
+        float currentAngularVelocity = localAngularVelocity.y + localLinearVelocity.x * 2f;
         float angularAcceleration = (currentAngularVelocity - lastAngularVelocity) / Time.deltaTime; // вектор линейного ускорения
         lastAngularVelocity = currentAngularVelocity;
         
