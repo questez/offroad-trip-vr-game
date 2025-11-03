@@ -1048,15 +1048,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             ""id"": ""3b7626dc-caed-4996-a891-4dc864512e79"",
             ""actions"": [
                 {
-                    ""name"": ""SwitchBeetweenButtons"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""eec3eed3-df30-4dd5-a0d7-734f1a1a44ce"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""South"",
                     ""type"": ""PassThrough"",
                     ""id"": ""5a5928bc-7214-4b63-8bb8-e001ef6896fc"",
@@ -1067,83 +1058,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""3f775c1c-8f15-4cfa-b868-86b26156a3c4"",
-                    ""path"": ""<Logitech G29 Racing Wheel>/hatSwitch"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Logitech G29"",
-                    ""action"": ""SwitchBeetweenButtons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Keyboard"",
-                    ""id"": ""ec1da6a1-5073-4dfc-bf86-7af419e44c89"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchBeetweenButtons"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""0b5d1af1-9b4e-4d64-99d3-5f6c8bad3639"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchBeetweenButtons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""d353c1e9-a889-44cf-aa6e-7f878dc3741d"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchBeetweenButtons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Logitech G29"",
-                    ""id"": ""fc6e1ae4-4606-4e1e-a155-67d51498a6b6"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchBeetweenButtons"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""73fbd665-6e33-44ce-8659-2090ca9fbf08"",
-                    ""path"": ""<Logitech G29 Racing Wheel>/plusButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Logitech G29"",
-                    ""action"": ""SwitchBeetweenButtons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""1a7c9136-5e5f-404c-86b8-cfcbd05fc225"",
-                    ""path"": ""<Logitech G29 Racing Wheel>/minusButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Logitech G29"",
-                    ""action"": ""SwitchBeetweenButtons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": """",
                     ""id"": ""e2b379ce-bb0b-4098-b39b-ed28fd0f6d18"",
@@ -1227,7 +1141,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_Handbrake_Handbrake = m_Handbrake.FindAction("Handbrake", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_SwitchBeetweenButtons = m_UI.FindAction("SwitchBeetweenButtons", throwIfNotFound: true);
         m_UI_South = m_UI.FindAction("South", throwIfNotFound: true);
     }
 
@@ -2091,7 +2004,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_SwitchBeetweenButtons;
     private readonly InputAction m_UI_South;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
@@ -2104,10 +2016,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
         public UIActions(@InputController wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "UI/SwitchBeetweenButtons".
-        /// </summary>
-        public InputAction @SwitchBeetweenButtons => m_Wrapper.m_UI_SwitchBeetweenButtons;
         /// <summary>
         /// Provides access to the underlying input action "UI/South".
         /// </summary>
@@ -2138,9 +2046,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @SwitchBeetweenButtons.started += instance.OnSwitchBeetweenButtons;
-            @SwitchBeetweenButtons.performed += instance.OnSwitchBeetweenButtons;
-            @SwitchBeetweenButtons.canceled += instance.OnSwitchBeetweenButtons;
             @South.started += instance.OnSouth;
             @South.performed += instance.OnSouth;
             @South.canceled += instance.OnSouth;
@@ -2155,9 +2060,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// <seealso cref="UIActions" />
         private void UnregisterCallbacks(IUIActions instance)
         {
-            @SwitchBeetweenButtons.started -= instance.OnSwitchBeetweenButtons;
-            @SwitchBeetweenButtons.performed -= instance.OnSwitchBeetweenButtons;
-            @SwitchBeetweenButtons.canceled -= instance.OnSwitchBeetweenButtons;
             @South.started -= instance.OnSouth;
             @South.performed -= instance.OnSouth;
             @South.canceled -= instance.OnSouth;
@@ -2478,13 +2380,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
     public interface IUIActions
     {
-        /// <summary>
-        /// Method invoked when associated input action "SwitchBeetweenButtons" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSwitchBeetweenButtons(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "South" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

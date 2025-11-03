@@ -1587,7 +1587,7 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 48947433c395c5343905e0e40da0e8d5, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 100
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
@@ -3932,7 +3932,7 @@ MonoBehaviour:
   m_TrackedDeviceDragThresholdMultiplier: 2
   m_TrackedScrollDeltaMultiplier: 5
   m_BypassUIToolkitEvents: 0
-  m_ActiveInputMode: 2
+  m_ActiveInputMode: 1
   m_EnableXRInput: 1
   m_EnableMouseInput: 1
   m_EnableTouchInput: 1
@@ -3941,7 +3941,7 @@ MonoBehaviour:
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
   m_ScrollWheelAction: {fileID: 0}
-  m_NavigateAction: {fileID: 5411336534943528254, guid: 9d6d511a87663dc4e873f2b8f1c619db, type: 3}
+  m_NavigateAction: {fileID: 0}
   m_SubmitAction: {fileID: -2428253296006695759, guid: 9d6d511a87663dc4e873f2b8f1c619db, type: 3}
   m_CancelAction: {fileID: 0}
   m_EnableBuiltinActionsAsFallback: 1
@@ -4407,6 +4407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 711538382}
   - component: {fileID: 711538383}
+  - component: {fileID: 711538384}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4451,6 +4452,23 @@ MonoBehaviour:
   QuitScreenConfirm: {fileID: 1822880252}
   YesQuit: {fileID: 1949203242}
   NoStay: {fileID: 1642782866}
+--- !u!114 &711538384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711538381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94bb38c752c86ec4d9027f42ca9732fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputControllerReader: {fileID: 11400000, guid: 8268bb9eff5a1954492cd4817fb37528, type: 2}
+  FirstButtons:
+  - {fileID: 679211153}
+  - {fileID: 864584744}
+  - {fileID: 1949203242}
 --- !u!1001 &715763268
 PrefabInstance:
   m_ObjectHideFlags: 0

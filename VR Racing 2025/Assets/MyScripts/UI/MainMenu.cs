@@ -48,6 +48,7 @@ public class MainMenu : MonoBehaviour
         NoStay.onClick.RemoveListener(CancelQuit);
     }
 
+
     private void StartGame()
     {
         if (!CarController.OffInput)

@@ -51,7 +51,7 @@ public class CarController : MonoBehaviour
         South_button_hold_timer = 0f;
         StartEngineScreen.SetActive(false);
         wheel_drive_mode = "Задний привод";
-        OffInput = false;
+        StartCoroutine(OffInputDelay());
     }
 
     private void OnEnable()
@@ -335,7 +335,6 @@ public class CarController : MonoBehaviour
             wheel_drive_mode = AllWheelDriveMode ? "Полный привод" : "Задний привод";            
         }
     }
-
 
     [Serializable]
     public class AxleInfo
