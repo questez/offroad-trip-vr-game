@@ -16,7 +16,7 @@ public class CarController : MonoBehaviour
     public static bool OffInput { get; private set; }
     [SerializeField] private InputControllerReader inputControllerReader;
 
-    [SerializeField] private Transform steeringWheelTransform;    
+    [SerializeField] private Transform steeringWheelTransform;
 
     [SerializeField] private List<AxleInfo> axleInfos; // информация о каждой отдельной оси автомобиля
 

@@ -302,11 +302,33 @@
                 },
                 {
                     "name": "",
+                    "id": "13176b54-474c-48cc-832f-6e1f623cbf86",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ae86d439-6302-4779-8ca5-8566cebbcc36",
                     "path": "<Logitech G29 Racing Wheel>/rightTurnButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Logitech G29",
+                    "action": "Right Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84d861d6-27cd-41fa-8325-579c91ea9c7e",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Right Turn",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -962,7 +984,7 @@
             "id": "3b7626dc-caed-4996-a891-4dc864512e79",
             "actions": [
                 {
-                    "name": "South",
+                    "name": "Submit",
                     "type": "PassThrough",
                     "id": "5a5928bc-7214-4b63-8bb8-e001ef6896fc",
                     "expectedControlType": "Button",
@@ -979,7 +1001,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Logitech G29",
-                    "action": "South",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -990,7 +1012,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "South",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -388,11 +388,33 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""13176b54-474c-48cc-832f-6e1f623cbf86"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ae86d439-6302-4779-8ca5-8566cebbcc36"",
                     ""path"": ""<Logitech G29 Racing Wheel>/rightTurnButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Logitech G29"",
+                    ""action"": ""Right Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84d861d6-27cd-41fa-8325-579c91ea9c7e"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Right Turn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1048,7 +1070,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             ""id"": ""3b7626dc-caed-4996-a891-4dc864512e79"",
             ""actions"": [
                 {
-                    ""name"": ""South"",
+                    ""name"": ""Submit"",
                     ""type"": ""PassThrough"",
                     ""id"": ""5a5928bc-7214-4b63-8bb8-e001ef6896fc"",
                     ""expectedControlType"": ""Button"",
@@ -1065,7 +1087,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Logitech G29"",
-                    ""action"": ""South"",
+                    ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1076,7 +1098,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""South"",
+                    ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1141,7 +1163,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_Handbrake_Handbrake = m_Handbrake.FindAction("Handbrake", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_South = m_UI.FindAction("South", throwIfNotFound: true);
+        m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
     }
 
     ~@InputController()
@@ -2004,7 +2026,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_South;
+    private readonly InputAction m_UI_Submit;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -2017,9 +2039,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// </summary>
         public UIActions(@InputController wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "UI/South".
+        /// Provides access to the underlying input action "UI/Submit".
         /// </summary>
-        public InputAction @South => m_Wrapper.m_UI_South;
+        public InputAction @Submit => m_Wrapper.m_UI_Submit;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -2046,9 +2068,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @South.started += instance.OnSouth;
-            @South.performed += instance.OnSouth;
-            @South.canceled += instance.OnSouth;
+            @Submit.started += instance.OnSubmit;
+            @Submit.performed += instance.OnSubmit;
+            @Submit.canceled += instance.OnSubmit;
         }
 
         /// <summary>
@@ -2060,9 +2082,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// <seealso cref="UIActions" />
         private void UnregisterCallbacks(IUIActions instance)
         {
-            @South.started -= instance.OnSouth;
-            @South.performed -= instance.OnSouth;
-            @South.canceled -= instance.OnSouth;
+            @Submit.started -= instance.OnSubmit;
+            @Submit.performed -= instance.OnSubmit;
+            @Submit.canceled -= instance.OnSubmit;
         }
 
         /// <summary>
@@ -2381,11 +2403,11 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         /// <summary>
-        /// Method invoked when associated input action "South" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Submit" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSouth(InputAction.CallbackContext context);
+        void OnSubmit(InputAction.CallbackContext context);
     }
 }

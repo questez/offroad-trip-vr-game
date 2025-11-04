@@ -9,6 +9,8 @@ public class PauseScreenWork : MonoBehaviour
 {
     [SerializeField] private InputControllerReader inputControllerReader;
 
+    [SerializeField] private AudioSource clickSound;
+
     public static bool isPaused;
     [SerializeField] GameObject PauseScreen;
     [SerializeField] Button ResumeButton;
@@ -82,6 +84,7 @@ public class PauseScreenWork : MonoBehaviour
 
     private void Resume() // продолжить игру
     {
+        clickSound.Play();
         PauseScreen.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -90,13 +93,16 @@ public class PauseScreenWork : MonoBehaviour
 
     private void Restart() // переход на окно подтверждения рестарта игры
     {
+        clickSound.Play();
         PauseScreen.SetActive(false);
         RestartScreenConfirm.SetActive(true);
         StartCoroutine(DelayBetweenScreens(YesRestart));
+        StartCoroutine(CarController.OffInputDelay());
     }
 
     private void ConfirmRestart() // рестарт игры
     {
+        clickSound.Play();
         isPaused = false;
         Time.timeScale = 1f;
         Trunk.CleanCounter();
@@ -104,6 +110,7 @@ public class PauseScreenWork : MonoBehaviour
     }
     private void CancelRestart() // отмена рестарта
     {
+        clickSound.Play();
         PauseScreen.SetActive(true);
         RestartScreenConfirm.SetActive(false);
         StartCoroutine(DelayBetweenScreens(ResumeButton));
@@ -111,6 +118,7 @@ public class PauseScreenWork : MonoBehaviour
 
     private void Quit() // переход на окно подтверждения выхода в меню
     {
+        clickSound.Play();
         PauseScreen.SetActive(false);
         QuitScreenConfirm.SetActive(true);
         StartCoroutine(DelayBetweenScreens(YesQuit));
@@ -118,12 +126,14 @@ public class PauseScreenWork : MonoBehaviour
 
     private void ConfirmQuit() // выход в меню
     {
+        clickSound.Play();
         StartCoroutine(CarController.OffInputDelay());
         SceneManager.LoadScene("MainMenu");
         Debug.Log("Вышел в главное меню!");
     }
     private void CancelQuit() // отмена выхода в меню
     {
+        clickSound.Play();
         PauseScreen.SetActive(true);
         QuitScreenConfirm.SetActive(false);        
         StartCoroutine(DelayBetweenScreens(ResumeButton));

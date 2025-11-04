@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private InputControllerReader inputControllerReader;
 
+    [SerializeField] private AudioSource clickSound;
+
     [SerializeField] GameObject MainMenuScreen;
     [SerializeField] Button PlayButton;
     [SerializeField] Button SettingsButton;
@@ -50,18 +52,18 @@ public class MainMenu : MonoBehaviour
 
 
     private void StartGame()
-    {
-        if (!CarController.OffInput)
-
-            PauseScreenWork.isPaused = false;
-            Time.timeScale = 1f;
-            Trunk.CleanCounter();
-            SceneManager.LoadScene("MainScene");
-            StartCoroutine(CarController.OffInputDelay());  
+    {        
+        clickSound.Play();
+        PauseScreenWork.isPaused = false;
+        Time.timeScale = 1f;
+        Trunk.CleanCounter();
+        SceneManager.LoadScene("MainScene");
+        StartCoroutine(CarController.OffInputDelay());        
     }
 
     private void OpenSettings()
     {
+        clickSound.Play();
         MainMenuScreen.SetActive(false);
         SettingsScreen.SetActive(true);
         StartCoroutine(DelayBetweenScreens(CloseSettingsButton));
@@ -69,6 +71,7 @@ public class MainMenu : MonoBehaviour
 
     private void CloseSettings()
     {
+        clickSound.Play();
         MainMenuScreen.SetActive(true);
         SettingsScreen.SetActive(false);
         StartCoroutine(DelayBetweenScreens(PlayButton));
@@ -76,6 +79,7 @@ public class MainMenu : MonoBehaviour
 
     private void Quit()
     {
+        clickSound.Play();
         MainMenuScreen.SetActive(false);
         QuitScreenConfirm.SetActive(true);
         StartCoroutine(DelayBetweenScreens(YesQuit));
@@ -83,12 +87,15 @@ public class MainMenu : MonoBehaviour
 
     private void QuitConfirm()
     {
+        clickSound.Play();
+        
         Application.Quit();
-        //UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;        
     }
 
     private void CancelQuit()
     {
+        clickSound.Play();
         MainMenuScreen.SetActive(true);
         QuitScreenConfirm.SetActive(false);
         StartCoroutine(DelayBetweenScreens(PlayButton));

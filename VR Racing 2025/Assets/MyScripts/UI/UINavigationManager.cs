@@ -8,6 +8,8 @@ public class UINavigationManager : MonoBehaviour
 {
     [SerializeField] private InputControllerReader inputControllerReader;
 
+    [SerializeField] private AudioSource navigationSound;
+
     [SerializeField] private Selectable[] FirstButtons;
 
     bool OffInput;
@@ -30,10 +32,26 @@ public class UINavigationManager : MonoBehaviour
                 StartCoroutine(OffInputDelay());
             }
         }
+        else if (inputControllerReader.LeftTurn || inputControllerReader.HatSwitch.x == 1)
+        {
+            if (!OffInput)
+            {
+                NavigateToLeft();
+                StartCoroutine(OffInputDelay());
+            }
+        }
+        else if (inputControllerReader.RightTurn || inputControllerReader.HatSwitch.x == -1)
+        {
+            if (!OffInput)
+            {
+                NavigateToRight();
+                StartCoroutine(OffInputDelay());
+            }
+        }
     }
 
     private void NavigateToUp()
-    {
+    {        
         if (EventSystem.current.currentSelectedGameObject == null)
         {
             SelectFirstButton();
@@ -46,12 +64,13 @@ public class UINavigationManager : MonoBehaviour
 
         if (next != null && next.IsInteractable())
         {
+            navigationSound.Play();
             EventSystem.current.SetSelectedGameObject(next.gameObject);
         }
     }
 
     private void NavigateToDown()
-    {
+    {        
         if (EventSystem.current.currentSelectedGameObject == null)
         {
             SelectFirstButton();
@@ -64,6 +83,44 @@ public class UINavigationManager : MonoBehaviour
 
         if (next != null && next.IsInteractable())
         {
+            navigationSound.Play();
+            EventSystem.current.SetSelectedGameObject(next.gameObject);
+        }
+    }
+    private void NavigateToLeft()
+    {
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            SelectFirstButton();
+            return;
+        }
+
+        Selectable current = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>();
+
+        Selectable next = current.FindSelectableOnLeft();
+
+        if (next != null && next.IsInteractable())
+        {
+            navigationSound.Play();
+            EventSystem.current.SetSelectedGameObject(next.gameObject);
+        }
+    }
+
+    private void NavigateToRight()
+    {
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            SelectFirstButton();
+            return;
+        }
+
+        Selectable current = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>();
+
+        Selectable next = current.FindSelectableOnRight();
+
+        if (next != null && next.IsInteractable())
+        {
+            navigationSound.Play();
             EventSystem.current.SetSelectedGameObject(next.gameObject);
         }
     }
@@ -74,6 +131,7 @@ public class UINavigationManager : MonoBehaviour
         {
             if (selectable.IsActive() && selectable.IsInteractable())
             {
+                navigationSound.Play();
                 selectable.Select();
             }
         }
