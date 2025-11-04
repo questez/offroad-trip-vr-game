@@ -11,7 +11,7 @@ public class SoundVolumeManager : MonoBehaviour
 
     private AudioSource[] AllAudioSources;
 
-    public static float TotalSoundVolume { get; private set; } = 0.5f;
+    public static float TotalSoundVolume { get; private set; } = 0.75f;
 
     bool OffInput;
 
@@ -43,7 +43,7 @@ public class SoundVolumeManager : MonoBehaviour
 
     private void Update()
     {
-        if (SoundSlider != null)
+        if (SoundSlider != null && SoundSlider.IsActive())
         {
             if (inputControllerReader.LeftTurn || inputControllerReader.HatSwitch.x == 1)
             {

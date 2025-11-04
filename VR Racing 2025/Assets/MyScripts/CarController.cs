@@ -7,6 +7,13 @@ using System.Collections;
 
 public class CarController : MonoBehaviour
 {
+    [SerializeField] private AudioSource startEngineSound;
+    private bool isStartingEngine = false;
+    [SerializeField] private AudioSource stopEngineSound;
+    [SerializeField] private AudioSource EngineIsRunningSound;
+    private const float maxPitch = 2.5f;
+    private const float minPitch = 1f;
+
     [SerializeField] private GameObject StartEngineScreen;
     [SerializeField] private Slider slider3;
     private float South_button_hold_timer;
@@ -83,6 +90,46 @@ public class CarController : MonoBehaviour
         }
     }
 
+    private void ChangePitchSound(float value, char shifter)
+    {
+        if (shifter == 'N')
+        {
+            if (value > 0)
+            {
+                if (EngineIsRunningSound.pitch < maxPitch)
+                {
+                    EngineIsRunningSound.pitch += value * 0.01f;
+                }
+                else
+                {
+                    EngineIsRunningSound.pitch = maxPitch;
+                }
+            }
+            else
+            {
+                EngineIsRunningSound.pitch = Mathf.Lerp(EngineIsRunningSound.pitch, minPitch, 0.03f);
+            }
+        }
+        else
+        {
+            if (value > 0)
+            {
+                if (EngineIsRunningSound.pitch < maxPitch)
+                {
+                    EngineIsRunningSound.pitch += value * 0.01f;
+                }
+                else
+                {
+                    EngineIsRunningSound.pitch = maxPitch;
+                }
+            }
+            else
+            {
+                EngineIsRunningSound.pitch = Mathf.Lerp(EngineIsRunningSound.pitch, minPitch, 0.03f);
+            }
+        }
+    }
+
     private void UpdateWheelState() // поведение колес и повороты рулем
     {         
         float speed = 0f;
@@ -90,7 +137,7 @@ public class CarController : MonoBehaviour
         if (inputControllerReader.Throttle != 0)
         {
             speed = inputControllerReader.Throttle;
-        }
+        }               
 
         float current_power = speed * enginePower; // передача крутящего момента колесам (педали)        
         //float current_power = Input.GetAxis("Vertical") * enginePower; // передача крутящего момента колесам (клавиатура)
@@ -135,12 +182,21 @@ public class CarController : MonoBehaviour
                         info.rightWheel.motorTorque = -current_power;
                         info.leftWheel.motorTorque = -current_power;
                     }
+                    if (current_shifter == 'N')
+                    {
+                        ChangePitchSound(speed, current_shifter);
+                    }
+                    else
+                    {
+                        ChangePitchSound(Mathf.Max(info.rightWheel.motorTorque, info.leftWheel.motorTorque) * 0.0001f, current_shifter);
+                    }
                 }                
                 else
                 {
                     info.rightWheel.motorTorque = 0;
                     info.leftWheel.motorTorque = 0;
-                }                
+                }
+                                   
             }
             info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
             info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
@@ -305,25 +361,42 @@ public class CarController : MonoBehaviour
     {        
         if (inputControllerReader.SouthButton && !EngineIsRunning)
         {
+            if (!isStartingEngine)
+            {
+                isStartingEngine = true;
+                startEngineSound.Play();
+            }
             StartEngineScreen.SetActive(true);
             South_button_hold_timer += Time.deltaTime;
-            slider3.value = Mathf.Lerp(0, South_button_hold_timer, 5f);
+            slider3.value = South_button_hold_timer;
             if (slider3.value == slider3.maxValue)
             {
                 StartEngineScreen.SetActive(false);
                 South_button_hold_timer = 0;
                 EngineIsRunning = true;
+                EngineIsRunningSound.Play();
                 Debug.Log("Двигатель запущен!");
+                return;
             }
-        }        
+        }
+        else
+        {
+            isStartingEngine = false;
+            StartEngineScreen.SetActive(false);
+            South_button_hold_timer = 0;
+            startEngineSound.Stop();
+        }            
     }
 
     private void OffEngine(bool value)
     {
         if (value && !PauseScreenWork.isPaused)
         {
+            EngineIsRunningSound.Stop();
             EngineIsRunning = false;
+            stopEngineSound.Play();
             Debug.Log("Двигатель заглушен!");
+            StartCoroutine(OffInputDelay());
         }
     }
 
