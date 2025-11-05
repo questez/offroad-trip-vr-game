@@ -7,10 +7,16 @@ using System.Collections;
 
 public class CarController : MonoBehaviour
 {
-    [SerializeField] private AudioSource startEngineSound;
-    private bool isStartingEngine = false;
-    [SerializeField] private AudioSource stopEngineSound;
+    [SerializeField] private AudioSource startEngineSound, stopEngineSound;
     [SerializeField] private AudioSource EngineIsRunningSound;
+    [SerializeField] private AudioSource gearShifterSound;
+    [SerializeField] private AudioSource asphaltSound, mudSound, waterSound;
+
+    private bool InMud; // едет ли машина по грязи
+    private bool InWater; // едет ли машина по лужам
+
+    private bool isStartingEngine = false;
+
     private const float maxPitch = 2f;
     private const float minPitch = 1f;
 
@@ -19,9 +25,8 @@ public class CarController : MonoBehaviour
     private const float maxRPM = 7000f;
     private float rpmSmoothVelocity; // для сглаживания
     private char previous_shifter = 'N';
-    private bool shifterJustChanged = false;
+    private bool shifterJustChanged = false;    
     private float gearChangeCooldown = 0f;
-
 
     [SerializeField] private GameObject StartEngineScreen;
     [SerializeField] private Slider slider3;
@@ -56,8 +61,7 @@ public class CarController : MonoBehaviour
     private bool EngineIsRunning; // запущен ли двигатель
     private bool AllWheelDriveMode; // включен ли полный привод
 
-    private bool InMud; // едет ли машина по грязи
-    private bool InWater; // едет ли машина по лужам
+    
 
     private void Start()
     {
@@ -135,8 +139,7 @@ public class CarController : MonoBehaviour
 
                 gearChangeCooldown -= Time.deltaTime;
                 if (gearChangeCooldown <= 0)
-                {
-
+                {                    
                     shifterJustChanged = false; // вернуться к обычному росту оборотов
                 }
             }
@@ -247,6 +250,7 @@ public class CarController : MonoBehaviour
             // если передача изменилась
             if (new_shifter != previous_shifter)
             {
+                gearShifterSound.Play();
                 shifterJustChanged = true;
                 gearChangeCooldown = 0.5f; // полсекунды "просадки" оборотов
                 previous_shifter = new_shifter;
@@ -283,7 +287,7 @@ public class CarController : MonoBehaviour
         }
 
         else
-        {
+        {           
             ApplyValuesForDefaultSurface(info);
         }
     }
@@ -438,14 +442,26 @@ public class CarController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Mud")) InMud = true;
-        else if (other.CompareTag("Water")) InWater = true;
+        if (other.CompareTag("Mud"))
+        {
+            InMud = true;
+        }
+        else if (other.CompareTag("Water"))
+        {
+            InWater = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Mud")) InMud = false;
-        else if (other.CompareTag("Water")) InWater = false;
+        if (other.CompareTag("Mud"))
+        {
+            InMud = false;
+        }
+        else if (other.CompareTag("Water"))
+        {
+            InWater = false;
+        }        
     }
 
     public static IEnumerator OffInputDelay() // сигнал для отключения ввода с руля и педалей, когда это нужно

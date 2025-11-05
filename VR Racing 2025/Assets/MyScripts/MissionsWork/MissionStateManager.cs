@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MissionStateManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource boxHitSound, plankHitSound;    
+
     [SerializeField] private InputControllerReader inputControllerReader;
 
     [SerializeField] private GameObject LoadingCarScreen;
@@ -124,6 +126,7 @@ public class MissionStateManager : MonoBehaviour
                                 Quaternion worldRot = Quaternion.Euler(90f, spawnPoint.eulerAngles.y, 0f);
                                 GameObject barrel = Instantiate(Barrel, worldPos, worldRot);
                                 spawnedCargos.Add(barrel);
+                                boxHitSound.Play();
                             }
 
                             PlayerBehaviour.CurrentMission = '1';
@@ -150,6 +153,7 @@ public class MissionStateManager : MonoBehaviour
                                 Quaternion worldRot = Quaternion.Euler(0f, spawnPoint.eulerAngles.y, 0f);
                                 GameObject plank = Instantiate(Plank, worldPos, worldRot);
                                 spawnedCargos.Add(plank);
+                                plankHitSound.Play();
                             }
                             PlayerBehaviour.CurrentMission = '2';
                         }
@@ -175,6 +179,7 @@ public class MissionStateManager : MonoBehaviour
                                 Quaternion worldRot = Quaternion.Euler(0f, spawnPoint.eulerAngles.y, 0f);
                                 GameObject box = Instantiate(Box, worldPos, worldRot);
                                 spawnedCargos.Add(box);
+                                boxHitSound.Play();
                             }
                             foreach (var offset in localOffsetsForChest)
                             {
