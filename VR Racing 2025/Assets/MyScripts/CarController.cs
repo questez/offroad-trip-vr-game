@@ -11,8 +11,17 @@ public class CarController : MonoBehaviour
     private bool isStartingEngine = false;
     [SerializeField] private AudioSource stopEngineSound;
     [SerializeField] private AudioSource EngineIsRunningSound;
-    private const float maxPitch = 2.5f;
+    private const float maxPitch = 2f;
     private const float minPitch = 1f;
+
+    private float engineRPM; // виртуальные обороты двигателя
+    private const float minRPM = 800f;
+    private const float maxRPM = 7000f;
+    private float rpmSmoothVelocity; // для сглаживания
+    private char previous_shifter = 'N';
+    private bool shifterJustChanged = false;
+    private float gearChangeCooldown = 0f;
+
 
     [SerializeField] private GameObject StartEngineScreen;
     [SerializeField] private Slider slider3;
@@ -90,64 +99,79 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void ChangePitchSound(float value, char shifter)
+    private void UpdateEngineSound(float throttleInput)
     {
-        if (shifter == 'N')
+        if (!EngineIsRunning) return;
+
+        // Если нейтраль — обороты растут от газа напрямую
+        if (current_shifter == 'N')
         {
-            if (value > 0)
-            {
-                if (EngineIsRunningSound.pitch < maxPitch)
-                {
-                    EngineIsRunningSound.pitch += value * 0.01f;
-                }
-                else
-                {
-                    EngineIsRunningSound.pitch = maxPitch;
-                }
-            }
-            else
-            {
-                EngineIsRunningSound.pitch = Mathf.Lerp(EngineIsRunningSound.pitch, minPitch, 0.03f);
-            }
+            float targetRPM = Mathf.Lerp(minRPM, maxRPM, Mathf.Abs(throttleInput));
+            engineRPM = Mathf.SmoothDamp(engineRPM, targetRPM, ref rpmSmoothVelocity, 0.4f);
         }
         else
         {
-            if (value > 0)
+            // На передаче — RPM зависит от скорости колес и газа
+            float wheelRPM = 0f;
+            int motorWheels = 0;
+
+            foreach (var axle in axleInfos)
             {
-                if (EngineIsRunningSound.pitch < maxPitch)
+                if (axle.isMotor)
                 {
-                    EngineIsRunningSound.pitch += value * 0.01f;
+                    wheelRPM += Mathf.Abs(axle.leftWheel.rpm / 1.5f + axle.rightWheel.rpm / 1.5f) * 0.5f;
+                    motorWheels++;
                 }
-                else
+            }
+
+            if (motorWheels > 0) wheelRPM /= motorWheels;
+
+            // добавляем эффект газа (Throttle повышает обороты)
+            float targetRPM = Mathf.Lerp(minRPM, maxRPM, Mathf.Clamp01(Mathf.Abs(wheelRPM) / 500f)) + Mathf.Abs(throttleInput) * 1000f;
+            if (shifterJustChanged)
+            {
+                // сбрасываем RPM до 2000 после переключения передачи
+                engineRPM = Mathf.Lerp(engineRPM, 2000f, Time.deltaTime * 6f);
+
+                gearChangeCooldown -= Time.deltaTime;
+                if (gearChangeCooldown <= 0)
                 {
-                    EngineIsRunningSound.pitch = maxPitch;
+
+                    shifterJustChanged = false; // вернуться к обычному росту оборотов
                 }
             }
             else
             {
-                EngineIsRunningSound.pitch = Mathf.Lerp(EngineIsRunningSound.pitch, minPitch, 0.03f);
+                engineRPM = Mathf.SmoothDamp(engineRPM, targetRPM, ref rpmSmoothVelocity, 0.4f);
             }
         }
+
+        // Нормализуем pitch от RPM
+        float normalizedRPM = Mathf.InverseLerp(minRPM, maxRPM, engineRPM);
+        EngineIsRunningSound.pitch = Mathf.Lerp(minPitch, maxPitch, normalizedRPM);
+        EngineIsRunningSound.pitch = Mathf.Clamp(EngineIsRunningSound.pitch, minPitch, maxPitch);
     }
+
 
     private void UpdateWheelState() // поведение колес и повороты рулем
     {         
         float speed = 0f;
+        float brake = 0f;
 
         if (inputControllerReader.Throttle != 0)
         {
             speed = inputControllerReader.Throttle;
         }               
+        if (inputControllerReader.Brake != 0)
+        {
+            brake = inputControllerReader.Brake;
+        }               
 
-        float current_power = speed * enginePower; // передача крутящего момента колесам (педали)        
-        //float current_power = Input.GetAxis("Vertical") * enginePower; // передача крутящего момента колесам (клавиатура)
+        float current_throttle_power = speed * enginePower; // передача крутящего момента колесам        
 
-        float steering_angle = maxSteeringAngle * inputControllerReader.Steering; // поворот (руль)
-        //float steering_angle = maxSteeringAngle * Input.GetAxis("Horizontal"); // поворот (клавиатура)
-        
-        bool isBraking = inputControllerReader.Brake != 0; // тормоз (педали)
-        //bool isBraking = Input.GetKey(KeyCode.Z); // тормоз (клавиатура)
+        float steering_angle = maxSteeringAngle * inputControllerReader.Steering; // поворот
 
+        float current_brake_power = brake * BrakeForce; // передача тормоза колесам
 
         foreach (var info in axleInfos)
         {            
@@ -169,41 +193,77 @@ public class CarController : MonoBehaviour
             }
             
             if (info.isMotor)
-            {                
+            {
+                Debug.Log($"info.leftWheel.rpm {info.leftWheel.rpm}");
+                Debug.Log($"info.rightWheel.rpm {info.rightWheel.rpm}");
+
                 if ((rb.linearVelocity.magnitude <= CurrentMaxSpeed / 3.6f) && EngineIsRunning)
                 {
                     if (!isReverseGear)
                     {
-                        info.rightWheel.motorTorque = current_power;
-                        info.leftWheel.motorTorque = current_power;
+                        info.rightWheel.motorTorque = current_throttle_power;
+                        info.leftWheel.motorTorque = current_throttle_power;
                     }
                     else
                     {
-                        info.rightWheel.motorTorque = -current_power;
-                        info.leftWheel.motorTorque = -current_power;
-                    }
-                    if (current_shifter == 'N')
-                    {
-                        ChangePitchSound(speed, current_shifter);
-                    }
-                    else
-                    {
-                        ChangePitchSound(Mathf.Max(info.rightWheel.motorTorque, info.leftWheel.motorTorque) * 0.0001f, current_shifter);
-                    }
+                        info.rightWheel.motorTorque = -current_throttle_power;
+                        info.leftWheel.motorTorque = -current_throttle_power;
+                    }                    
                 }                
                 else
                 {
                     info.rightWheel.motorTorque = 0;
                     info.leftWheel.motorTorque = 0;
-                }
-                                   
-            }
-            info.rightWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake : 0;
-            info.leftWheel.brakeTorque = isBraking ? BrakeForce * inputControllerReader.Brake: 0;
-            //info.rightWheel.brakeTorque = isBraking ? BrakeForce : 0;
-            //info.leftWheel.brakeTorque = isBraking ? BrakeForce : 0;
-
+                }                                   
+            }            
+            
+            info.rightWheel.brakeTorque = current_brake_power;
+            info.leftWheel.brakeTorque = current_brake_power;
+            
             CheckWheelCollision(info);
+        }
+        UpdateEngineSound(speed);
+    }
+
+    private float CurrentMaxSpeed
+    {
+        get
+        {
+            char new_shifter = 'N';
+
+            if (!(inputControllerReader.Shifter6 || inputControllerReader.Shifter7)) isReverseGear = false;
+
+            if (inputControllerReader.Shifter1) new_shifter = '1';
+            else if (inputControllerReader.Shifter2) new_shifter = '2';
+            else if (inputControllerReader.Shifter3) new_shifter = '3';
+            else if (inputControllerReader.Shifter4) new_shifter = '4';
+            else if (inputControllerReader.Shifter5) new_shifter = '5';
+            else if (inputControllerReader.Shifter6 || inputControllerReader.Shifter7)
+            {
+                isReverseGear = true;
+                new_shifter = 'R';
+            }
+
+            // если передача изменилась
+            if (new_shifter != previous_shifter)
+            {
+                shifterJustChanged = true;
+                gearChangeCooldown = 0.5f; // полсекунды "просадки" оборотов
+                previous_shifter = new_shifter;
+            }
+
+            current_shifter = new_shifter;
+
+            switch (current_shifter)
+            {
+                case '1': return MaxSpeed1;
+                case '2': return MaxSpeed2;
+                case '3': return MaxSpeed3;
+                case '4': return MaxSpeed4;
+                case '5': return MaxSpeed5;
+                case 'R': return MaxSpeedR;
+                default: return 0;
+            }
         }
     }
 
@@ -260,7 +320,7 @@ public class CarController : MonoBehaviour
 
         info.leftWheel.sidewaysFriction = leftSidewaysFriction;
         info.rightWheel.sidewaysFriction = rightSidewaysFriction;
-        Debug.Log("Заехал в лужу!!"); ;
+        //Debug.Log("Заехал в лужу!!"); ;
     }
     private void ApplyValuesForMuddySurface(AxleInfo info)
     {
@@ -286,7 +346,7 @@ public class CarController : MonoBehaviour
 
         info.leftWheel.sidewaysFriction = leftSidewaysFriction;
         info.rightWheel.sidewaysFriction = rightSidewaysFriction;
-        Debug.Log("Едет по грязи!!");
+        //Debug.Log("Едет по грязи!!");
     }
 
     private void ApplyValuesForDefaultSurface(AxleInfo info)
@@ -313,49 +373,7 @@ public class CarController : MonoBehaviour
 
         info.leftWheel.sidewaysFriction = leftSidewaysFriction;
         info.rightWheel.sidewaysFriction = rightSidewaysFriction;
-    }
-
-    private float CurrentMaxSpeed // максимально допустимая скорость машины на текущей передаче
-    {
-        get
-        { 
-            if (!(inputControllerReader.Shifter6 || inputControllerReader.Shifter7)) isReverseGear = false;
-
-            if (inputControllerReader.Shifter1)
-            {
-                current_shifter = '1';
-                return MaxSpeed1;
-            }
-            else if (inputControllerReader.Shifter2)
-            {
-                current_shifter = '2';
-                return MaxSpeed2;
-            }
-            else if (inputControllerReader.Shifter3)
-            {
-                current_shifter = '3';
-                return MaxSpeed3;
-            }
-            else if (inputControllerReader.Shifter4)
-            {
-                current_shifter = '4';
-                return MaxSpeed4;
-            }
-            else if (inputControllerReader.Shifter5)
-            {
-                current_shifter = '5';
-                return MaxSpeed5;
-            }
-            else if (inputControllerReader.Shifter6 || inputControllerReader.Shifter7)
-            {
-                isReverseGear = true;
-                current_shifter = 'R';
-                return MaxSpeedR;
-            }
-            current_shifter = 'N';
-            return 0;                           
-        }
-    }
+    }   
 
     private void OnEngine()
     {        
