@@ -9,11 +9,11 @@ Z:\UNITY\Editor\6000.0.36f1\Editor\Unity.exe
 -batchMode
 -noUpm
 -name
-AssetImportWorker0
+AssetImportWorker2
 -projectPath
 Z:/UNITY/Projects/VR-RACING-2025/VR Racing 2025
 -logFile
-Logs/AssetImportWorker0.log
+Logs/AssetImportWorker2.log
 -srvPort
 49798
 -job-worker-count
@@ -59,12 +59,12 @@ Z:/UNITY/Projects/VR-RACING-2025/VR Racing 2025
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [6904]  Target information:
+Player connection [8968]  Target information:
 
-Player connection [6904]  * "[IP] 192.168.178.53 [Port] 0 [Flags] 2 [Guid] 4119233496 [EditorId] 4119233496 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-VKT7RGT) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [8968]  * "[IP] 192.168.178.53 [Port] 0 [Flags] 2 [Guid] 2502062712 [EditorId] 2502062712 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-VKT7RGT) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [6904] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [6904] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [8968] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8968] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -76,7 +76,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 12.36 ms, found 12 plugins.
+Refreshing native plugins compatible for Editor in 14.82 ms, found 12 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.36f1 (9fe3b5f71dbb)
 [Subsystems] Discovering subsystems at path Z:/UNITY/Editor/6000.0.36f1/Editor/Data/Resources/UnitySubsystems
@@ -92,48 +92,48 @@ Initialize mono
 Mono path[0] = 'Z:/UNITY/Editor/6000.0.36f1/Editor/Data/Managed'
 Mono path[1] = 'Z:/UNITY/Editor/6000.0.36f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'Z:/UNITY/Editor/6000.0.36f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56284
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56948
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: Z:/UNITY/Editor/6000.0.36f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: Z:/UNITY/Editor/6000.0.36f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
 Register platform support module: Z:/UNITY/Editor/6000.0.36f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Registered in 0.004016 seconds.
-- Loaded All Assemblies, in  0.356 seconds
+Registered in 0.003555 seconds.
+- Loaded All Assemblies, in  0.358 seconds
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 212 ms
+Android Extension - Scanning For ADB Devices 209 ms
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.550 seconds
-Domain Reload Profiling: 905ms
-	BeginReloadAssembly (143ms)
+- Finished resetting the current domain, in  0.549 seconds
+Domain Reload Profiling: 908ms
+	BeginReloadAssembly (145ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (30ms)
+	RebuildCommonClasses (32ms)
 	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (41ms)
-	LoadAllAssembliesAndSetupDomain (132ms)
-		LoadAssemblies (144ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (131ms)
+		LoadAssemblies (146ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
 		AnalyzeDomain (128ms)
 			TypeCache.Refresh (127ms)
-				TypeCache.ScanAssembly (116ms)
+				TypeCache.ScanAssembly (115ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
 	FinalizeReload (550ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (520ms)
+		SetupLoadedEditorAssemblies (518ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (284ms)
+			InitializePlatformSupportModulesInManaged (283ms)
 			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (53ms)
-			ProcessInitializeOnLoadAttributes (116ms)
-			ProcessInitializeOnLoadMethodAttributes (63ms)
+			BeforeProcessingInitializeOnLoad (52ms)
+			ProcessInitializeOnLoadAttributes (120ms)
+			ProcessInitializeOnLoadMethodAttributes (59ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -145,11 +145,11 @@ Import Worker Mode flag is 0x00
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.804 seconds
+- Loaded All Assemblies, in  0.797 seconds
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
 'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
-Refreshing native plugins compatible for Editor in 8.48 ms, found 12 plugins.
+Refreshing native plugins compatible for Editor in 8.11 ms, found 12 plugins.
 Native extension for Android target not found
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
@@ -174,125 +174,61 @@ Mono: successfully reloaded assembly
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  0.817 seconds
-Domain Reload Profiling: 1620ms
-	BeginReloadAssembly (197ms)
+- Finished resetting the current domain, in  0.803 seconds
+Domain Reload Profiling: 1599ms
+	BeginReloadAssembly (183ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
+		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (29ms)
-	RebuildCommonClasses (31ms)
+		CreateAndSetChildDomain (28ms)
+	RebuildCommonClasses (35ms)
 	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (35ms)
-	LoadAllAssembliesAndSetupDomain (524ms)
-		LoadAssemblies (388ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (529ms)
+		LoadAssemblies (376ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (268ms)
-			TypeCache.Refresh (191ms)
-				TypeCache.ScanAssembly (176ms)
-			BuildScriptInfoCaches (62ms)
-			ResolveRequiredComponents (13ms)
-	FinalizeReload (818ms)
+		AnalyzeDomain (272ms)
+			TypeCache.Refresh (199ms)
+				TypeCache.ScanAssembly (180ms)
+			BuildScriptInfoCaches (56ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (804ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (656ms)
+		SetupLoadedEditorAssemblies (642ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (12ms)
+			InitializePlatformSupportModulesInManaged (10ms)
 			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (123ms)
-			ProcessInitializeOnLoadAttributes (351ms)
-			ProcessInitializeOnLoadMethodAttributes (165ms)
+			BeforeProcessingInitializeOnLoad (108ms)
+			ProcessInitializeOnLoadAttributes (361ms)
+			ProcessInitializeOnLoadMethodAttributes (158ms)
 			AfterProcessingInitializeOnLoad (2ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (4ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 14.00 ms, found 12 plugins.
+Refreshing native plugins compatible for Editor in 13.98 ms, found 12 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 279 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7579 unused Assets / (7.2 MB). Loaded Objects now: 8450.
-Memory consumption went from 197.6 MB to 190.4 MB.
-Total: 16.384600 ms (FindLiveObjects: 1.365400 ms CreateObjectMapping: 1.690700 ms MarkObjects: 8.289800 ms  DeleteObjects: 5.037600 ms)
+Unloading 7579 unused Assets / (5.5 MB). Loaded Objects now: 8450.
+Memory consumption went from 197.5 MB to 192.0 MB.
+Total: 16.026600 ms (FindLiveObjects: 1.377600 ms CreateObjectMapping: 1.806000 ms MarkObjects: 8.431700 ms  DeleteObjects: 4.410100 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1244.957353 seconds.
-  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/Models/BlinkVisual.fbx
-  artifactKey: Guid(27b7629e54b332449bfa3a4065ffe17a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/Models/BlinkVisual.fbx using Guid(27b7629e54b332449bfa3a4065ffe17a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b138d90f42446d48c9ead8d6ff0f461a') in 0.9789034 seconds
+  Time since last request: 1244.897117 seconds.
+  path: Assets/Tom's Terrain Tools/Unity Terrain Assets/Bushes/Model/Bush5.fbx
+  artifactKey: Guid(0289fdf7bd118bca11002b7b44295342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tom's Terrain Tools/Unity Terrain Assets/Bushes/Model/Bush5.fbx using Guid(0289fdf7bd118bca11002b7b44295342) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '44a874d4edee631dcc37fc6765c3a8b7') in 1.027857 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/Prefabs/Teleport/Blocking Teleport Reticle.prefab
-  artifactKey: Guid(a3fde713df4d99042a0403c4be9eea32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/Prefabs/Teleport/Blocking Teleport Reticle.prefab using Guid(a3fde713df4d99042a0403c4be9eea32) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'aa87c31cae7c9e364a1bccba81d9b032') in 0.0269274 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 17
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Blaser-Long.prefab
-  artifactKey: Guid(fe7fcf44eedd467489de26ce92577bc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Blaser-Long.prefab using Guid(fe7fcf44eedd467489de26ce92577bc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '57c6b98ce1e3c6428476bbab2a5b60b9') in 4.1855182 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 57
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/VillagePack/BigHouse/BigHousePrefab.prefab
-  artifactKey: Guid(1e132733b84047940b6a9043814d6ee2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/VillagePack/BigHouse/BigHousePrefab.prefab using Guid(1e132733b84047940b6a9043814d6ee2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ed509d3cae19b3986a540d35c06f3866') in 0.0511688 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Alder.prefab
-  artifactKey: Guid(25873e4357f295b4698162347e940130) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Alder.prefab using Guid(25873e4357f295b4698162347e940130) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)We no longer support big-endian serialized files in Unity 2023.2 and newer. Open and re-save the file in an older version of Unity: "Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Materials/alder-alderbark.mat"
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.Rendering.ScriptableRenderContext:Internal_Cull (UnityEngine.Rendering.ScriptableCullingParameters&,UnityEngine.Rendering.ScriptableRenderContext,intptr)
-UnityEngine.Rendering.ScriptableRenderContext:Cull (UnityEngine.Rendering.ScriptableCullingParameters&)
-UnityEngine.Rendering.Universal.UniversalRenderPipeline:RenderSingleCamera (UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Rendering.Universal.UniversalCameraData) (at ./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs:825)
-UnityEngine.Rendering.Universal.UniversalRenderPipeline:RenderSingleCameraInternal (UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Camera,UnityEngine.Rendering.Universal.UniversalAdditionalCameraData&) (at ./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs:690)
-UnityEngine.Rendering.Universal.UniversalRenderPipeline:RenderSingleCameraInternal (UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Camera) (at ./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs:665)
-UnityEngine.Rendering.Universal.UniversalRenderPipeline:Render (UnityEngine.Rendering.ScriptableRenderContext,System.Collections.Generic.List`1<UnityEngine.Camera>) (at ./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs:482)
-UnityEngine.Rendering.RenderPipeline:InternalRender (UnityEngine.Rendering.ScriptableRenderContext,System.Collections.Generic.List`1<UnityEngine.Camera>)
-UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)
-UnityEngine.Camera:Render ()
-UnityEditor.PreviewRenderUtility:Render (bool,bool)
-UnityEditor.GameObjectInspector:DoRenderPreview (UnityEditor.GameObjectInspector/PreviewData)
-UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs line 825]
-
-Unknown error occurred while loading 'Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Materials/alder-alderbark.mat'.
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.Rendering.ScriptableRenderContext:Internal_Cull (UnityEngine.Rendering.ScriptableCullingParameters&,UnityEngine.Rendering.ScriptableRenderContext,intptr)
-UnityEngine.Rendering.ScriptableRenderContext:Cull (UnityEngine.Rendering.ScriptableCullingParameters&)
-UnityEngine.Rendering.Universal.UniversalRenderPipeline:RenderSingleCamera (UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Rendering.Universal.UniversalCameraData) (at ./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs:825)
-UnityEngine.Rendering.Universal.UniversalRenderPipeline:RenderSingleCameraInternal (UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Camera,UnityEngine.Rendering.Universal.UniversalAdditionalCameraData&) (at ./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs:690)
-UnityEngine.Rendering.Universal.UniversalRenderPipeline:RenderSingleCameraInternal (UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Camera) (at ./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs:665)
-UnityEngine.Rendering.Universal.UniversalRenderPipeline:Render (UnityEngine.Rendering.ScriptableRenderContext,System.Collections.Generic.List`1<UnityEngine.Camera>) (at ./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs:482)
-UnityEngine.Rendering.RenderPipeline:InternalRender (UnityEngine.Rendering.ScriptableRenderContext,System.Collections.Generic.List`1<UnityEngine.Camera>)
-UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)
-UnityEngine.Camera:Render ()
-UnityEditor.PreviewRenderUtility:Render (bool,bool)
-UnityEditor.GameObjectInspector:DoRenderPreview (UnityEditor.GameObjectInspector/PreviewData)
-UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs line 825]
-
-We no longer support big-endian serialized files in Unity 2023.2 and newer. Open and re-save the file in an older version of Unity: "Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Materials/alderbranches.mat"
+  Time since last request: 0.000087 seconds.
+  path: Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Models/Alder.fbx
+  artifactKey: Guid(25fa881dbd110e38a00062d88f962b59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Models/Alder.fbx using Guid(25fa881dbd110e38a00062d88f962b59) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)We no longer support big-endian serialized files in Unity 2023.2 and newer. Open and re-save the file in an older version of Unity: "Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Materials/alderbranches.mat"
 UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEngine.Rendering.ScriptableRenderContext:Internal_Cull (UnityEngine.Rendering.ScriptableCullingParameters&,UnityEngine.Rendering.ScriptableRenderContext,intptr)
@@ -332,29 +268,164 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [./Library/PackageCache/com.unity.render-pipelines.universal@a394fe607f89/Runtime/UniversalRenderPipeline.cs line 825]
 
-We no longer support big-endian serialized files in Unity 2023.2 and newer. Open and re-save the file in an older version of Unity: "Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Materials/alder-alderbark.mat"
 We no longer support big-endian serialized files in Unity 2023.2 and newer. Open and re-save the file in an older version of Unity: "Assets/Tom's Terrain Tools/Unity Terrain Assets/Trees Ambient-Occlusion/Materials/alderbranches.mat"
- -> (artifact id: 'af3336b8dce4559e2cc4c5ca8227aaae') in 0.0263393 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+ -> (artifact id: '717988f21fa9f1c2066771ff4883400f') in 0.0526833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
 
 ========================================================================
 Received Import Request.
-  Time since last request: 740.052869 seconds.
-  path: Assets/Next_Spring/Tree_Bundle/Prefabs/White_Birch/Mobile/M_Realistic21_1.prefab
-  artifactKey: Guid(d48ef5fbece4a6b4eae31a4ff55ecd84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Next_Spring/Tree_Bundle/Prefabs/White_Birch/Mobile/M_Realistic21_1.prefab using Guid(d48ef5fbece4a6b4eae31a4ff55ecd84) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '72f2411a5179e5d640775f95c552a2b5') in 0.0432528 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+  Time since last request: 0.000031 seconds.
+  path: Assets/VillagePack/BigHouse/BigHouse.fbx
+  artifactKey: Guid(113d36f51d55c2c4a807a09ac76c1d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VillagePack/BigHouse/BigHouse.fbx using Guid(113d36f51d55c2c4a807a09ac76c1d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7bd1f969b805f870ec72cd0dcb311e26') in 0.3517173 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 177
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Cube.prefab
+  artifactKey: Guid(2e16046ebcbcb6742a86569d82e56cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Cube.prefab using Guid(2e16046ebcbcb6742a86569d82e56cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f0fc0c45a233e05d6173d2e893b01552') in 0.0505412 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 27
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/VillagePack/Fence/Fence.fbx
+  artifactKey: Guid(37804f44fb6382743bfc0c7778484693) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VillagePack/Fence/Fence.fbx using Guid(37804f44fb6382743bfc0c7778484693) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8baf2bec6cf7a3675302e96a085ad448') in 0.0986197 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 33
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Climb/Climbing Wall.prefab
+  artifactKey: Guid(a0ea40bd139aedc43b0e8374d6139437) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Climb/Climbing Wall.prefab using Guid(a0ea40bd139aedc43b0e8374d6139437) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '12bba3dba2cb7d73b6860693daa90d98') in 0.0495304 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 349
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Tom's Terrain Tools/Unity Terrain Assets/Bushes/Model/Bush7.fbx
+  artifactKey: Guid(4b68bd4cbd118bca11002b7b44295342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tom's Terrain Tools/Unity Terrain Assets/Bushes/Model/Bush7.fbx using Guid(4b68bd4cbd118bca11002b7b44295342) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '12f4f535135c2a9823df5e8ff5b7054d') in 0.0420326 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/Prefabs/Teleport/Climb Teleport Arrow.prefab
+  artifactKey: Guid(ae1968658b9687b47976fe86c062168f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/Prefabs/Teleport/Climb Teleport Arrow.prefab using Guid(ae1968658b9687b47976fe86c062168f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b2590500e4c6b17507ce1592099daf65') in 0.0066003 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 23
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Climb/ClimbTeleportReticle.prefab
+  artifactKey: Guid(6eb816e9b7ce30f4cadff3d4ad7ad10c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Climb/ClimbTeleportReticle.prefab using Guid(6eb816e9b7ce30f4cadff3d4ad7ad10c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7fd36b8b9a364e335c593eed09000a5a') in 0.0255295 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 40
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/UI/Dropdown.prefab
+  artifactKey: Guid(870459f1cb8d7b7428337cc5935feb67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/UI/Dropdown.prefab using Guid(870459f1cb8d7b7428337cc5935feb67) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'afd476c63a581c772093578676b7f3b4') in 0.0438783 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 61
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Bhaptics/SDK2/Prefabs/[bhaptics].prefab
+  artifactKey: Guid(2129561fd5ef2284086f81f4eb432d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bhaptics/SDK2/Prefabs/[bhaptics].prefab using Guid(2129561fd5ef2284086f81f4eb432d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3d821ee0cc7ca79a35a4a9af1572dbca') in 0.0036191 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/PRJ0818_Murakami/Wooden Props 3D/Meshes/Barrel.fbx
+  artifactKey: Guid(a96ec23e0a4e19f4189854f7dcc5dedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PRJ0818_Murakami/Wooden Props 3D/Meshes/Barrel.fbx using Guid(a96ec23e0a4e19f4189854f7dcc5dedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f9326e6cc5c3db5cb00386d98f77ac09') in 0.0332866 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 16
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Climb/Climb Sample.prefab
+  artifactKey: Guid(2ea572d587ee60f44bd5baa3bc2d6503) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Climb/Climb Sample.prefab using Guid(2ea572d587ee60f44bd5baa3bc2d6503) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bce3147c7d41fea28d875ff41a49786b') in 0.1676129 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1757
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Tom's Terrain Tools/Unity Terrain Assets/Bushes/Bush7.prefab
+  artifactKey: Guid(e183e7578703cc84b89334aee75b4ab8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tom's Terrain Tools/Unity Terrain Assets/Bushes/Bush7.prefab using Guid(e183e7578703cc84b89334aee75b4ab8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7b862809bc728e1be454e101337e22d4') in 0.0224017 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tom's Terrain Tools/Unity Terrain Assets/Bushes/Bush5.prefab
+  artifactKey: Guid(5a36fe506afde064bb36a7a1c28bdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tom's Terrain Tools/Unity Terrain Assets/Bushes/Bush5.prefab using Guid(5a36fe506afde064bb36a7a1c28bdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b7395dc1e7b5a09f2f7d57a632ac8da1') in 0.0204219 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/VillagePack/Fence/FencePrefab.prefab
+  artifactKey: Guid(2394d7d557201f048b00c84246231eb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VillagePack/Fence/FencePrefab.prefab using Guid(2394d7d557201f048b00c84246231eb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '50fe97fe84416e063bb9f559c8e441f9') in 0.0283232 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 34
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Bhaptics/SDK2/Prefabs/bHapticsDeviceUI.prefab
+  artifactKey: Guid(4d9c24d58e58e37409abfcc4d7791128) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bhaptics/SDK2/Prefabs/bHapticsDeviceUI.prefab using Guid(4d9c24d58e58e37409abfcc4d7791128) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '167a1b7ffbd1f863cdd514e568d34b05') in 0.0171667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 83
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Confetti.prefab
+  artifactKey: Guid(7942e6544a2b2ae48bcf988d9aed838d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Confetti.prefab using Guid(7942e6544a2b2ae48bcf988d9aed838d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dba6f1543231733a1ec4a2b02576791e') in 0.0539985 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Cylinder.prefab
+  artifactKey: Guid(2ed984a58a974166bf92c82a74380454) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/3.0.8/Starter Assets/DemoSceneAssets/Prefabs/Interactables/Cylinder.prefab using Guid(2ed984a58a974166bf92c82a74380454) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '806ff9739f308496307815f6ca85642d') in 2.9884673 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 41
+
+========================================================================
+Received Import Request.
+  Time since last request: 739.810479 seconds.
+  path: Assets/Next_Spring/Tree_Bundle/Prefabs/White_Birch/Mobile/M_Realistic21_12.prefab
+  artifactKey: Guid(08a644d488902a94d9f0244d6f0cf6ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Next_Spring/Tree_Bundle/Prefabs/White_Birch/Mobile/M_Realistic21_12.prefab using Guid(08a644d488902a94d9f0244d6f0cf6ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '802f19fdf40f7788fbfd9733d2cf6834') in 0.0536426 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 14
 
 ========================================================================
 Received Prepare
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.679 seconds
+- Loaded All Assemblies, in  0.684 seconds
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
 'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
-Refreshing native plugins compatible for Editor in 8.25 ms, found 12 plugins.
+Refreshing native plugins compatible for Editor in 7.73 ms, found 12 plugins.
 Assertion failed on expression: 'pred(*previous, *i)'
 Assertion failed on expression: 'pred(*previous, *i)'
 Assertion failed on expression: 'pred(*previous, *i)'
@@ -4583,35 +4654,35 @@ Mono: successfully reloaded assembly
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  0.831 seconds
-Domain Reload Profiling: 1513ms
-	BeginReloadAssembly (218ms)
+- Finished resetting the current domain, in  0.829 seconds
+Domain Reload Profiling: 1515ms
+	BeginReloadAssembly (221ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (18ms)
+		DisableScriptedObjects (17ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (55ms)
+		CreateAndSetChildDomain (58ms)
 	RebuildCommonClasses (28ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (21ms)
-	LoadAllAssembliesAndSetupDomain (404ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (405ms)
 		LoadAssemblies (339ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
 		AnalyzeDomain (170ms)
 			TypeCache.Refresh (6ms)
 				TypeCache.ScanAssembly (0ms)
-			BuildScriptInfoCaches (149ms)
-			ResolveRequiredComponents (12ms)
-	FinalizeReload (832ms)
+			BuildScriptInfoCaches (148ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (830ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
 		SetupLoadedEditorAssemblies (610ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (10ms)
 			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (91ms)
+			BeforeProcessingInitializeOnLoad (92ms)
 			ProcessInitializeOnLoadAttributes (394ms)
-			ProcessInitializeOnLoadMethodAttributes (108ms)
+			ProcessInitializeOnLoadMethodAttributes (106ms)
 			AfterProcessingInitializeOnLoad (3ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -4619,8 +4690,8 @@ Domain Reload Profiling: 1513ms
 Refreshing native plugins compatible for Editor in 9.15 ms, found 12 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 50 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7589 unused Assets / (7.0 MB). Loaded Objects now: 8505.
-Memory consumption went from 223.3 MB to 216.4 MB.
-Total: 10.246400 ms (FindLiveObjects: 0.841700 ms CreateObjectMapping: 0.991000 ms MarkObjects: 4.827300 ms  DeleteObjects: 3.586000 ms)
+Unloading 7590 unused Assets / (7.5 MB). Loaded Objects now: 8510.
+Memory consumption went from 223.7 MB to 216.3 MB.
+Total: 10.871500 ms (FindLiveObjects: 0.878600 ms CreateObjectMapping: 1.010700 ms MarkObjects: 4.973900 ms  DeleteObjects: 4.007600 ms)
 
 Prepare: number of updated asset objects reloaded= 0
