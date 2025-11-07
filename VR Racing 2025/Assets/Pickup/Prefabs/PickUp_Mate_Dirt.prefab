@@ -7217,6 +7217,8 @@ MonoBehaviour:
   maxSteeringAngle: 30
   BrakeForce: 15000
   steeringAngleMultiplier: 16.5
+  Body1: {fileID: 1446566258047096}
+  Body2: {fileID: 1978888623974520}
 --- !u!114 &7885747756135816397
 MonoBehaviour:
   m_ObjectHideFlags: 0

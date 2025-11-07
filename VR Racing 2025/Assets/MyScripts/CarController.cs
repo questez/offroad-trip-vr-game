@@ -13,9 +13,15 @@ public class CarController : MonoBehaviour
     [SerializeField] private AudioSource asphaltSound, mudSound, waterSound;
 
     private bool InMud; // едет ли машина по грязи
-    private bool InWater; // едет ли машина по лужам
+    private bool InWater; // едет ли машина по лужам или находиться в воде
 
-    private bool isStartingEngine = false;
+    private bool isStartingEngine = false; // запускается ли двигатель
+    private bool isReverseGear; // включена ли задняя передача
+
+    private bool EngineIsRunning = false; // запущен ли двигатель
+    private bool AllWheelDriveMode = false; // включен ли полный привод
+    private bool CarIsBroken = false;
+
 
     private const float maxPitch = 2f;
     private const float minPitch = 1f;
@@ -53,21 +59,20 @@ public class CarController : MonoBehaviour
     private float MaxSpeed4 = 75f; // максимально допустимая скорость машины на четвертой передаче
     private float MaxSpeed5 = 100f; // максимально допустимая скорость машины на пятой передаче    
 
-    public static char current_shifter; // текущая передача
-    public static string wheel_drive_mode; // задний/передний привод
+    public static char current_shifter = 'N'; // текущая передача
+    public static string wheel_drive_mode; // задний/передний привод    
 
-    private bool isReverseGear; // включена ли задняя передача
-    
-    private bool EngineIsRunning; // запущен ли двигатель
-    private bool AllWheelDriveMode; // включен ли полный привод
+    [SerializeField] private GameObject Body1;
+    private Collider[] Body1Colliders;
+    [SerializeField] private GameObject Body2;
+    private Collider[] Body2Colliders;
 
-    
+    private DetailedTriggerChecker triggerChecker = new DetailedTriggerChecker();
 
     private void Start()
     {
-        current_shifter = 'N';
-        EngineIsRunning = false;
-        AllWheelDriveMode = false;
+        Body2Colliders = Body2.GetComponentsInChildren<Collider>();
+        Body1Colliders = Body1.GetComponentsInChildren<Collider>();
         South_button_hold_timer = 0f;
         StartEngineScreen.SetActive(false);
         wheel_drive_mode = "Задний привод";
@@ -89,7 +94,7 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!PauseScreenWork.isPaused && !OffInput)
+        if (!PauseScreenWork.isPaused && !OffInput && !CarIsBroken)
         {
             UpdateWheelState();
         }                
@@ -97,7 +102,7 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {        
-        if (!PauseScreenWork.isPaused && !OffInput)
+        if (!PauseScreenWork.isPaused && !OffInput && !CarIsBroken)
         {
             OnEngine();
         }
@@ -197,8 +202,8 @@ public class CarController : MonoBehaviour
             
             if (info.isMotor)
             {
-                Debug.Log($"info.leftWheel.rpm {info.leftWheel.rpm}");
-                Debug.Log($"info.rightWheel.rpm {info.rightWheel.rpm}");
+                //Debug.Log($"info.leftWheel.rpm {info.leftWheel.rpm}");
+                //Debug.Log($"info.rightWheel.rpm {info.rightWheel.rpm}");
 
                 if ((rb.linearVelocity.magnitude <= CurrentMaxSpeed / 3.6f) && EngineIsRunning)
                 {
@@ -421,6 +426,18 @@ public class CarController : MonoBehaviour
             StartCoroutine(OffInputDelay());
         }
     }
+    private void IsCarCompletelyUnderWater(Collider other) // если машина полностью затонула в пруду, то больше ее завести не получиться
+    {        
+        if (InWater && triggerChecker.IsObjectsCompletelyInsideTrigger(Body1Colliders, other) && triggerChecker.IsObjectsCompletelyInsideTrigger(Body2Colliders, other) && !CarIsBroken)
+        {
+            if (EngineIsRunning)
+            {
+                OffEngine(true);
+            }
+            CarIsBroken = true;
+            Debug.Log("Машина затонула!!!!!");
+        }
+    }
 
     private void OnAllWheelDriveMode(bool value)
     {
@@ -448,8 +465,13 @@ public class CarController : MonoBehaviour
         }
         else if (other.CompareTag("Water"))
         {
-            InWater = true;
+            InWater = true;            
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        IsCarCompletelyUnderWater(other);
     }
 
     private void OnTriggerExit(Collider other)
@@ -469,5 +491,5 @@ public class CarController : MonoBehaviour
         OffInput = true;
         yield return new WaitForSecondsRealtime(3f);
         OffInput = false;
-    }
+    }    
 }

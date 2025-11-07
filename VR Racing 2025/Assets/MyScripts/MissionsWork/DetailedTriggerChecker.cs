@@ -93,8 +93,7 @@ public class DetailedTriggerChecker
 
     bool IsPointInsideGeneric(Vector3 point, Collider collider)
     {
-        // Создаем очень маленькую сферу в точке проверки
-        // и смотрим, пересекается ли она с нашим коллайдером
+        // Создаем очень маленькую сферу в точке проверк и смотрим, пересекается ли она с нашим коллайдером
         Collider[] results = new Collider[5];
         float tinyRadius = 0.001f; // Очень маленький радиус
         
