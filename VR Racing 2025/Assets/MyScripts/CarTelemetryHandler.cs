@@ -13,20 +13,15 @@ public class CarTelemetryHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI platformDebug;
 
     [SerializeField] private Transform vehicleTransform;
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Rigidbody rb;        
 
-    //private Vector3 lastLinearVelocity;
-    //private Vector3 lastAngularVelocity;
-
-    private float lastLinearVelocity;
-    private float lastAngularVelocity;
-
-    private float lastLinearAccel;
-    private float lastAngularAccel;
-
-    private const float maxPlatformAngle = 15f; // Максимальный угол наклона платформы 2DOF    
-    private float currentPitch = 0f;
-    private float currentRoll = 0f;
+    private const float maxPlatformAngle = 15f; // Максимальные Angles платформы 2DOF (влияет на статичные наклоны, зависящие от поверхности)
+    private const float maxPlatformVelocity = 100f; // Максимальная Velocity платформы 2DOF (влияет на наклоны в зависимости от линейного ускорения/угловой скорости)
+    private float currentPitch = 0f; // текущий наклон платформы 2DOF по x (учет наклона поверхности)
+    private float currentRoll = 0f; // текущий наклон платформы 2DOF по z (учет наклона поверхности)
+    private float currentLinearAcceleration = 0f; // текущий наклон платформы 2DOF по x (учет линейного ускорения)
+    private float lastLinearVelocity = 0f;
+    private float currentAngularVelocity = 0f; // текущий наклон платформы 2DOF по z (учет угловой скорости)
 
     private void Awake()
     {
@@ -56,11 +51,10 @@ public class CarTelemetryHandler : MonoBehaviour
                 yield return new WaitForSeconds(WAIT_TIME * 10f);
                 continue;
             }
-            UpdatePlatformAngles();
+
             UpdatePlatformVelocity();
-
-
-            //Debug.Log(telemetryDataData.ToString());
+            UpdatePlatformAngles();
+            
             platformDebug.text = "telemetryDataData: " + telemetryDataData.ToString();
 
             yield return new WaitForSeconds(WAIT_TIME);
@@ -74,101 +68,43 @@ public class CarTelemetryHandler : MonoBehaviour
 
     private void UpdatePlatformVelocity() // отправка данных о скорости на платформу
     {
-        Vector3 globalLinearVelocity = rb.linearVelocity;
-        
+        Vector3 globalLinearVelocity = rb.linearVelocity;        
         Vector3 localLinearVelocity = transform.InverseTransformVector(globalLinearVelocity); // считаем линейную скорость относительно локальных координат
+
+        // считаем линейное ускорение
+        float linearAcceleration = (localLinearVelocity.z - lastLinearVelocity) / Time.deltaTime;
+        lastLinearVelocity = localLinearVelocity.z;
+
+        linearAcceleration = Mathf.Clamp(linearAcceleration, -maxPlatformVelocity, maxPlatformVelocity);
+
+        currentLinearAcceleration = Mathf.Lerp(currentLinearAcceleration, linearAcceleration, 0.02f);
 
         Vector3 globalAngularVelocity = rb.angularVelocity;
         Vector3 localAngularVelocity = transform.InverseTransformVector(globalAngularVelocity); // считаем угловую скорость относительно локальных координат
 
-        telemetryDataData.Velocity = new Vector3(localLinearVelocity.x, localAngularVelocity.y, localLinearVelocity.z);
+        currentAngularVelocity = Mathf.Lerp(currentAngularVelocity, Mathf.Clamp(localAngularVelocity.y, -maxPlatformVelocity, maxPlatformVelocity), 0.03f);
+
+        telemetryDataData.Velocity = new Vector3(-currentLinearAcceleration * 18, currentAngularVelocity * 27,  0);
     }
 
-    private void UpdatePlatformAngles()
+    private void UpdatePlatformAngles() 
     {
-        // считаем линейное ускорение для Pitch и сам Pitch
-        float targetPitch = 0;
+        float targetPitch = 0;     
 
-        Vector3 globalLinearVelocity = rb.linearVelocity;
-        Vector3 localLinearVelocity = transform.InverseTransformVector(globalLinearVelocity); 
-
-        //Vector3 currentLinearVelocity = rb.linearVelocity;
-        //Vector3 VectorLinearAcceleration = (currentLinearVelocity - lastLinearVelocity) / Time.deltaTime; // вектор линейного ускорения
-        //lastLinearVelocity = currentLinearVelocity;
-
-        //float linearAcceleration = Vector3.Dot(VectorLinearAcceleration, vehicleTransform.forward); // числовое значение ускорения с учетом направления вектора 
-        //linearAcceleration = Mathf.Lerp(lastLinearAccel, linearAcceleration, 0.01f);
-        //lastLinearAccel = linearAcceleration;
-
-        float currentLinearVelocity = localLinearVelocity.z;
-        float linearAcceleration = (currentLinearVelocity - lastLinearVelocity) / Time.deltaTime; // вектор линейного ускорения
-        lastLinearVelocity = currentLinearVelocity;
-        
-        linearAcceleration = Mathf.Lerp(lastLinearAccel, linearAcceleration, 0.01f);
-        lastLinearAccel = linearAcceleration;
-
-        if (linearAcceleration > 0.5f) // изменение угла при ускорении 
-        {
-            targetPitch = -Mathf.Clamp(linearAcceleration * 2.3f, 0f, maxPlatformAngle);
-        }
-        else if (linearAcceleration < -0.5f) // изменение угла при торможении
-        {
-            targetPitch = Mathf.Clamp(Mathf.Abs(linearAcceleration) * 2.3f, 0f, maxPlatformAngle);
-        }
-
-        targetPitch += NormalizeAngle(vehicleTransform.eulerAngles.x); // учет наклона поверхности
+        targetPitch = NormalizeAngle(vehicleTransform.eulerAngles.x); // учет наклона поверхности
         targetPitch = Mathf.Clamp(targetPitch, -maxPlatformAngle, maxPlatformAngle);
             
-        currentPitch = Mathf.Lerp(currentPitch, targetPitch, 0.01f);
+        currentPitch = Mathf.Lerp(currentPitch, targetPitch, 0.04f);
 
         //---------------------------------------------------------------------------
-        // считаем угловое ускорение для Roll и сам Roll
-        float targetRoll = 0;
+        float targetRoll = 0;     
 
-        Vector3 globalAngularVelocity = rb.angularVelocity;
-        Vector3 localAngularVelocity = transform.InverseTransformVector(globalAngularVelocity);
-
-        //Vector3 currentAngularVelocity = rb.angularVelocity;
-        //Vector3 VectorAngularAcceleration = (currentAngularVelocity - lastAngularVelocity) / Time.deltaTime; // вектор линейного ускорения
-        //lastAngularVelocity = currentAngularVelocity;
-
-        //float angularAcceleration = Vector3.Dot(VectorAngularAcceleration, vehicleTransform.up); // числовое значение ускорения с учетом направления вектора 
-        //angularAcceleration = Mathf.Lerp(lastAngularAccel, angularAcceleration, 0.01f);
-        //lastAngularAccel = angularAcceleration;
-
-        //if (angularAcceleration > 0.05f) // изменение угла при ускорении
-        //{
-        //    targetRoll = -Mathf.Clamp(angularAcceleration * 35f, 0f, maxPlatformAngle);
-        //}
-        //else if (angularAcceleration < -0.05f) // изменение угла при торможении
-        //{
-        //    targetRoll = Mathf.Clamp(Mathf.Abs(angularAcceleration) * 35f, 0f, maxPlatformAngle);
-        //}
-
-        float currentAngularVelocity = localAngularVelocity.y + localLinearVelocity.x * 2f;
-        float angularAcceleration = (currentAngularVelocity - lastAngularVelocity) / Time.deltaTime; // вектор линейного ускорения
-        lastAngularVelocity = currentAngularVelocity;
-        
-        angularAcceleration = Mathf.Lerp(lastAngularAccel, angularAcceleration, 0.01f);
-        lastAngularAccel = angularAcceleration;
-
-        if (angularAcceleration > 0.05f) // изменение угла при ускорении
-        {
-            targetRoll = -Mathf.Clamp(angularAcceleration, 0f, maxPlatformAngle);
-        }
-        else if (angularAcceleration < -0.05f) // изменение угла при торможении
-        {
-            targetRoll = Mathf.Clamp(Mathf.Abs(angularAcceleration), 0f, maxPlatformAngle);
-        }
-
-        targetRoll += NormalizeAngle(vehicleTransform.eulerAngles.z);
+        targetRoll = NormalizeAngle(vehicleTransform.eulerAngles.z);
         targetRoll = Mathf.Clamp(targetRoll, -maxPlatformAngle, maxPlatformAngle);
 
-        currentRoll = Mathf.Lerp(currentRoll, targetRoll, 0.01f);
+        currentRoll = Mathf.Lerp(currentRoll, targetRoll, 0.04f);
 
-
-        Vector3 resultAngles = new Vector3(targetPitch, targetRoll, 0f); // конечный возврат углов для передачи данных в платформу
+        Vector3 resultAngles = new Vector3(currentPitch, currentRoll, 0); // конечный возврат углов для передачи данных в платформу
         telemetryDataData.Angles = resultAngles;
-    }   
-    
+    }    
 }

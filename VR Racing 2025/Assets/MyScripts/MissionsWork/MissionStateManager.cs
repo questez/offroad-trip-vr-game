@@ -61,7 +61,7 @@ public class MissionStateManager : MonoBehaviour
         else if (curr_mission == '3')
         {
             PlayerBehaviour.PlayerBalance += (600 * counterOfObjects);
-        }
+        }        
 
         PlayerBehaviour.FinishedMissionsCounter++;
     }
