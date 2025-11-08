@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
+using Bhaptics.SDK2;
 
 public class CarController : MonoBehaviour
 {
@@ -83,7 +84,6 @@ public class CarController : MonoBehaviour
     {
         inputControllerReader.OnWestButtonCallback += OnAllWheelDriveMode;
         inputControllerReader.OnEastButtonCallback += OffEngine;
-        
     }
 
     private void OnDisable()
@@ -106,6 +106,7 @@ public class CarController : MonoBehaviour
         {
             OnEngine();
         }
+        Debug.Log($"engineRPM: {engineRPM}");        
     }
 
     private void UpdateEngineSound(float throttleInput)
@@ -382,7 +383,7 @@ public class CarController : MonoBehaviour
 
         info.leftWheel.sidewaysFriction = leftSidewaysFriction;
         info.rightWheel.sidewaysFriction = rightSidewaysFriction;
-    }   
+    }    
 
     private void OnEngine()
     {        
@@ -392,6 +393,7 @@ public class CarController : MonoBehaviour
             {
                 isStartingEngine = true;
                 startEngineSound.Play();
+                StartEngineHaptic(isStartingEngine);
             }
             StartEngineScreen.SetActive(true);
             South_button_hold_timer += Time.deltaTime;
@@ -412,6 +414,7 @@ public class CarController : MonoBehaviour
             StartEngineScreen.SetActive(false);
             South_button_hold_timer = 0;
             startEngineSound.Stop();
+            StartEngineHaptic(isStartingEngine);
         }            
     }
 
@@ -491,5 +494,29 @@ public class CarController : MonoBehaviour
         OffInput = true;
         yield return new WaitForSecondsRealtime(3f);
         OffInput = false;
-    }    
+    }
+
+    private void StartEngineHaptic(bool value)
+    {
+        if (value)
+        {
+            BhapticsLibrary.Play(eventId: BhapticsEvent.STARTENGINE, startMillis: 0, intensity: 1, duration: 1, angleX: 0, offsetY: 0);
+        }
+        else
+        {
+            BhapticsLibrary.StopByEventId(eventId: BhapticsEvent.STARTENGINE);
+        }
+    }
+
+    private void StopEngineHaptic(bool value)
+    {
+        if (value)
+        {            
+            BhapticsLibrary.Play(eventId: BhapticsEvent.STOPENGINE, startMillis: 0, intensity: 1, duration: 1, angleX: 0, offsetY: 0);           
+        }
+        else
+        {
+            BhapticsLibrary.StopByEventId(eventId: BhapticsEvent.STOPENGINE);
+        }
+    }
 }
