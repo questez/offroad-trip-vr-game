@@ -2,6 +2,7 @@ using LogitechG29.Sample.Input;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Bhaptics.SDK2;
 
 public class MissionStateManager : MonoBehaviour
 {
@@ -128,7 +129,7 @@ public class MissionStateManager : MonoBehaviour
                                 spawnedCargos.Add(barrel);
                                 boxHitSound.Play();
                             }
-
+                            BhapticsLibrary.Play(BhapticsEvent.BARRELSLOADING);
                             PlayerBehaviour.CurrentMission = '1';
                         }
                         else if (other.gameObject.name.Contains('2'))
@@ -155,6 +156,7 @@ public class MissionStateManager : MonoBehaviour
                                 spawnedCargos.Add(plank);
                                 plankHitSound.Play();
                             }
+                            BhapticsLibrary.Play(BhapticsEvent.PLANKSLOADING);
                             PlayerBehaviour.CurrentMission = '2';
                         }
                         else
@@ -165,12 +167,12 @@ public class MissionStateManager : MonoBehaviour
                             new Vector3(0.4f, 0f, 1f),
                             new Vector3(-0.4f, 0f, 1f),
                             new Vector3(0f, 0f, 0.4f)
-                        };
+                            };
                             Vector3[] localOffsetsForChest =
                             {
                             new Vector3(0.28f, 0f, -0.5f),
                             new Vector3(-0.28f, 0f, -0.5f)
-                        };
+                            };
 
                             foreach (var offset in localOffsetsForBox)
                             {
@@ -189,12 +191,13 @@ public class MissionStateManager : MonoBehaviour
                                 GameObject chest = Instantiate(Chest, worldPos, worldRot);
                                 spawnedCargos.Add(chest);
                             }
+                            BhapticsLibrary.Play(BhapticsEvent.BOXESLOADING);
                             PlayerBehaviour.CurrentMission = '3';
                         }
                         spawnedCargosCount = spawnedCargos.Count;
                         OffLoadingCarScreen();
                         Debug.Log("Начата миссия " + PlayerBehaviour.CurrentMission);
-                    }                                      
+                    }                              
 
                     
                 }

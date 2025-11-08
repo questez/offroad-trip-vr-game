@@ -2,7 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-
+using Bhaptics.SDK2;
 public class CarTelemetryHandler : MonoBehaviour
 {
     private const float WAIT_TIME = SendingData.WAIT_TIME / 1000f;
@@ -106,5 +106,18 @@ public class CarTelemetryHandler : MonoBehaviour
 
         Vector3 resultAngles = new Vector3(currentPitch, currentRoll, 0); // конечный возврат углов для передачи данных в платформу
         telemetryDataData.Angles = resultAngles;
-    }    
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        float CollisionIntensity = Mathf.Abs(lastLinearVelocity * 3.6f) / 100;
+
+        CollisionIntensity = Mathf.Clamp01(CollisionIntensity);
+        if (CollisionIntensity > 0.3f)
+        {
+            BhapticsLibrary.Play(eventId: BhapticsEvent.COLLISION, startMillis: 0, intensity: CollisionIntensity, duration: 1, angleX: 0, offsetY: 0);
+            //Debug.Log($"Столкновение с силой {CollisionIntensity}");
+        }
+        
+    }
 }

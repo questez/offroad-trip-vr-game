@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a96ec23e0a4e19f4189854f7dcc5dedb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.210001
+      value: 21.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a96ec23e0a4e19f4189854f7dcc5dedb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a96ec23e0a4e19f4189854f7dcc5dedb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.220001
+      value: 7.267002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a96ec23e0a4e19f4189854f7dcc5dedb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -89,7 +89,7 @@ PrefabInstance:
       addedObject: {fileID: 5838965481972798266}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a96ec23e0a4e19f4189854f7dcc5dedb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 464063331662118937}
+      addedObject: {fileID: 1777489016271031697}
   m_SourcePrefab: {fileID: 100100000, guid: a96ec23e0a4e19f4189854f7dcc5dedb, type: 3}
 --- !u!1 &1074428586455079027 stripped
 GameObject:
@@ -118,7 +118,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2225539225707241183, guid: a96ec23e0a4e19f4189854f7dcc5dedb, type: 3}
---- !u!54 &464063331662118937
+--- !u!54 &1777489016271031697
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +126,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074428586455079027}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 30
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

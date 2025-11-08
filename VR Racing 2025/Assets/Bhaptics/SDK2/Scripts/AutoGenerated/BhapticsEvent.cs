@@ -20,5 +20,17 @@ namespace Bhaptics.SDK2
         public const string STARTENGINE = "startengine";
         
         public const string STOPENGINE = "stopengine";
+        
+        public const string BARRELSLOADING = "barrelsloading";
+        
+        public const string PLANKSLOADING = "planksloading";
+        
+        public const string BOXESLOADING = "boxesloading";
+        
+        public const string COLLISION = "collision";
+        
+        public const string HIGHRPM = "highrpm";
+        
+        public const string GEARSHIFT = "gearshift";
     }
 }

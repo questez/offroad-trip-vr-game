@@ -97,6 +97,7 @@ public class CarController : MonoBehaviour
         if (!PauseScreenWork.isPaused && !OffInput && !CarIsBroken)
         {
             UpdateWheelState();
+            UpdateHighRPMHapticIntensity();
         }                
     }
 
@@ -104,9 +105,9 @@ public class CarController : MonoBehaviour
     {        
         if (!PauseScreenWork.isPaused && !OffInput && !CarIsBroken)
         {
-            OnEngine();
+            OnEngine();            
         }
-        Debug.Log($"engineRPM: {engineRPM}");        
+        //Debug.Log($"engineRPM: {engineRPM}");        
     }
 
     private void UpdateEngineSound(float throttleInput)
@@ -257,6 +258,7 @@ public class CarController : MonoBehaviour
             if (new_shifter != previous_shifter)
             {
                 gearShifterSound.Play();
+                BhapticsLibrary.Play(eventId:BhapticsEvent.GEARSHIFT);
                 shifterJustChanged = true;
                 gearChangeCooldown = 0.5f; // полсекунды "просадки" оборотов
                 previous_shifter = new_shifter;
@@ -423,6 +425,7 @@ public class CarController : MonoBehaviour
         if (value && !PauseScreenWork.isPaused)
         {
             EngineIsRunningSound.Stop();
+            BhapticsLibrary.Play(eventId: BhapticsEvent.STOPENGINE);
             EngineIsRunning = false;
             stopEngineSound.Play();
             Debug.Log("Двигатель заглушен!");
@@ -508,15 +511,21 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void StopEngineHaptic(bool value)
+    private void UpdateHighRPMHapticIntensity()
     {
-        if (value)
+        float targetIntensity = 0;
+
+        if (engineRPM > 5000)
         {            
-            BhapticsLibrary.Play(eventId: BhapticsEvent.STOPENGINE, startMillis: 0, intensity: 1, duration: 1, angleX: 0, offsetY: 0);           
+            targetIntensity = Mathf.InverseLerp(5500, maxRPM, engineRPM);
+            targetIntensity = Mathf.Clamp01(targetIntensity);
+            BhapticsLibrary.Play(eventId: BhapticsEvent.HIGHRPM, startMillis: 0, intensity: targetIntensity, duration: 1, angleX: 0, offsetY: 0);
         }
         else
         {
-            BhapticsLibrary.StopByEventId(eventId: BhapticsEvent.STOPENGINE);
+            BhapticsLibrary.StopByEventId(eventId: BhapticsEvent.HIGHRPM);
         }
+
+        Debug.Log($"targetIntensity: {targetIntensity}\nengineRPM: {engineRPM}");        
     }
 }
