@@ -12651,7 +12651,7 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 48947433c395c5343905e0e40da0e8d5, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 100
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
@@ -15458,9 +15458,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 192346, guid: 2082f115d38a4a94fabde959cb0bfd45, type: 3}
-    - {fileID: 188090, guid: 2082f115d38a4a94fabde959cb0bfd45, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2082f115d38a4a94fabde959cb0bfd45, type: 3}
@@ -52400,7 +52398,7 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 5f5edf40088675043b1fb01838778db2, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 100
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
@@ -71206,7 +71204,7 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: bc72e4d8c151b7442a578a79614e9244, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 100
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
@@ -71610,7 +71608,7 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 9568db65f74698f40a9f9ec2b15a127a, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 100
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50

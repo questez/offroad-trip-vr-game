@@ -15,7 +15,7 @@ public class CarTelemetryHandler : MonoBehaviour
     [SerializeField] private Transform vehicleTransform;
     [SerializeField] private Rigidbody rb;        
 
-    private const float maxPlatformAngle = 15f; // Максимальные Angles платформы 2DOF (влияет на статичные наклоны, зависящие от поверхности)
+    private const float maxPlatformAngle = 100f; // Максимальные Angles платформы 2DOF (влияет на статичные наклоны, зависящие от поверхности)
     private const float maxPlatformVelocity = 100f; // Максимальная Velocity платформы 2DOF (влияет на наклоны в зависимости от линейного ускорения/угловой скорости)
     private float currentPitch = 0f; // текущий наклон платформы 2DOF по x (учет наклона поверхности)
     private float currentRoll = 0f; // текущий наклон платформы 2DOF по z (учет наклона поверхности)
@@ -60,6 +60,7 @@ public class CarTelemetryHandler : MonoBehaviour
             yield return new WaitForSeconds(WAIT_TIME);
         }
     }
+
     private float NormalizeAngle(float angle) // нормализуем угол в диапазон -180 до 180
     {
         angle = angle > 180 ? angle - 360 : angle;
@@ -76,8 +77,14 @@ public class CarTelemetryHandler : MonoBehaviour
         lastLinearVelocity = localLinearVelocity.z;
 
         linearAcceleration = Mathf.Clamp(linearAcceleration, -maxPlatformVelocity, maxPlatformVelocity);
-
-        currentLinearAcceleration = Mathf.Lerp(currentLinearAcceleration, linearAcceleration, 0.02f);
+        if (lastLinearVelocity * 3.6f > 10)
+        {
+            currentLinearAcceleration = Mathf.Lerp(currentLinearAcceleration, linearAcceleration, 0.02f);
+        }
+        else
+        {
+            currentLinearAcceleration = Mathf.Lerp(currentLinearAcceleration, linearAcceleration, 0.1f);
+        }
 
         Vector3 globalAngularVelocity = rb.angularVelocity;
         Vector3 localAngularVelocity = transform.InverseTransformVector(globalAngularVelocity); // считаем угловую скорость относительно локальных координат
@@ -91,7 +98,7 @@ public class CarTelemetryHandler : MonoBehaviour
     {
         float targetPitch = 0;     
 
-        targetPitch = NormalizeAngle(vehicleTransform.eulerAngles.x); // учет наклона поверхности
+        targetPitch = NormalizeAngle(vehicleTransform.eulerAngles.x); // учет наклона поверхности по x
         targetPitch = Mathf.Clamp(targetPitch, -maxPlatformAngle, maxPlatformAngle);
             
         currentPitch = Mathf.Lerp(currentPitch, targetPitch, 0.04f);
@@ -99,12 +106,12 @@ public class CarTelemetryHandler : MonoBehaviour
         //---------------------------------------------------------------------------
         float targetRoll = 0;     
 
-        targetRoll = NormalizeAngle(vehicleTransform.eulerAngles.z);
+        targetRoll = NormalizeAngle(vehicleTransform.eulerAngles.z); // учет наклона поверхности по z
         targetRoll = Mathf.Clamp(targetRoll, -maxPlatformAngle, maxPlatformAngle);
 
         currentRoll = Mathf.Lerp(currentRoll, targetRoll, 0.04f);
 
-        Vector3 resultAngles = new Vector3(currentPitch, currentRoll, 0); // конечный возврат углов для передачи данных в платформу
+        Vector3 resultAngles = new Vector3(currentPitch * 1.2f, currentRoll * 1.2f, 0); // конечный возврат углов для передачи данных в платформу
         telemetryDataData.Angles = resultAngles;
     }
 
@@ -115,9 +122,7 @@ public class CarTelemetryHandler : MonoBehaviour
         CollisionIntensity = Mathf.Clamp01(CollisionIntensity);
         if (CollisionIntensity > 0.3f)
         {
-            BhapticsLibrary.Play(eventId: BhapticsEvent.COLLISION, startMillis: 0, intensity: CollisionIntensity, duration: 1, angleX: 0, offsetY: 0);
-            //Debug.Log($"Столкновение с силой {CollisionIntensity}");
-        }
-        
+            BhapticsLibrary.Play(eventId: BhapticsEvent.COLLISION, startMillis: 0, intensity: CollisionIntensity, duration: 1, angleX: 0, offsetY: 0);            
+        }        
     }
 }

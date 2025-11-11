@@ -395,7 +395,7 @@ public class CarController : MonoBehaviour
             {
                 isStartingEngine = true;
                 startEngineSound.Play();
-                StartEngineHaptic(isStartingEngine);
+                BhapticsLibrary.Play(eventId: BhapticsEvent.STARTENGINE, startMillis: 2250, intensity: 1, duration: 1, angleX: 0, offsetY: 0);
             }
             StartEngineScreen.SetActive(true);
             South_button_hold_timer += Time.deltaTime;
@@ -416,18 +416,19 @@ public class CarController : MonoBehaviour
             StartEngineScreen.SetActive(false);
             South_button_hold_timer = 0;
             startEngineSound.Stop();
-            StartEngineHaptic(isStartingEngine);
+            BhapticsLibrary.StopByEventId(eventId: BhapticsEvent.STARTENGINE);
         }            
     }
 
     private void OffEngine(bool value)
     {
-        if (value && !PauseScreenWork.isPaused)
+        if (value && !PauseScreenWork.isPaused && EngineIsRunning)
         {
             EngineIsRunningSound.Stop();
             BhapticsLibrary.Play(eventId: BhapticsEvent.STOPENGINE);
             EngineIsRunning = false;
             stopEngineSound.Play();
+            engineRPM = 0;
             Debug.Log("Двигатель заглушен!");
             StartCoroutine(OffInputDelay());
         }
@@ -499,25 +500,13 @@ public class CarController : MonoBehaviour
         OffInput = false;
     }
 
-    private void StartEngineHaptic(bool value)
-    {
-        if (value)
-        {
-            BhapticsLibrary.Play(eventId: BhapticsEvent.STARTENGINE, startMillis: 0, intensity: 1, duration: 1, angleX: 0, offsetY: 0);
-        }
-        else
-        {
-            BhapticsLibrary.StopByEventId(eventId: BhapticsEvent.STARTENGINE);
-        }
-    }
-
     private void UpdateHighRPMHapticIntensity()
     {
         float targetIntensity = 0;
 
         if (engineRPM > 5000)
         {            
-            targetIntensity = Mathf.InverseLerp(5500, maxRPM, engineRPM);
+            targetIntensity = Mathf.InverseLerp(6000, maxRPM, engineRPM);
             targetIntensity = Mathf.Clamp01(targetIntensity);
             BhapticsLibrary.Play(eventId: BhapticsEvent.HIGHRPM, startMillis: 0, intensity: targetIntensity, duration: 1, angleX: 0, offsetY: 0);
         }
