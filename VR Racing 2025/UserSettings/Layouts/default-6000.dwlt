@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 868.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 582}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 895
+  controlID: 93
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 896
+  controlID: 94
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 835
+  controlID: 48
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -421,9 +421,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0c11f3ff2411f3ffc0eef4ff0efbf4ffeefaffff
+      m_SelectedIDs: c6260200
+      m_LastClickedID: 140998
+      m_ExpandedIDs: d8dbfbfff0dbfbff8cb9fdffdac5fdffeefaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1131,7 +1131,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/MyScripts/UI
+    - Assets
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1141,16 +1141,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/MyScripts/UI
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\IVAN\UnityPROJECTS\VR-RACING-2025\VR Racing 2025
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 155.60004}
-    m_SelectedIDs: 0af90000
-    m_LastClickedID: 63754
-    m_ExpandedIDs: 000000003ef700009af8000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 36f70000
+    m_LastClickedID: 63286
+    m_ExpandedIDs: 0000000036f700004cf8000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1179,7 +1179,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003ef7000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000036f70000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000fcae0000a0c800008cb00000bcb700000cb50000f2fa0100f0fa01001c2d01003644020020bc0000ca24010064290100c82701004417010054170100ace60000a219010044bb00004abb0000d6ce00007ec00000c6cd0000e0ce00009805010036e6010052e601009c380200d43a0200d07b020048c90000f0c8000028c900005cc9000028f9000020e6000010c600001408010094150100541a0100465601001c5701004ccc00008c5c0100f0610100ee6301005ecc000050cc0000a0cb000010080100a6cb0000c04a0100f8530100fa53010054cd0000c0bc00000ecc000078ef000020c50000b4cc000028e0000040e000001ce000007c30010078300100fc880100a6d2000082ce000024b4000000000000cc8d0100a82b02002eff0000fa370100c6f4000074dd0000b4b900008c21010014e2000074f90000b4070400
     m_RenameOverlay:
       m_UserAcceptedRename: 0
