@@ -21,8 +21,7 @@ public class CarController : MonoBehaviour
 
     private bool EngineIsRunning = false; // запущен ли двигатель
     private bool AllWheelDriveMode = false; // включен ли полный привод
-    private bool CarIsBroken = false;
-
+    public static bool CarIsBroken { get; private set; }
 
     private const float maxPitch = 2f;
     private const float minPitch = 1f;
@@ -78,6 +77,7 @@ public class CarController : MonoBehaviour
         StartEngineScreen.SetActive(false);
         wheel_drive_mode = "Задний привод";
         StartCoroutine(OffInputDelay());
+        CarIsBroken = false;
     }
 
     private void OnEnable()
@@ -226,10 +226,17 @@ public class CarController : MonoBehaviour
                     info.leftWheel.motorTorque = 0;
                 }                                   
             }            
-            
-            info.rightWheel.brakeTorque = current_brake_power;
-            info.leftWheel.brakeTorque = current_brake_power;
-            
+            if (!CarIsBroken)
+            {
+                info.rightWheel.brakeTorque = current_brake_power;
+                info.leftWheel.brakeTorque = current_brake_power;
+            }
+            else
+            {
+                info.rightWheel.brakeTorque = BrakeForce;
+                info.leftWheel.brakeTorque = BrakeForce;
+            }
+
             CheckWheelCollision(info);
         }
         UpdateEngineSound(speed);

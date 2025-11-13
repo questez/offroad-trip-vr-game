@@ -17,6 +17,16 @@ public class CarPanel : MonoBehaviour
 
     private void UpdateBoardInfo()
     {
+        if (CarController.CarIsBroken)
+        {
+            currentSpeed.text = "√»ƒ–Œ”ƒ¿–";
+            currentSpeed.color = Color.red;
+            currentShifter.text = "";
+            currentWheelDriveMode.text = "";
+            currentCounterOfObjectsInTrunk.text = "";            
+            return;
+        }
+
         if (rb != null && currentShifter != null && currentSpeed != null)
         {
             int speed = Mathf.RoundToInt(rb.linearVelocity.magnitude * 3.6f);
