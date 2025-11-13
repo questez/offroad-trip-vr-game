@@ -77,21 +77,19 @@ public class CarTelemetryHandler : MonoBehaviour
         lastLinearVelocity = localLinearVelocity.z;
 
         linearAcceleration = Mathf.Clamp(linearAcceleration, -maxPlatformVelocity, maxPlatformVelocity);
-        if (lastLinearVelocity * 3.6f > 10)
-        {
-            currentLinearAcceleration = Mathf.Lerp(currentLinearAcceleration, linearAcceleration, 0.02f);
-        }
-        else
-        {
-            currentLinearAcceleration = Mathf.Lerp(currentLinearAcceleration, linearAcceleration, 0.1f);
-        }
+
+        currentLinearAcceleration = Mathf.Lerp(currentLinearAcceleration, linearAcceleration, 0.015f);        
 
         Vector3 globalAngularVelocity = rb.angularVelocity;
         Vector3 localAngularVelocity = transform.InverseTransformVector(globalAngularVelocity); // считаем угловую скорость относительно локальных координат
 
         currentAngularVelocity = Mathf.Lerp(currentAngularVelocity, Mathf.Clamp(localAngularVelocity.y, -maxPlatformVelocity, maxPlatformVelocity), 0.03f);
 
-        telemetryDataData.Velocity = new Vector3(currentLinearAcceleration * 18, currentAngularVelocity * 67,  0);
+
+        currentAngularVelocity = Mathf.Clamp(currentAngularVelocity, -maxPlatformVelocity, maxPlatformVelocity);
+
+
+        telemetryDataData.Velocity = new Vector3(-currentLinearAcceleration * 15, currentAngularVelocity * 130, 0);
     }
 
     private void UpdatePlatformAngles() 
@@ -111,7 +109,7 @@ public class CarTelemetryHandler : MonoBehaviour
 
         currentRoll = Mathf.Lerp(currentRoll, targetRoll, 0.04f);
 
-        Vector3 resultAngles = new Vector3(currentPitch * 1.2f, currentRoll * 1.2f, 0); // конечный возврат углов для передачи данных в платформу
+        Vector3 resultAngles = new Vector3(currentPitch * 2.2f, currentRoll * 2.2f, 0); // конечный возврат углов для передачи данных в платформу
         telemetryDataData.Angles = resultAngles;
     }
 
@@ -120,7 +118,7 @@ public class CarTelemetryHandler : MonoBehaviour
         float CollisionIntensity = Mathf.Abs(lastLinearVelocity * 3.6f) / 100;
 
         CollisionIntensity = Mathf.Clamp01(CollisionIntensity);
-        if (CollisionIntensity > 0.3f)
+        if (CollisionIntensity > 0.35f)
         {
             BhapticsLibrary.Play(eventId: BhapticsEvent.COLLISION, startMillis: 0, intensity: CollisionIntensity, duration: 1, angleX: 0, offsetY: 0);            
         }        

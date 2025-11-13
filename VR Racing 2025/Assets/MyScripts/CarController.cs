@@ -11,7 +11,6 @@ public class CarController : MonoBehaviour
     [SerializeField] private AudioSource startEngineSound, stopEngineSound;
     [SerializeField] private AudioSource EngineIsRunningSound;
     [SerializeField] private AudioSource gearShifterSound;
-    [SerializeField] private AudioSource asphaltSound, mudSound, waterSound;
 
     private bool InMud; // едет ли машина по грязи
     private bool InWater; // едет ли машина по лужам или находиться в воде
@@ -402,7 +401,7 @@ public class CarController : MonoBehaviour
             {
                 isStartingEngine = true;
                 startEngineSound.Play();
-                BhapticsLibrary.Play(eventId: BhapticsEvent.STARTENGINE, startMillis: 2250, intensity: 1, duration: 1, angleX: 0, offsetY: 0);
+                BhapticsLibrary.Play(eventId: BhapticsEvent.STARTENGINE, startMillis: 0, intensity: 1, duration: 1, angleX: 0, offsetY: 0);
             }
             StartEngineScreen.SetActive(true);
             South_button_hold_timer += Time.deltaTime;
