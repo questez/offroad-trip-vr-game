@@ -102,11 +102,16 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {        
-        if (!PauseScreenWork.isPaused && !OffInput && !CarIsBroken)
+        if (!PauseScreenWork.isPaused && !OffInput && !CarIsBroken && !Fuel.IsFuelEmpty)
         {
             OnEngine();            
         }
-        //Debug.Log($"engineRPM: {engineRPM}");        
+        //Debug.Log($"engineRPM: {engineRPM}");
+        Fuel.UpdateFuelValue(AllWheelDriveMode, rb.linearVelocity.magnitude);
+        if (Fuel.IsFuelEmpty)
+        {
+            OffEngine(true);
+        }
     }
 
     private void UpdateEngineSound(float throttleInput)

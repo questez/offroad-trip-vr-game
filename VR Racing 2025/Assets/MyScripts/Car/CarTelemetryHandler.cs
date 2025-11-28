@@ -85,9 +85,7 @@ public class CarTelemetryHandler : MonoBehaviour
 
         currentAngularVelocity = Mathf.Lerp(currentAngularVelocity, Mathf.Clamp(localAngularVelocity.y, -maxPlatformVelocity, maxPlatformVelocity), 0.03f);
 
-
         currentAngularVelocity = Mathf.Clamp(currentAngularVelocity, -maxPlatformVelocity, maxPlatformVelocity);
-
 
         telemetryDataData.Velocity = new Vector3(currentLinearAcceleration * 15, currentAngularVelocity * 130, 0);
     }
