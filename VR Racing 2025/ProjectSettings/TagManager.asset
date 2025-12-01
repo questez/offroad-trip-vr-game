@@ -12,6 +12,7 @@ TagManager:
   - Wheel
   - Water
   - Trunk
+  - Fuel
   layers:
   - Default
   - TransparentFX

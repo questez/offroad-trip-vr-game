@@ -64,7 +64,10 @@ public class MissionStateManager : MonoBehaviour
             PlayerBehaviour.PlayerBalance += (600 * counterOfObjects);
         }        
 
-        PlayerBehaviour.FinishedMissionsCounter++;
+        if (counterOfObjects > 0)
+        {
+            PlayerBehaviour.FinishedMissionsCounter++;
+        }        
     }
 
     private void OnLoadingCarScreen()

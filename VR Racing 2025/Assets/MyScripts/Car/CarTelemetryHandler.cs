@@ -55,7 +55,7 @@ public class CarTelemetryHandler : MonoBehaviour
             UpdatePlatformVelocity();
             UpdatePlatformAngles();
             
-            platformDebug.text = "telemetryDataData: " + telemetryDataData.ToString();
+            //platformDebug.text = "telemetryDataData: " + telemetryDataData.ToString();
 
             yield return new WaitForSeconds(WAIT_TIME);
         }

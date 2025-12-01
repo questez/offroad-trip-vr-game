@@ -502,14 +502,7 @@ public class CarController : MonoBehaviour
         {
             InWater = false;
         }        
-    }
-
-    public static IEnumerator OffInputDelay() // сигнал для отключения ввода с руля и педалей, когда это нужно
-    {
-        OffInput = true;
-        yield return new WaitForSecondsRealtime(3f);
-        OffInput = false;
-    }
+    }    
 
     private void UpdateHighRPMHapticIntensity()
     {
@@ -526,6 +519,13 @@ public class CarController : MonoBehaviour
             BhapticsLibrary.StopByEventId(eventId: BhapticsEvent.HIGHRPM);
         }
 
-        Debug.Log($"targetIntensity: {targetIntensity}\nengineRPM: {engineRPM}");        
+        //Debug.Log($"targetIntensity: {targetIntensity}\nengineRPM: {engineRPM}");        
+    }
+
+    public static IEnumerator OffInputDelay() // сигнал для отключения ввода с руля и педалей, когда это нужно
+    {
+        OffInput = true;
+        yield return new WaitForSecondsRealtime(3f);
+        OffInput = false;
     }
 }

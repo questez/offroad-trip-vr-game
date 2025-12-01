@@ -3,20 +3,27 @@ using UnityEngine.UI;
 
 public class Fuel : MonoBehaviour
 {
-    private static float fuel_value = 50f;
+    private static float fuel_value;
+    private const float max_fuel_value = 50;
     [SerializeField] private Slider fuel_bar; // сам слайдер
     [SerializeField] private Image fuel_bar_fill; // компонент Fill у слайдера
     [SerializeField] private Image fuel_bar_backround; // компонент Backround у слайдера
 
-    private const string hex_green = "#12C100";
-    private const string hex_red = "#CF1400";
-    private const string hex_black_red = "#980000";
+    private const string hex_green = "#0F9800";
+    private const string hex_red = "#8A1B00";
+    private const string hex_black_red = "#5A0000";
     private const string hex_white = "#FFFFFF";    
 
     public static bool IsFuelEmpty { get; private set; }
 
+    private void Start()
+    {
+        fuel_value = 50;
+    }
+
     private void Update()
     {
+        fuel_value = Mathf.Clamp(fuel_value, 0, max_fuel_value);
         fuel_bar.value = fuel_value;
 
         if (fuel_bar.value > 5)
@@ -39,11 +46,11 @@ public class Fuel : MonoBehaviour
     {
         if (!allWheelDriveMode)
         {
-            fuel_value -= (CarSpeed / 1000);
+            fuel_value -= (CarSpeed / 10000);
         }
         else
         {
-            fuel_value -= (CarSpeed / 1000) * 2;
+            fuel_value -= (CarSpeed / 10000) * 2.5f;
         }
     }
 
@@ -53,7 +60,7 @@ public class Fuel : MonoBehaviour
         {
             fuel_bar_fill.color = color1;
         }
-        if (UnityEngine.ColorUtility.TryParseHtmlString(hex_color_backround, out Color color2))
+        if (ColorUtility.TryParseHtmlString(hex_color_backround, out Color color2))
         {
             fuel_bar_backround.color = color2;
         }
@@ -62,4 +69,12 @@ public class Fuel : MonoBehaviour
             Debug.LogError($"Invalid HEX color");
         }
     }
+
+    public static void AddFuel(float new_fuel_value)
+    { 
+        fuel_value += new_fuel_value;     
+    }
+
+    public static float GetFuel() => fuel_value;  
+    public static float GetMaxFuel() => max_fuel_value;  
 }
