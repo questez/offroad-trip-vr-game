@@ -22,11 +22,15 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Button YesQuit;
     [SerializeField] Button NoStay;
 
+    [SerializeField] private GameObject LoadingScreen;
+    [SerializeField] private Slider loading_bar;
+
     private void Awake()
     {
         MainMenuScreen.SetActive(true);
         SettingsScreen.SetActive(false);
         QuitScreenConfirm.SetActive(false);
+        LoadingScreen.SetActive(false);
         StartCoroutine(DelayBetweenScreens(PlayButton));
     }
 
@@ -57,7 +61,9 @@ public class MainMenu : MonoBehaviour
         PauseScreenWork.isPaused = false;
         Time.timeScale = 1f;
         Trunk.CleanCounter();
-        SceneManager.LoadScene("MainScene");
+        MainMenuScreen.SetActive(false);
+        LoadingScreen.SetActive(true);
+        StartCoroutine(LoadAsync("MainScene"));
         StartCoroutine(CarController.OffInputDelay());        
     }
 
@@ -87,8 +93,7 @@ public class MainMenu : MonoBehaviour
 
     private void QuitConfirm()
     {
-        clickSound.Play();
-        
+        clickSound.Play();        
         Application.Quit();
         //UnityEditor.EditorApplication.isPlaying = false;        
     }
@@ -122,5 +127,16 @@ public class MainMenu : MonoBehaviour
         CloseSettingsButton.interactable = value;
         YesQuit.interactable = value;
         NoStay.interactable = value;
+    }
+
+    private IEnumerator LoadAsync(string new_scene)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(new_scene);
+
+        while (!asyncLoad.isDone)
+        {
+            loading_bar.value = asyncLoad.progress;
+            yield return null;
+        }        
     }
 }

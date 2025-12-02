@@ -105,8 +105,7 @@ public class CarController : MonoBehaviour
         if (!PauseScreenWork.isPaused && !OffInput && !CarIsBroken && !Fuel.IsFuelEmpty)
         {
             OnEngine();            
-        }
-        //Debug.Log($"engineRPM: {engineRPM}");
+        }        
         Fuel.UpdateFuelValue(AllWheelDriveMode, rb.linearVelocity.magnitude);
         if (Fuel.IsFuelEmpty)
         {
@@ -207,10 +206,7 @@ public class CarController : MonoBehaviour
             }
             
             if (info.isMotor)
-            {
-                //Debug.Log($"info.leftWheel.rpm {info.leftWheel.rpm}");
-                //Debug.Log($"info.rightWheel.rpm {info.rightWheel.rpm}");
-
+            {                
                 if ((rb.linearVelocity.magnitude <= CurrentMaxSpeed / 3.6f) && EngineIsRunning)
                 {
                     if (!isReverseGear)
@@ -416,8 +412,7 @@ public class CarController : MonoBehaviour
                 StartEngineScreen.SetActive(false);
                 South_button_hold_timer = 0;
                 EngineIsRunning = true;
-                EngineIsRunningSound.Play();
-                Debug.Log("Двигатель запущен!");
+                EngineIsRunningSound.Play();                
                 return;
             }
         }
@@ -440,7 +435,6 @@ public class CarController : MonoBehaviour
             EngineIsRunning = false;
             stopEngineSound.Play();
             engineRPM = 0;
-            Debug.Log("Двигатель заглушен!");
             StartCoroutine(OffInputDelay());
         }
     }

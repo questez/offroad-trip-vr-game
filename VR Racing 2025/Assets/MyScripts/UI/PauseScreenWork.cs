@@ -12,32 +12,39 @@ public class PauseScreenWork : MonoBehaviour
     [SerializeField] private AudioSource clickSound;
 
     public static bool isPaused;
-    [SerializeField] GameObject PauseScreen;
-    [SerializeField] Button ResumeButton;
-    [SerializeField] Button RestartButton;
-    [SerializeField] Button QuitButton;
 
-    [SerializeField] GameObject RestartScreenConfirm;
-    [SerializeField] Button YesRestart;
-    [SerializeField] Button NoStay1;
+    [SerializeField] private GameObject PauseScreen;
+    [SerializeField] private Button ResumeButton;
+    [SerializeField] private Button RestartButton;
+    [SerializeField] private Button QuitButton;
 
-    [SerializeField] GameObject QuitScreenConfirm;
-    [SerializeField] Button YesQuit;
-    [SerializeField] Button NoStay2;
+    [SerializeField] private GameObject RestartScreenConfirm;
+    [SerializeField] private Button YesRestart;
+    [SerializeField] private Button NoStay1;
+
+    [SerializeField] private GameObject QuitScreenConfirm;
+    [SerializeField] private Button YesQuit;
+    [SerializeField] private Button NoStay2;
+
+    [SerializeField] private GameObject LoadingScreen;
+    [SerializeField] private Slider loading_bar;
 
     private string active_scene_name;
+    private string next_scene_name;
 
-    [SerializeField] TextMeshProUGUI playerBalanceText; 
-    [SerializeField] TextMeshProUGUI finishedMissionsCounterText;
-    [SerializeField] TextMeshProUGUI CurrentMissionText;
+    [SerializeField] private TextMeshProUGUI playerBalanceText; 
+    [SerializeField] private TextMeshProUGUI finishedMissionsCounterText;
+    [SerializeField] private TextMeshProUGUI CurrentMissionText;
 
     private void Start()
     {
         active_scene_name = SceneManager.GetActiveScene().name;
+        next_scene_name = "MainMenu";
         isPaused = false;
         PauseScreen.SetActive(false);
         QuitScreenConfirm.SetActive(false);
         RestartScreenConfirm.SetActive(false);
+        LoadingScreen.SetActive(false);
         PlayerBehaviour.PlayerBalance = 0;
         PlayerBehaviour.CurrentMission = '0';
         PlayerBehaviour.FinishedMissionsCounter = 0;
@@ -106,7 +113,11 @@ public class PauseScreenWork : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
         Trunk.CleanCounter();
-        SceneManager.LoadScene(active_scene_name);
+        PauseScreen.SetActive(false);
+        QuitScreenConfirm.SetActive(false);
+        RestartScreenConfirm.SetActive(false);
+        LoadingScreen.SetActive(true);
+        StartCoroutine(LoadAsync(active_scene_name));
     }
     private void CancelRestart() // отмена рестарта
     {
@@ -128,8 +139,11 @@ public class PauseScreenWork : MonoBehaviour
     {
         clickSound.Play();
         StartCoroutine(CarController.OffInputDelay());
-        SceneManager.LoadScene("MainMenu");
-        Debug.Log("Вышел в главное меню!");
+        PauseScreen.SetActive(false);
+        QuitScreenConfirm.SetActive(false);
+        RestartScreenConfirm.SetActive(false);
+        LoadingScreen.SetActive(true);
+        StartCoroutine(LoadAsync(next_scene_name));
     }
     private void CancelQuit() // отмена выхода в меню
     {
@@ -150,6 +164,17 @@ public class PauseScreenWork : MonoBehaviour
             buttonToSelect.Select();
         }
         SwitchInteractableState(true);
+    }
+
+    private IEnumerator LoadAsync(string new_scene)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(new_scene);
+
+        while (!asyncLoad.isDone)
+        {
+            loading_bar.value = asyncLoad.progress;
+            yield return null;
+        }
     }
 
     private void SwitchInteractableState(bool value)
