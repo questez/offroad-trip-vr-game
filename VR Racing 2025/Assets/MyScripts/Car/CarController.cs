@@ -18,7 +18,7 @@ public class CarController : MonoBehaviour
     private bool isStartingEngine = false; // запускается ли двигатель
     private bool isReverseGear; // включена ли задняя передача
 
-    private bool EngineIsRunning = false; // запущен ли двигатель
+    public static bool EngineIsRunning { get; private set; } // запущен ли двигатель
     private bool AllWheelDriveMode = false; // включен ли полный привод
     public static bool CarIsBroken { get; private set; }
 
@@ -70,6 +70,7 @@ public class CarController : MonoBehaviour
 
     private void Start()
     {
+        EngineIsRunning = false;
         Body2Colliders = Body2.GetComponentsInChildren<Collider>();
         Body1Colliders = Body1.GetComponentsInChildren<Collider>();
         South_button_hold_timer = 0f;
@@ -438,6 +439,7 @@ public class CarController : MonoBehaviour
             StartCoroutine(OffInputDelay());
         }
     }
+
     private void IsCarCompletelyUnderWater(Collider other) // если машина полностью затонула в пруду, то больше ее завести не получиться
     {        
         if (InWater && triggerChecker.IsObjectsCompletelyInsideTrigger(Body1Colliders, other) && triggerChecker.IsObjectsCompletelyInsideTrigger(Body2Colliders, other) && !CarIsBroken)

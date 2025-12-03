@@ -269,6 +269,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f9df4658-837a-4678-8155-1713d7b661a7",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Shift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "40147922-a6e1-4a95-8089-3d3a774617f1",
                     "path": "<Logitech G29 Racing Wheel>/leftStickButton",
                     "interactions": "",

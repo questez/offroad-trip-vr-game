@@ -3,6 +3,7 @@ using LogitechG29.Sample.Input;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject LoadingScreen;
     [SerializeField] private Slider loading_bar;
 
+    [SerializeField] private Button DayChangerButton;
+    [SerializeField] private TextMeshProUGUI DayChangerButtonText;
     private void Awake()
     {
         MainMenuScreen.SetActive(true);
@@ -32,6 +35,15 @@ public class MainMenu : MonoBehaviour
         QuitScreenConfirm.SetActive(false);
         LoadingScreen.SetActive(false);
         StartCoroutine(DelayBetweenScreens(PlayButton));
+        if (Wheather.GetDayStatus() == "day")
+        {
+            DayChangerButtonText.text = "День";
+        }
+        else
+        {
+            DayChangerButtonText.text = "Ночь";
+        }
+        
     }
 
     private void OnEnable()
@@ -42,6 +54,7 @@ public class MainMenu : MonoBehaviour
         CloseSettingsButton.onClick.AddListener(CloseSettings);
         YesQuit.onClick.AddListener(QuitConfirm);
         NoStay.onClick.AddListener(CancelQuit);
+        DayChangerButton.onClick.AddListener(ChangeDayStatus);
     }
 
     private void OnDisable()
@@ -52,6 +65,7 @@ public class MainMenu : MonoBehaviour
         CloseSettingsButton.onClick.RemoveListener(CloseSettings);
         YesQuit.onClick.RemoveListener(QuitConfirm);
         NoStay.onClick.RemoveListener(CancelQuit);
+        DayChangerButton.onClick.RemoveListener(ChangeDayStatus);
     }
 
 
@@ -127,6 +141,7 @@ public class MainMenu : MonoBehaviour
         CloseSettingsButton.interactable = value;
         YesQuit.interactable = value;
         NoStay.interactable = value;
+        DayChangerButton.interactable = value;
     }
 
     private IEnumerator LoadAsync(string new_scene)
@@ -138,5 +153,22 @@ public class MainMenu : MonoBehaviour
             loading_bar.value = asyncLoad.progress;
             yield return null;
         }        
+    }
+
+    private void ChangeDayStatus()
+    {
+        clickSound.Play();
+
+        if (Wheather.GetDayStatus() == "day")
+        {
+            Wheather.TurnOnNight();
+            DayChangerButtonText.text = "Ночь";
+        }
+        else
+        {
+            Wheather.TurnOnDay();
+            DayChangerButtonText.text = "День";
+        }
+        StartCoroutine(DelayBetweenScreens(DayChangerButton));
     }
 }

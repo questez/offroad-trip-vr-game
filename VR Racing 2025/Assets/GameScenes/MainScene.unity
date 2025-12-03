@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0.6
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: fd0902a8d8773a14ebdba10fe2bac7e4, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 55e64e617a8bfff4ba846574e2651eb9, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -61623,6 +61623,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1157625888}
   - component: {fileID: 1157625887}
+  - component: {fileID: 1157625891}
+  - component: {fileID: 1157625890}
+  - component: {fileID: 1157625889}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -61663,6 +61666,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157625889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157625886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028f6e068a41f541b13079f983011b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1157625890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157625886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773d8f511029b8049a6f78b06a212634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directional_Light: {fileID: 410087040}
+--- !u!114 &1157625891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157625886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0a3d88734171d4d823c9dbea1267ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daySkybox: {fileID: 2100000, guid: 55e64e617a8bfff4ba846574e2651eb9, type: 2}
+  nightSkybox: {fileID: 2100000, guid: c1c961cbd00909b45b34d97fd7df5cbf, type: 2}
 --- !u!1001 &1157789361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72263,7 +72305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4544047375751204, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.26
+      value: 23.785
       objectReference: {fileID: 0}
     - target: {fileID: 4544047375751204, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
       propertyPath: m_LocalPosition.y
@@ -72271,7 +72313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4544047375751204, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.67
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: 4544047375751204, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
       propertyPath: m_LocalRotation.w
@@ -72300,10 +72342,6 @@ PrefabInstance:
     - target: {fileID: 4544047375751204, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121291370193910060, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6140637460980100989, guid: 47ec854eca89b4b4bb79c7e2c6006a29, type: 3}
       propertyPath: m_AnchorMax.x
@@ -115508,10 +115546,10 @@ BoxCollider:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1157625888}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1465225160}
-  - {fileID: 1157625888}
   - {fileID: 1334140681}
   - {fileID: 489999744}
   - {fileID: 725891620}
