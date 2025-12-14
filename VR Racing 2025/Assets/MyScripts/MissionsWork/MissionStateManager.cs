@@ -11,9 +11,9 @@ public class MissionStateManager : MonoBehaviour
     [SerializeField] private InputControllerReader inputControllerReader;
 
     [SerializeField] private GameObject LoadingCarScreen;
-    [SerializeField] private Slider slider1;
+    [SerializeField] private Slider loadingCarSlider;
     [SerializeField] private GameObject DeliveryCarScreen;
-    [SerializeField] private Slider slider2;
+    [SerializeField] private Slider deliveryCarSlider;
 
     [SerializeField] private GameObject Barrel;
     [SerializeField] private GameObject Plank;
@@ -45,21 +45,20 @@ public class MissionStateManager : MonoBehaviour
             DeliveryCarScreen.SetActive(false);
             LoadingCarScreen.SetActive(false);
         }        
-        PlayerBehaviour.CurrentMission = '0';
         DestroyCargos();
     }
 
-    private void GiveAward(char curr_mission, int counterOfObjects)
+    private void GiveAward(string curr_mission, int counterOfObjects)
     {
-        if (curr_mission == '1')
+        if (curr_mission == "Compote")
         {
             PlayerBehaviour.PlayerBalance += (500 * counterOfObjects);
         }
-        else if (curr_mission == '2')
+        else if (curr_mission == "Planks")
         {
             PlayerBehaviour.PlayerBalance += (200 * counterOfObjects);
         }
-        else if (curr_mission == '3')
+        else if (curr_mission == "Tools")
         {
             PlayerBehaviour.PlayerBalance += (600 * counterOfObjects);
         }        
@@ -74,44 +73,40 @@ public class MissionStateManager : MonoBehaviour
     {
         LoadingCarScreen.SetActive(true);
         North_button_hold_timer += Time.deltaTime;
-        slider1.value = Mathf.Lerp(0, North_button_hold_timer, 0.25f);
-        //Debug.Log("Метод OnLoadingCarScreen выполняется!");
+        loadingCarSlider.value = Mathf.Lerp(0, North_button_hold_timer, 0.25f);
     }
 
     private void OffLoadingCarScreen()
     {
         North_button_hold_timer = 0;
-        slider1.value = 0;
+        loadingCarSlider.value = 0;
         LoadingCarScreen.SetActive(false);
-       //Debug.Log("Метод OffLoadingCarScreen выполняется!");
     }
 
     private void OnDeliveryCarScreen()
     {
         DeliveryCarScreen.SetActive(true);
         North_button_hold_timer += Time.deltaTime;
-        slider2.value = Mathf.Lerp(0, North_button_hold_timer, 0.25f);
-        //Debug.Log("Метод OnDeliveryCarScreen выполняется!");
+        deliveryCarSlider.value = Mathf.Lerp(0, North_button_hold_timer, 0.25f);
     }
 
     private void OffDeliveryCarScreen()
     {
         North_button_hold_timer = 0;
-        slider2.value = 0;
+        deliveryCarSlider.value = 0;
         DeliveryCarScreen.SetActive(false);
-        //Debug.Log("Метод OffDeliveryCarScreen выполняется!");
     }
 
     private void CheckLoading(Collider other)
     {
-        if (PlayerBehaviour.CurrentMission == '0')
+        if (PlayerBehaviour.CurrentMission == "None")
         {
             if (other.gameObject.CompareTag("LoadingPlace"))
             {
                 if (inputControllerReader.NorthButton && triggerChecker.IsObjectsCompletelyInsideTrigger(Body1Colliders, other) && triggerChecker.IsObjectsCompletelyInsideTrigger(Body2Colliders, other))
                 {
                     OnLoadingCarScreen();
-                    if (slider1.value == slider1.maxValue)
+                    if (loadingCarSlider.value == loadingCarSlider.maxValue)
                     {                        
                         if (other.gameObject.name.Contains('1'))
                         {
@@ -133,7 +128,7 @@ public class MissionStateManager : MonoBehaviour
                                 boxHitSound.Play();
                             }
                             BhapticsLibrary.Play(BhapticsEvent.BARRELSLOADING);
-                            PlayerBehaviour.CurrentMission = '1';
+                            PlayerBehaviour.CurrentMission = "Compote";
                         }
                         else if (other.gameObject.name.Contains('2'))
                         {
@@ -160,7 +155,7 @@ public class MissionStateManager : MonoBehaviour
                                 plankHitSound.Play();
                             }
                             BhapticsLibrary.Play(BhapticsEvent.PLANKSLOADING);
-                            PlayerBehaviour.CurrentMission = '2';
+                            PlayerBehaviour.CurrentMission = "Planks";
                         }
                         else
                         {
@@ -195,7 +190,7 @@ public class MissionStateManager : MonoBehaviour
                                 spawnedCargos.Add(chest);
                             }
                             BhapticsLibrary.Play(BhapticsEvent.BOXESLOADING);
-                            PlayerBehaviour.CurrentMission = '3';
+                            PlayerBehaviour.CurrentMission = "Tools";
                         }
                         spawnedCargosCount = spawnedCargos.Count;
                         OffLoadingCarScreen();
@@ -210,35 +205,35 @@ public class MissionStateManager : MonoBehaviour
 
     private void CheckDelivery(Collider other)
     {
-        if (PlayerBehaviour.CurrentMission != '0')
+        if (PlayerBehaviour.CurrentMission != "None")
         {
             if (other.gameObject.CompareTag("DeliveryPlace"))
             {
                 if (inputControllerReader.NorthButton && triggerChecker.IsObjectsCompletelyInsideTrigger(Body1Colliders, other) && triggerChecker.IsObjectsCompletelyInsideTrigger(Body2Colliders, other))
                 {
                     OnDeliveryCarScreen();
-                    if (slider2.value == slider2.maxValue)
+                    if (deliveryCarSlider.value == deliveryCarSlider.maxValue)
                     {                        
-                        if (PlayerBehaviour.CurrentMission == '1' && other.gameObject.name.Contains('1'))
+                        if (PlayerBehaviour.CurrentMission == "Compote" && other.gameObject.name.Contains('1'))
                         {
                             Debug.Log("Завершена миссия " + PlayerBehaviour.CurrentMission);
                             DestroyCargos();
                             GiveAward(PlayerBehaviour.CurrentMission, Trunk.CounterOfObjectsInTrunk);
-                            PlayerBehaviour.CurrentMission = '0';
+                            PlayerBehaviour.CurrentMission = "None";
                         }
-                        else if (PlayerBehaviour.CurrentMission == '2' && other.gameObject.name.Contains('2'))
+                        else if (PlayerBehaviour.CurrentMission == "Planks" && other.gameObject.name.Contains('2'))
                         {
                             Debug.Log("Завершена миссия " + PlayerBehaviour.CurrentMission);
                             DestroyCargos();
                             GiveAward(PlayerBehaviour.CurrentMission, Trunk.CounterOfObjectsInTrunk);
-                            PlayerBehaviour.CurrentMission = '0';
+                            PlayerBehaviour.CurrentMission = "None";
                         }
-                        else if (PlayerBehaviour.CurrentMission == '3' && other.gameObject.name.Contains('3'))
+                        else if (PlayerBehaviour.CurrentMission == "Tools" && other.gameObject.name.Contains('3'))
                         {
                             Debug.Log("Завершена миссия " + PlayerBehaviour.CurrentMission);
                             DestroyCargos();
                             GiveAward(PlayerBehaviour.CurrentMission, Trunk.CounterOfObjectsInTrunk);
-                            PlayerBehaviour.CurrentMission = '0';
+                            PlayerBehaviour.CurrentMission = "None";
                         }
                         Trunk.CleanCounter();
                         OffDeliveryCarScreen();
@@ -278,7 +273,7 @@ public class MissionStateManager : MonoBehaviour
     {
         if (!CarController.OffInput)
         {
-            if (PlayerBehaviour.CurrentMission == '0')
+            if (PlayerBehaviour.CurrentMission == "None")
             {
                 if (other.gameObject.CompareTag("LoadingPlace"))
                 {

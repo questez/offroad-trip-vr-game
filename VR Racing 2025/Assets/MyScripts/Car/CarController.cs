@@ -34,7 +34,7 @@ public class CarController : MonoBehaviour
     private float gearChangeCooldown = 0f;
 
     [SerializeField] private GameObject StartEngineScreen;
-    [SerializeField] private Slider slider3;
+    [SerializeField] private Slider startEngineSlider;
     private float South_button_hold_timer;
 
     [SerializeField] private Rigidbody rb;
@@ -407,8 +407,8 @@ public class CarController : MonoBehaviour
             }
             StartEngineScreen.SetActive(true);
             South_button_hold_timer += Time.deltaTime;
-            slider3.value = South_button_hold_timer;
-            if (slider3.value == slider3.maxValue)
+            startEngineSlider.value = South_button_hold_timer;
+            if (startEngineSlider.value == startEngineSlider.maxValue)
             {
                 StartEngineScreen.SetActive(false);
                 South_button_hold_timer = 0;

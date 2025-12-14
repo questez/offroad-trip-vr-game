@@ -1,6 +1,6 @@
 public class PlayerBehaviour
 {
     public static int PlayerBalance;
-    public static char CurrentMission;
+    public static string CurrentMission;
     public static int FinishedMissionsCounter;
 }

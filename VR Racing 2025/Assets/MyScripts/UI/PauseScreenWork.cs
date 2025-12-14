@@ -46,20 +46,16 @@ public class PauseScreenWork : MonoBehaviour
         RestartScreenConfirm.SetActive(false);
         LoadingScreen.SetActive(false);
         PlayerBehaviour.PlayerBalance = 0;
-        PlayerBehaviour.CurrentMission = '0';
+        PlayerBehaviour.CurrentMission = "None";
         PlayerBehaviour.FinishedMissionsCounter = 0;
-    }
-
-    private void Update()
-    {
-        SetTextInfo();
-    }    
+    }      
 
     private void SetTextInfo()
     {
         playerBalanceText.text = "Баланс: " + PlayerBehaviour.PlayerBalance + "руб";
         finishedMissionsCounterText.text = "Пройдено миссий: " + PlayerBehaviour.FinishedMissionsCounter;
-        if (PlayerBehaviour.CurrentMission != '0')
+
+        if (PlayerBehaviour.CurrentMission != "None")
         {
             CurrentMissionText.text = "Текущая миссия: " + PlayerBehaviour.CurrentMission;
         }
@@ -86,6 +82,7 @@ public class PauseScreenWork : MonoBehaviour
                 StartCoroutine(CarController.OffInputDelay());
             }
             PauseScreen.SetActive(isPaused);
+            SetTextInfo();
         }
     }
 

@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|z:\\unity\\projects\\vr-racing-2025\\vr racing 2025\\assets\\myscripts\\car\\carlights.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\car\\carlights.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\missionswork\\missionstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\missionstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|z:\\unity\\projects\\vr-racing-2025\\vr racing 2025\\assets\\myscripts\\car\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\car\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|z:\\unity\\projects\\vr-racing-2025\\vr racing 2025\\assets\\myscripts\\weather\\lightmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\weather\\lightmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\missionswork\\detailedtriggerchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\detailedtriggerchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\weather\\wheather.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\weather\\wheather.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\missionswork\\trunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\trunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\weather\\fogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\weather\\fogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\weather\\skyboxmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\weather\\skyboxmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\assets\\myscripts\\missionswork\\playerbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB2F306B-7281-F41D-3C34-FDBFBB7145E3}|Assembly-CSharp.csproj|solutionrelative:assets\\myscripts\\missionswork\\playerbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,94 +30,68 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CarController.cs",
-              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Car\\CarController.cs",
-              "RelativeDocumentMoniker": "Assets\\MyScripts\\Car\\CarController.cs",
-              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Car\\CarController.cs",
-              "RelativeToolTip": "Assets\\MyScripts\\Car\\CarController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwEgAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Trunk.cs",
+              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\Trunk.cs",
+              "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\Trunk.cs",
+              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\Trunk.cs",
+              "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\Trunk.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T17:47:45.416Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:53:32.334Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CarLights.cs",
-              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Car\\CarLights.cs",
-              "RelativeDocumentMoniker": "Assets\\MyScripts\\Car\\CarLights.cs",
-              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Car\\CarLights.cs",
-              "RelativeToolTip": "Assets\\MyScripts\\Car\\CarLights.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "DetailedTriggerChecker.cs",
+              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\DetailedTriggerChecker.cs",
+              "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\DetailedTriggerChecker.cs",
+              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\DetailedTriggerChecker.cs",
+              "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\DetailedTriggerChecker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T17:43:44.786Z",
+              "WhenOpened": "2025-12-14T13:53:28.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MissionStateManager.cs",
+              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
+              "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
+              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
+              "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\MissionStateManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:34:09.008Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Wheather.cs",
-              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Weather\\Wheather.cs",
-              "RelativeDocumentMoniker": "Assets\\MyScripts\\Weather\\Wheather.cs",
-              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Weather\\Wheather.cs",
-              "RelativeToolTip": "Assets\\MyScripts\\Weather\\Wheather.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Title": "PlayerBehaviour.cs",
+              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
+              "RelativeDocumentMoniker": "Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
+              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
+              "RelativeToolTip": "Assets\\MyScripts\\MissionsWork\\PlayerBehaviour.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T16:23:41.437Z"
+              "WhenOpened": "2025-12-14T12:34:42.407Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SkyboxManager.cs",
-              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Weather\\SkyboxManager.cs",
-              "RelativeDocumentMoniker": "Assets\\MyScripts\\Weather\\SkyboxManager.cs",
-              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Weather\\SkyboxManager.cs",
-              "RelativeToolTip": "Assets\\MyScripts\\Weather\\SkyboxManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAALAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CarController.cs",
+              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Car\\CarController.cs",
+              "RelativeDocumentMoniker": "Assets\\MyScripts\\Car\\CarController.cs",
+              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Car\\CarController.cs",
+              "RelativeToolTip": "Assets\\MyScripts\\Car\\CarController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T16:00:04.539Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FogManager.cs",
-              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Weather\\FogManager.cs",
-              "RelativeDocumentMoniker": "Assets\\MyScripts\\Weather\\FogManager.cs",
-              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Weather\\FogManager.cs",
-              "RelativeToolTip": "Assets\\MyScripts\\Weather\\FogManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T16:18:15.655Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LightManager.cs",
-              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Weather\\LightManager.cs",
-              "RelativeDocumentMoniker": "Assets\\MyScripts\\Weather\\LightManager.cs",
-              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\Weather\\LightManager.cs",
-              "RelativeToolTip": "Assets\\MyScripts\\Weather\\LightManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T16:18:13.508Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainMenu.cs",
-              "DocumentMoniker": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\UI\\MainMenu.cs",
-              "RelativeDocumentMoniker": "Assets\\MyScripts\\UI\\MainMenu.cs",
-              "ToolTip": "Z:\\UNITY\\Projects\\VR-RACING-2025\\VR Racing 2025\\Assets\\MyScripts\\UI\\MainMenu.cs",
-              "RelativeToolTip": "Assets\\MyScripts\\UI\\MainMenu.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAuwCsAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T16:16:47.754Z",
+              "WhenOpened": "2025-12-03T17:47:45.416Z",
               "EditorCaption": ""
             }
           ]

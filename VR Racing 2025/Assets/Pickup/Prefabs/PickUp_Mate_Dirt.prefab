@@ -7410,7 +7410,7 @@ MonoBehaviour:
   EngineIsRunningSound: {fileID: 8141447813706063193}
   gearShifterSound: {fileID: 4721624992160741114}
   StartEngineScreen: {fileID: 5425947939688608717}
-  slider3: {fileID: 2314658294905325065}
+  startEngineSlider: {fileID: 2314658294905325065}
   rb: {fileID: 1615658631847281269}
   inputControllerReader: {fileID: 11400000, guid: 8268bb9eff5a1954492cd4817fb37528, type: 2}
   steeringWheelTransform: {fileID: 4054606671126250}
@@ -7445,9 +7445,9 @@ MonoBehaviour:
   plankHitSound: {fileID: 6875012269331576528}
   inputControllerReader: {fileID: 11400000, guid: 8268bb9eff5a1954492cd4817fb37528, type: 2}
   LoadingCarScreen: {fileID: 3278851214637784402}
-  slider1: {fileID: 6985138383063431606}
+  loadingCarSlider: {fileID: 6985138383063431606}
   DeliveryCarScreen: {fileID: 7284140537307319127}
-  slider2: {fileID: 1937695133642079911}
+  deliveryCarSlider: {fileID: 1937695133642079911}
   Barrel: {fileID: 1074428586455079027, guid: d3edce70a8fc5bf439a4baed196ba427, type: 3}
   Plank: {fileID: 481893572996699409, guid: 6a4c8f4dced1e5a4fa60caab0a708ca0, type: 3}
   Box: {fileID: 5052173253573610260, guid: bfa1308cc2dd692479b5e18a2d9b6564, type: 3}
@@ -8077,7 +8077,7 @@ GameObject:
   - component: {fileID: 1302094399986295873}
   - component: {fileID: 1937695133642079911}
   m_Layer: 5
-  m_Name: Slider2
+  m_Name: DeliverySlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9009,7 +9009,7 @@ GameObject:
   - component: {fileID: 6599813528783865195}
   - component: {fileID: 2314658294905325065}
   m_Layer: 5
-  m_Name: Slider3
+  m_Name: StartEngineSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9237,7 +9237,7 @@ RectTransform:
   m_Father: {fileID: 5350238105161163335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9459,7 +9459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5811112440711953375
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9633,7 +9633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7942510312288198223
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10497,7 +10497,7 @@ RectTransform:
   m_Father: {fileID: 2440588937960939191}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10604,7 +10604,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0422\u0435\u043A\u0443\u0449\u0430\u044F \u043C\u0438\u0441\u0441\u0438\u044F: "
+  m_text: "\u0422\u0435\u043A\u0443\u0449\u0430\u044F \u043C\u0438\u0441\u0441\u0438\u044F:
+    -"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c445921094525c94da15194ddeb28384, type: 2}
   m_sharedMaterial: {fileID: -5153483560242973462, guid: c445921094525c94da15194ddeb28384, type: 2}
@@ -12897,7 +12898,7 @@ GameObject:
   - component: {fileID: 5279034889133371311}
   - component: {fileID: 6985138383063431606}
   m_Layer: 5
-  m_Name: Slider1
+  m_Name: LoadingSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14010,7 +14011,7 @@ RectTransform:
   m_Father: {fileID: 5307792010253451871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14279,7 +14280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4910650624281012843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14811,7 +14812,7 @@ RectTransform:
   m_Father: {fileID: 5153880664463771078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15137,7 +15138,7 @@ RectTransform:
   m_Father: {fileID: 3093306728099920688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
