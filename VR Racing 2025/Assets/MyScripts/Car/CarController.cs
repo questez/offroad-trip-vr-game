@@ -449,7 +449,7 @@ public class CarController : MonoBehaviour
                 OffEngine(true);
             }
             CarIsBroken = true;
-            Debug.Log("Машина затонула!!!!!");
+            //Debug.Log("Машина затонула!!!!!");
         }
     }
 

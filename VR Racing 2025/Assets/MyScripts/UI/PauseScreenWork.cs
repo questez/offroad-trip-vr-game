@@ -45,19 +45,19 @@ public class PauseScreenWork : MonoBehaviour
         QuitScreenConfirm.SetActive(false);
         RestartScreenConfirm.SetActive(false);
         LoadingScreen.SetActive(false);
-        PlayerBehaviour.PlayerBalance = 0;
-        PlayerBehaviour.CurrentMission = "None";
-        PlayerBehaviour.FinishedMissionsCounter = 0;
+        PlayerData.PlayerBalance = 0;
+        PlayerData.CurrentMission = "None";
+        PlayerData.FinishedMissionsCounter = 0;
     }      
 
     private void SetTextInfo()
     {
-        playerBalanceText.text = "Баланс: " + PlayerBehaviour.PlayerBalance + "руб";
-        finishedMissionsCounterText.text = "Пройдено миссий: " + PlayerBehaviour.FinishedMissionsCounter;
+        playerBalanceText.text = "Баланс: " + PlayerData.PlayerBalance + "руб";
+        finishedMissionsCounterText.text = "Пройдено миссий: " + PlayerData.FinishedMissionsCounter;
 
-        if (PlayerBehaviour.CurrentMission != "None")
+        if (PlayerData.CurrentMission != "None")
         {
-            CurrentMissionText.text = "Текущая миссия: " + PlayerBehaviour.CurrentMission;
+            CurrentMissionText.text = "Текущая миссия: " + PlayerData.CurrentMission;
         }
         else
         {
