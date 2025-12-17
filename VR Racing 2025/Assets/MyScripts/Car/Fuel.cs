@@ -46,11 +46,11 @@ public class Fuel : MonoBehaviour
     {
         if (!allWheelDriveMode)
         {
-            fuel_value -= (CarSpeed / 10000);
+            fuel_value -= (CarSpeed / 20000);
         }
         else
         {
-            fuel_value -= (CarSpeed / 10000) * 2.5f;
+            fuel_value -= (CarSpeed / 20000) * 2.5f;
         }
     }
 

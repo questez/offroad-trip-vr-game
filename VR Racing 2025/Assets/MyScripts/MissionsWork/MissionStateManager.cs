@@ -20,6 +20,10 @@ public class MissionStateManager : MonoBehaviour
     [SerializeField] private GameObject Box;    
     [SerializeField] private GameObject Chest;
 
+    private const int barrelCost = 400;
+    private const int plankCost = 200;
+    private const int boxCost = 800;
+
     [SerializeField] private Transform spawnPoint;
 
     private List<GameObject> spawnedCargos = new List<GameObject>();
@@ -52,15 +56,15 @@ public class MissionStateManager : MonoBehaviour
     {
         if (curr_mission == "Compote")
         {
-            PlayerData.PlayerBalance += (500 * counterOfObjects);
+            PlayerData.PlayerBalance += (barrelCost * counterOfObjects);
         }
         else if (curr_mission == "Planks")
         {
-            PlayerData.PlayerBalance += (200 * counterOfObjects);
+            PlayerData.PlayerBalance += (plankCost * counterOfObjects);
         }
         else if (curr_mission == "Tools")
         {
-            PlayerData.PlayerBalance += (600 * counterOfObjects);
+            PlayerData.PlayerBalance += (boxCost * counterOfObjects);
         }        
 
         if (counterOfObjects > 0)

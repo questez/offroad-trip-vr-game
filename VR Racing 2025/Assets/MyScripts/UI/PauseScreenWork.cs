@@ -163,7 +163,7 @@ public class PauseScreenWork : MonoBehaviour
         SwitchInteractableState(true);
     }
 
-    private IEnumerator LoadAsync(string new_scene)
+    private IEnumerator LoadAsync(string new_scene) // асинхронная загрузка сцены
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(new_scene);
 

@@ -6,7 +6,7 @@ public class Trunk : MonoBehaviour
 
     private void Start()
     {
-        CounterOfObjectsInTrunk = 0;
+        CleanCounter();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -521,7 +521,7 @@ public class CarController : MonoBehaviour
     public static IEnumerator OffInputDelay() // сигнал для отключения ввода с руля и педалей, когда это нужно
     {
         OffInput = true;
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(2f);
         OffInput = false;
     }
 }

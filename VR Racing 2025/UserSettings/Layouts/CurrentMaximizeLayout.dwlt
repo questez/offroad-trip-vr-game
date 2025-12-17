@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 4828
+  controlID: 676
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 4829
+  controlID: 677
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -218,9 +218,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 5aa30000
       m_LastClickedID: 0
-      m_ExpandedIDs: eefaffff4ec300005ec3000022cd000054d0000070d100001cd4000092d40000ccd600002cd7000040d70000d6da000036dd000094de0000
+      m_ExpandedIDs: eefaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 4830
+  controlID: 678
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -290,8 +290,8 @@ MonoBehaviour:
     y: 0
     width: 1100
     height: 688
-  m_MinSize: {x: 52, y: 76}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 51, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -839,7 +839,7 @@ MonoBehaviour:
       scrollOffset: 0
     m_OverlaysVisible: 1
   m_WindowGUID: 4188957bfe342b148802286f86613b2a
-  m_Gizmos: 0
+  m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -849,9 +849,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 21.847778, y: 1.2599156, z: 3.8077283}
+    m_Target: {x: -179.92036, y: -7.0783706, z: 1075.4321}
     speed: 2
-    m_Value: {x: 21.847778, y: 1.2599156, z: 3.8077283}
+    m_Value: {x: -179.92036, y: -7.0783706, z: 1075.4321}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -897,13 +897,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.34389117, y: -0.18275647, z: 0.07663482, w: -0.9210731}
+    m_Target: {x: 0.17992945, y: -0.40542057, z: 0.07104847, w: 0.8967351}
     speed: 2
-    m_Value: {x: -0.34287953, y: -0.18221885, z: 0.07640938, w: -0.9183635}
+    m_Value: {x: -0.17992947, y: 0.4054206, z: -0.07104847, w: -0.89673513}
   m_Size:
-    m_Target: 1.4131402
+    m_Target: 12.124355
     speed: 2
-    m_Value: 1.4131402
+    m_Value: 12.124355
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1008,7 +1008,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/MyScripts/MissionsWork
+    - Assets/MyScripts/UI
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1018,16 +1018,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/MyScripts/MissionsWork
+  - Assets/MyScripts/UI
   m_LastFoldersGridSize: 16
   m_LastProjectPath: Z:\UNITY\Projects\VR-RACING-2025\VR Racing 2025
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 276}
-    m_SelectedIDs: daf90000
-    m_LastClickedID: 63962
-    m_ExpandedIDs: 000000008af800008cf800008ef8000090f8000092f8000094f8000096f8000098f800009af800009cf800009ef80000a0f80000a2f80000a4f80000a6f80000a8f80000aaf80000acf80000aef80000b0f80000b2f80000b4f80000b6f80000baf9000000ca9a3b
+    scrollPos: {x: 0, y: 324}
+    m_SelectedIDs: e4f90000
+    m_LastClickedID: 63972
+    m_ExpandedIDs: 000000008af800008cf800008ef8000090f8000092f8000094f8000096f8000098f800009af800009cf800009ef80000a0f80000a2f80000a4f80000a6f80000a8f80000aaf80000acf80000aef80000b0f80000b2f80000b4f80000b6f80000bef9000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1082,8 +1082,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 5aa30000
+    m_LastClickedInstanceID: 41818
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000fcae0000a0c800008cb00000bcb700000cb50000f2fa0100f0fa01001c2d01003644020020bc0000ca24010064290100c82701004417010054170100ace60000a219010044bb00004abb0000d6ce00007ec00000c6cd0000e0ce00009805010036e6010052e601009c380200d43a0200d07b020048c90000f0c8000028c900005cc9000028f9000020e6000010c600001408010094150100541a0100465601001c5701004ccc00008c5c0100f0610100ee6301005ecc000050cc0000a0cb000010080100a6cb0000c04a0100f8530100fa53010054cd0000c0bc00000ecc000078ef000020c50000b4cc000028e0000040e000001ce000007c30010078300100fc880100a6d2000082ce000024b4000000000000cc8d0100a82b02002eff0000fa370100c6f4000074dd0000b4b900008c21010014e2000074f90000b4070400
     m_RenameOverlay:

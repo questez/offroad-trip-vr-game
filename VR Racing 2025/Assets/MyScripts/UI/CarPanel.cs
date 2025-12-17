@@ -27,21 +27,19 @@ public class CarPanel : MonoBehaviour
             return;
         }
 
-        if (rb != null && currentShifter != null && currentSpeed != null)
-        {
-            int speed = Mathf.RoundToInt(rb.linearVelocity.magnitude * 3.6f);
+        int speed = Mathf.RoundToInt(rb.linearVelocity.magnitude * 3.6f);
 
-            currentShifter.text = CarController.current_shifter.ToString();
-            currentSpeed.text = speed.ToString() + " км/ч";
-            currentWheelDriveMode.text = CarController.wheel_drive_mode;
-            if (PlayerData.CurrentMission != "None")
-            {
-                currentCounterOfObjectsInTrunk.text = $"Грузов в багажнике {Trunk.CounterOfObjectsInTrunk}/{MissionStateManager.spawnedCargosCount}";
-            }
-            else
-            {
-                currentCounterOfObjectsInTrunk.text = "";
-            }
-        }        
+        currentShifter.text = CarController.current_shifter.ToString();
+        currentSpeed.text = speed.ToString() + " км/ч";
+        currentWheelDriveMode.text = CarController.wheel_drive_mode;
+
+        if (PlayerData.CurrentMission != "None")
+        {
+            currentCounterOfObjectsInTrunk.text = $"Грузов в багажнике {Trunk.CounterOfObjectsInTrunk}/{MissionStateManager.spawnedCargosCount}";
+        }
+        else
+        {
+            currentCounterOfObjectsInTrunk.text = "";
+        }              
     }
 }
