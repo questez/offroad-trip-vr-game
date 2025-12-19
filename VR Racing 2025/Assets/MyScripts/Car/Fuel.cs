@@ -10,13 +10,14 @@ public class Fuel : MonoBehaviour
     [SerializeField] private Image fuel_bar_backround; // компонент Backround у слайдера
 
     private const string hex_green = "#0F9800";
+    private const string hex_orange = "#BE6900";
     private const string hex_red = "#8A1B00";
     private const string hex_black_red = "#5A0000";
     private const string hex_white = "#FFFFFF";    
 
     public static bool IsFuelEmpty { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         fuel_value = 50;
     }
@@ -26,11 +27,15 @@ public class Fuel : MonoBehaviour
         fuel_value = Mathf.Clamp(fuel_value, 0, max_fuel_value);
         fuel_bar.value = fuel_value;
 
-        if (fuel_bar.value > 5)
+        if (fuel_bar.value > 25)
         {
             UpdateBarColor(hex_green, hex_white);
         }
-        else if (fuel_bar.value > 0 && fuel_bar.value <= 5)
+        else if (fuel_bar.value <= 25 && fuel_bar.value > 5)
+        {
+            UpdateBarColor(hex_orange, hex_white);
+        }
+        else if (fuel_bar.value <= 5 && fuel_bar.value > 0)
         {
             UpdateBarColor(hex_red, hex_white);
         }
@@ -46,11 +51,11 @@ public class Fuel : MonoBehaviour
     {
         if (!allWheelDriveMode)
         {
-            fuel_value -= (CarSpeed / 20000);
+            fuel_value -= (CarSpeed / 10000);
         }
         else
         {
-            fuel_value -= (CarSpeed / 20000) * 2.5f;
+            fuel_value -= (CarSpeed / 10000) * 2.5f;
         }
     }
 
@@ -60,14 +65,14 @@ public class Fuel : MonoBehaviour
         {
             fuel_bar_fill.color = color1;
         }
-        if (ColorUtility.TryParseHtmlString(hex_color_backround, out Color color2))
+        if (ColorUtility.TryParseHtmlString(hex_color_fill, out Color color2))
         {
-            fuel_bar_backround.color = color2;
+            fuel_bar_fill.color = color2;
         }
-        else
+        if (ColorUtility.TryParseHtmlString(hex_color_backround, out Color color3))
         {
-            Debug.LogError($"Invalid HEX color");
-        }
+            fuel_bar_backround.color = color3;
+        }        
     }
 
     public static void AddFuel(float new_fuel_value)

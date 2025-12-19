@@ -16,7 +16,7 @@ public class FuelCanister : MonoBehaviour
     {
         if (other.CompareTag("Car"))
         {
-            if (Fuel.GetFuel() < (Fuel.GetMaxFuel() - 5))
+            if (Fuel.GetFuel() < (Fuel.GetMaxFuel() - 2.5))
             {
                 Fuel.AddFuel(10);
                 StartCoroutine(VisibilityDelay());
@@ -28,7 +28,7 @@ public class FuelCanister : MonoBehaviour
     {
         m_Renderer.enabled = false;
         fuel_collider.enabled = false;
-        yield return new WaitForSecondsRealtime(60);
+        yield return new WaitForSecondsRealtime(25);
         m_Renderer.enabled = true;
         fuel_collider.enabled = true;
     }

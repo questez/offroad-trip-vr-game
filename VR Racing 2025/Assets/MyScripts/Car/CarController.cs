@@ -463,7 +463,7 @@ public class CarController : MonoBehaviour
     }
 
     [Serializable]
-    public class AxleInfo
+    public class AxleInfo // информация о каждой отдельной оси 
     {   
         public WheelCollider leftWheel;
         public WheelCollider rightWheel;
