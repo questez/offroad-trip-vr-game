@@ -13,7 +13,7 @@ public class SoundVolumeManager : MonoBehaviour
 
     public static float TotalSoundVolume { get; private set; } = 0.75f;
 
-    bool OffInput;
+    private bool OffInput;
 
     private void Start()
     {
@@ -45,23 +45,24 @@ public class SoundVolumeManager : MonoBehaviour
     {
         if (SoundSlider != null && SoundSlider.IsActive())
         {
-            if (inputControllerReader.LeftTurn || inputControllerReader.HatSwitch.x == 1)
+            if (inputControllerReader.LeftTurn || inputControllerReader.HatSwitch.x == -1)
             {
                 if (!OffInput)
                 {
                     ScrollToLeft();
                     StartCoroutine(OffInputDelay());
+                    SetVolume(AllAudioSources);
                 }
             }
-            else if (inputControllerReader.RightTurn || inputControllerReader.HatSwitch.x == -1)
+            else if (inputControllerReader.RightTurn || inputControllerReader.HatSwitch.x == 1)
             {
                 if (!OffInput)
                 {
                     ScrollToRight();
                     StartCoroutine(OffInputDelay());
+                    SetVolume(AllAudioSources);
                 }
-            }
-            SetVolume(AllAudioSources);
+            }            
         }        
     }
 
