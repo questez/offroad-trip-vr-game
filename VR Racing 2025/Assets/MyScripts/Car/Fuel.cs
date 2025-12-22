@@ -20,6 +20,7 @@ public class Fuel : MonoBehaviour
     private void Awake()
     {
         fuel_value = 50;
+        IsFuelEmpty = false;
     }
 
     private void Update()
@@ -51,11 +52,11 @@ public class Fuel : MonoBehaviour
     {
         if (!allWheelDriveMode)
         {
-            fuel_value -= (CarSpeed / 10000);
+            fuel_value -= (CarSpeed / 12500);
         }
         else
         {
-            fuel_value -= (CarSpeed / 10000) * 2.5f;
+            fuel_value -= (CarSpeed / 12500) * 2.5f;
         }
     }
 

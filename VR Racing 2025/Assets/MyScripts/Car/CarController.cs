@@ -71,13 +71,13 @@ public class CarController : MonoBehaviour
     private void Start()
     {
         EngineIsRunning = false;
+        CarIsBroken = false;
         Body2Colliders = Body2.GetComponentsInChildren<Collider>();
         Body1Colliders = Body1.GetComponentsInChildren<Collider>();
         South_button_hold_timer = 0f;
         StartEngineScreen.SetActive(false);
         wheel_drive_mode = "Задний привод";
-        StartCoroutine(OffInputDelay());
-        CarIsBroken = false;
+        StartCoroutine(OffInputDelay());        
     }
 
     private void OnEnable()
