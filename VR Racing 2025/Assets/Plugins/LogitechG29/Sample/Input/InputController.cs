@@ -366,6 +366,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2c5d0443-80e5-4024-a061-1b1af00b854f"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left Shift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""40147922-a6e1-4a95-8089-3d3a774617f1"",
                     ""path"": ""<Logitech G29 Racing Wheel>/leftStickButton"",
                     ""interactions"": """",
@@ -520,6 +531,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c7d079f0-059a-4623-85a8-5a9ca58df9c4"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""North"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""f038c92b-7e17-4452-820d-a8d70dd33f3b"",
                     ""path"": ""<Logitech G29 Racing Wheel>/optionsButton"",
                     ""interactions"": """",
@@ -597,6 +619,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""b7eb08a5-9b28-4e09-b211-cb8944f896e3"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""South"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""3e860e19-b41d-47ca-b76a-ee1bdb42bc69"",
                     ""path"": ""<Logitech G29 Racing Wheel>/westButton"",
                     ""interactions"": """",
@@ -610,6 +643,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""a173a811-1046-4c53-9ad3-5921d63aba86"",
                     ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""West"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""456e88bd-4653-4992-bc16-26aaad98fccc"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -666,7 +710,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""1D Axis"",
+                    ""name"": ""1D Axis (Keyboard)"",
                     ""id"": ""810f8501-81bb-4f6c-b073-bfb1b44b4bb8"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -697,6 +741,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""action"": ""Steering_Steering"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26d05e8b-de51-4aa2-ad54-d98579604ff6"",
+                    ""path"": ""<Gamepad>/leftStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steering_Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -756,7 +811,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""1D Axis"",
+                    ""name"": ""1D Axis (Keyboard)"",
                     ""id"": ""14ab3d8e-d90b-4ad4-b3d0-31dd02a55f0f"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -767,9 +822,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""628238d1-2a56-4b9d-88d0-f3ff508156b2"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""name"": ""positive"",
+                    ""id"": ""37876d2a-7877-4677-8304-f74ed2ebe037"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -778,9 +833,20 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis (Gamepad)"",
+                    ""id"": ""0319affd-a798-4c01-8217-ef2a3c22d869"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""positive"",
-                    ""id"": ""37876d2a-7877-4677-8304-f74ed2ebe037"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""id"": ""8332d562-40dc-479c-836a-d2ddba507b78"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -811,7 +877,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""1D Axis"",
+                    ""name"": ""1D Axis (Keyboard)"",
                     ""id"": ""0bb461f6-9b93-4ad2-8549-ccdbd885da46"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -822,9 +888,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""f5ac1d50-d9a6-4677-ba9a-e983c193099a"",
-                    ""path"": """",
+                    ""name"": ""positive"",
+                    ""id"": ""b36d0909-a689-4635-8108-79b8e7bf024f"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -833,9 +899,20 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis (Gamepad)"",
+                    ""id"": ""a826bd2a-deff-403a-89f4-5902fd4f2f76"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Brake"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""positive"",
-                    ""id"": ""b36d0909-a689-4635-8108-79b8e7bf024f"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""id"": ""d7abdd92-60fb-4881-844e-232b837fd475"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
