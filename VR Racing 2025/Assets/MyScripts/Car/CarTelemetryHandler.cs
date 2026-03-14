@@ -10,8 +10,6 @@ public class CarTelemetryHandler : MonoBehaviour
     private ObjectTelemetryData telemetryDataData;
     private SendingData _sendingData;    
 
-    [SerializeField] private TextMeshProUGUI platformDebug;
-
     [SerializeField] private Transform vehicleTransform;
     [SerializeField] private Rigidbody rb;        
 
@@ -54,8 +52,6 @@ public class CarTelemetryHandler : MonoBehaviour
 
             UpdatePlatformVelocity();
             UpdatePlatformAngles();
-            
-            //platformDebug.text = "telemetryDataData: " + telemetryDataData.ToString();
 
             yield return new WaitForSeconds(WAIT_TIME);
         }

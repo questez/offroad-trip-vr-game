@@ -11,7 +11,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private AudioSource startEngineSound, stopEngineSound;
     [SerializeField] private AudioSource EngineIsRunningSound;
     [SerializeField] private AudioSource gearShifterSound;
-
+    
     private bool InMud; // едет ли машина по грязи
     private bool InWater; // едет ли машина по лужам или находиться в воде
 
@@ -38,7 +38,7 @@ public class CarController : MonoBehaviour
     private float South_button_hold_timer;
 
     [SerializeField] private Rigidbody rb;
-
+    
     public static bool OffInput { get; private set; }
     [SerializeField] private InputControllerReader inputControllerReader;
 
