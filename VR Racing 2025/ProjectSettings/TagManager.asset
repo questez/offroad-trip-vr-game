@@ -13,6 +13,7 @@ TagManager:
   - Water
   - Trunk
   - Fuel
+  - AudioPlayer
   layers:
   - Default
   - TransparentFX

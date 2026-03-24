@@ -7,85 +7,154 @@ public class SoundVolumeManager : MonoBehaviour
 {
     [SerializeField] private InputControllerReader inputControllerReader;
 
-    [SerializeField] private Slider SoundSlider;
+    [SerializeField] private Slider SoundSliderInMainMenu;
+    [SerializeField] private Slider AudioPlayerSlider;
 
     private AudioSource[] AllAudioSources;
+    private AudioSource audioPlayer;
 
-    public static float TotalSoundVolume { get; private set; } = 0.75f;
+    public static float CommonSoundVolume { get; private set; } = 0.75f;
+    public static float AudioPlayerVolume { get; private set; } = 0.3f;
 
     private bool OffInput;
 
     private void Start()
     {
-        if (SoundSlider != null)
+        if (SoundSliderInMainMenu != null)
         {
-            SoundSlider.value = TotalSoundVolume;
+            SoundSliderInMainMenu.value = CommonSoundVolume;
+            AudioPlayerVolume = CommonSoundVolume;
         }
+
+        if (AudioPlayerSlider != null)
+        {
+            AudioPlayerSlider.value = AudioPlayerVolume;
+        }
+
         AllAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
-        SetVolume(AllAudioSources);
+        SetVolumeForAll(AllAudioSources);
+
+        foreach (AudioSource source in AllAudioSources)
+        {
+            if (source.tag == "AudioPlayer")
+            {
+                audioPlayer = source;
+            }
+        }
     }
 
     private void OnEnable()
     {
-        if (SoundSlider != null)
+        if (SoundSliderInMainMenu != null)
         {
-            SoundSlider.onValueChanged.AddListener(ChangeVolume);
-        }        
+            SoundSliderInMainMenu.onValueChanged.AddListener(ChangeCommonSoundVolume);
+        }
+        if (AudioPlayerSlider != null)
+        {
+            AudioPlayerSlider.onValueChanged.AddListener(ChangeAudioPlayerVolume);
+        }
     }
 
     private void OnDisable()
     {
-        if (SoundSlider != null)
+        if (SoundSliderInMainMenu != null)
         {
-            SoundSlider.onValueChanged.RemoveListener(ChangeVolume);
-        }            
+            SoundSliderInMainMenu.onValueChanged.RemoveListener(ChangeCommonSoundVolume);
+        }
+        if (AudioPlayerSlider != null)
+        {
+            AudioPlayerSlider.onValueChanged.RemoveListener(ChangeAudioPlayerVolume);
+        }
     }
 
     private void Update()
     {
-        if (SoundSlider != null && SoundSlider.IsActive())
+        if (SoundSliderInMainMenu != null && SoundSliderInMainMenu.IsActive())
         {
             if (inputControllerReader.LeftTurn || inputControllerReader.HatSwitch.x == -1)
             {
-                if (!OffInput)
-                {
-                    ScrollToLeft();
-                    StartCoroutine(OffInputDelay());
-                    SetVolume(AllAudioSources);
-                }
+                ScrollToLeftInMainMenu();
             }
             else if (inputControllerReader.RightTurn || inputControllerReader.HatSwitch.x == 1)
             {
-                if (!OffInput)
-                {
-                    ScrollToRight();
-                    StartCoroutine(OffInputDelay());
-                    SetVolume(AllAudioSources);
-                }
+                ScrollToRightInMainMenu();
             }            
+        }
+        if (AudioPlayerSlider != null && AudioPlayerSlider.IsActive())
+        {
+            if (inputControllerReader.LeftTurn || inputControllerReader.HatSwitch.x == -1)
+            {
+                ScrollToLeftAudioPlayer();
+            }
+            else if (inputControllerReader.RightTurn || inputControllerReader.HatSwitch.x == 1)
+            {
+                ScrollToRightAudioPlayer();
+            }
+        }
+    }
+
+    private void ScrollToLeftInMainMenu()
+    {
+        if (!OffInput)
+        {
+            if (SoundSliderInMainMenu.value != SoundSliderInMainMenu.minValue)
+            {
+                SoundSliderInMainMenu.value -= 0.05f;
+            }
+            StartCoroutine(OffInputDelay());
+            SetVolumeForAll(AllAudioSources);
         }        
     }
 
-    private void ScrollToLeft()
+    private void ScrollToRightInMainMenu()
     {
-        if (SoundSlider.value != SoundSlider.minValue)
+        if (!OffInput)
         {
-            SoundSlider.value -= 0.05f;
+            if (SoundSliderInMainMenu.value != SoundSliderInMainMenu.maxValue)
+            {
+                SoundSliderInMainMenu.value += 0.05f;
+            }
+            StartCoroutine(OffInputDelay());
+            SetVolumeForAll(AllAudioSources);
+        }        
+    }
+
+    private void ScrollToLeftAudioPlayer()
+    {
+        if (!OffInput)
+        {
+            if (AudioPlayerSlider.value != AudioPlayerSlider.minValue)
+            {
+                AudioPlayerSlider.value -= 0.05f;
+            }
+            StartCoroutine(OffInputDelay());
+            SetVolumeForAudioPlayer(audioPlayer);
         }
     }
 
-    private void ScrollToRight()
+    private void ScrollToRightAudioPlayer()
     {
-        if (SoundSlider.value != SoundSlider.maxValue)
+        if (!OffInput)
         {
-            SoundSlider.value += 0.05f;
+            if (AudioPlayerSlider.value != AudioPlayerSlider.maxValue)
+            {
+                AudioPlayerSlider.value += 0.05f;
+            }
+            StartCoroutine(OffInputDelay());
+            SetVolumeForAudioPlayer(audioPlayer);
         }
     }
 
-    private void ChangeVolume(float value)
+    private void ChangeCommonSoundVolume(float value)
     {
-        TotalSoundVolume = value;
-        Debug.Log($"TotalSoundVolume: {TotalSoundVolume}");
+        CommonSoundVolume = value;
+        Debug.Log($"CommonSoundVolume: {CommonSoundVolume}");
+    }
+
+    private void ChangeAudioPlayerVolume(float value)
+    {
+        AudioPlayerVolume = value;
+        Debug.Log($"AudioPlayerVolume: {AudioPlayerVolume}");
     }
 
     private IEnumerator OffInputDelay()
@@ -95,11 +164,16 @@ public class SoundVolumeManager : MonoBehaviour
         OffInput = false;
     }
 
-    private void SetVolume(AudioSource[] sources)
+    private void SetVolumeForAll(AudioSource[] sources)
     {
         foreach (AudioSource source in sources)
         {
-            source.volume = TotalSoundVolume;
+            source.volume = CommonSoundVolume;
         }
+    }
+
+    private void SetVolumeForAudioPlayer(AudioSource source)
+    {
+        source.volume = AudioPlayerVolume;
     }
 }

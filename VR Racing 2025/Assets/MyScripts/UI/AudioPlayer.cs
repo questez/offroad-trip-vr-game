@@ -27,7 +27,7 @@ public class AudioPlayer : MonoBehaviour
 
     private void AudioPlayerToggle(bool value)
     {
-        if (value)
+        if (value && CarController.EngineIsRunning)
         {
             if (audioPlayer.isPlaying)
             {
